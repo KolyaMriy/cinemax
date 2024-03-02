@@ -1,0 +1,25 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "cinemax -prod",
+            "program": "client/lib/main_prod.dart",
+            "request": "launch",
+            "type": "dart",
+            "args": [
+                "--flavor",
+                "prod"
+            ]
+        },
+        {
+            "name": "cinemax -dev",
+            "program": "client/lib/main_dev.dart",
+            "request": "launch",
+            "type": "dart",
+            "args": [
+                "--flavor",
+                "dev"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,28 @@
+name: storybook
+description: "A new Flutter project."
+
+publish_to: "none" # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.2.3 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  provider: 6.1.1
+  storybook_flutter: 0.14.0
+  carousel_slider: ^4.2.1
+  cached_network_image: ^3.3.1
+  ui_kit:
+    path: ../ui_kit
+  youtube_player_flutter: ^8.1.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.1
+
+flutter:
+  uses-material-design: true

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "182735058765",
+    "project_id": "cinemax--prod",
+    "storage_bucket": "cinemax--prod.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:182735058765:android:743369296169a5618ee904",
+        "android_client_info": {
+          "package_name": "com.example.client"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAhTRxvO1pf7WVbC0E2ZEyCyaWObOpAX68"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
