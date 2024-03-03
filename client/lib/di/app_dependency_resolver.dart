@@ -33,3 +33,4 @@ class AppDependencyResolver {
     SearchMovieDependencyResolver.register();
   }
 }
+

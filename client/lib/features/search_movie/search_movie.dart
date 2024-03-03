@@ -55,7 +55,7 @@ class SearchMovie extends StatelessWidget {
                             if (state.movie.movies[index].releaseDate != null)
                               Row(
                                 children: [
-                                  Text(
+                                  const Text(
                                     '',
                                     overflow: TextOverflow.ellipsis,
                                     style: TextStyle(),
