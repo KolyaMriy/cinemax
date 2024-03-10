@@ -92,7 +92,7 @@ class AppRoutes {
             routes: <RouteBase>[
               GoRoute(
                 path: AppRoutes._profilePath,
-                name: AppRouterName.profilelName,
+                name: AppRouterName.profileName,
                 builder: (_, state) => const ProfileScreen(),
               ),
             ],
