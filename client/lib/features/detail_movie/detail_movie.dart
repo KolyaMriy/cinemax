@@ -50,8 +50,11 @@ class DetailMovieScreen extends StatelessWidget {
                       ],
                     ),
                   ),
-                  child: CinemaxImage(
-                    imageUrl: state.movieDetail.posterPicture,
+                  child: Hero(
+                    tag: id,
+                    child: CinemaxImage(
+                      imageUrl: state.movieDetail.posterPicture,
+                    ),
                   ),
                 ),
               ),

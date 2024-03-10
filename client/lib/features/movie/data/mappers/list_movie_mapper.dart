@@ -4,5 +4,7 @@ import 'package:client/features/movie/data/mappers/movie_mapper.dart';
 
 extension ListNewMovieMapper on ListMovieDTO {
   ListMovieEntity toDomain() => ListMovieEntity(
-      movies: movies!.map((e) => e.toDomain()).toList(), page: page);
+        movies: movies!.map((e) => e.toDomain()).toList(),
+        page: page,
+      );
 }

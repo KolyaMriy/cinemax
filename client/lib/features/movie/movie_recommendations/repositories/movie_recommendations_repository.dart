@@ -36,9 +36,7 @@ class MovieRecommendationRepository implements IMovieRecommendationRepository {
       if (responseData is Map<String, dynamic>) {
         try {
           final movieRecommendationDTO = ListMovieDTO.fromJson(responseData);
-
           final listMovieEntity = movieRecommendationDTO.toDomain();
-
           return right(listMovieEntity);
         } catch (e) {
           return left(const Failure.parseError());

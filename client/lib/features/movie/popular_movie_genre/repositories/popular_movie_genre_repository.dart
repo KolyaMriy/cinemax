@@ -1,9 +1,8 @@
 // ignore_for_file: inference_failure_on_function_invocation
-
-import 'dart:math';
 import 'package:client/core/api/api_config.dart';
 import 'package:client/core/error/failure.dart';
 import 'package:client/features/genre_list/data/entity/genre_entity.dart';
+import 'package:client/features/genre_list/data/repositories/genre_repository.dart';
 import 'package:client/features/movie/data/dtos/list_movie/list_new_movie_dto.dart';
 import 'package:client/features/movie/data/dtos/movie/movie_dto.dart';
 import 'package:client/features/movie/data/entity/list_movie.dart';
@@ -24,10 +23,13 @@ abstract class _Constant {
 
 class PopularMovieGenreRepository implements IPopularMovieGenreRepository {
   final Dio _dio;
+  final GenreRepository _genreRepository;
 
   PopularMovieGenreRepository({
+    required GenreRepository genreRepository,
     required Dio dio,
-  }) : _dio = dio;
+  })  : _dio = dio,
+        _genreRepository = genreRepository;
 
   @override
   Future<Either<Failure, ListMovieEntity>> getPopularMovieGenre({
@@ -60,23 +62,26 @@ class PopularMovieGenreRepository implements IPopularMovieGenreRepository {
                     .toList() ??
                 [];
           }
+
           // Преобразуем MovieDTO в MovieEntity и добавляем в listMoviesEntity
-          final uniqueMovies = filteredMovies
-              .map((movieDto) => movieDto.toDomain())
-              .toSet()
-              .toList()
-              .sublist(
-                0,
-                min(
-                  _Constant.sizeList - listMoviesEntity.movies.length,
-                  filteredMovies.length,
-                ),
-              );
+          final uniqueMoviesFutures = filteredMovies.map((movieDto) async {
+            // Получаем жанр из списка жанров по индексу
+            final genreEntity =
+                await _genreRepository.getGenreListByIds(movieDto.genres);
+            return genreEntity.fold((failure) {
+              return movieDto.toDomain();
+            }, (success) {
+              return movieDto.toDomain(listGenre: success);
+            });
+          }).toList();
+
+          final uniqueMovies = await Future.wait(uniqueMoviesFutures);
           listMoviesEntity.movies.addAll(uniqueMovies);
         } else {
           return left(const Failure.parseError());
         }
       }
+
       if (listMoviesEntity.movies.length < _Constant.sizeList) {
         return left(const Failure.parseError());
       }

@@ -1,9 +1,10 @@
 import 'package:client/core/api/api_config.dart';
+import 'package:client/features/genre_list/data/entity/genre_entity.dart';
 import 'package:client/features/movie/data/dtos/movie/movie_dto.dart';
 import 'package:client/features/movie/data/entity/movie.dart';
 
 extension MovieMapper on MovieDTO {
-  MovieEntity toDomain() => MovieEntity(
+  MovieEntity toDomain({List<GenreEntity>? listGenre}) => MovieEntity(
         id: id,
         title: title,
         originalLanguage: originalLanguage.toUpperCase(),
@@ -15,5 +16,6 @@ extension MovieMapper on MovieDTO {
             backdropPath != '' ? '${MovieQuery.image}$backdropPath' : null,
         voteAverage: voteAverage,
         releaseDate: DateTime.tryParse(releaseDate),
+        genres: listGenre,
       );
 }

@@ -28,10 +28,10 @@ class NewMovieListCubit extends Cubit<NewMovieListState> {
           failure: failure,
         ),
       ),
-      (succes) => emit(
+      (success) => emit(
         state.copyWith(
           loading: false,
-          listNewMovie: succes,
+          listNewMovie: success,
           failure: null,
         ),
       ),

@@ -52,7 +52,10 @@ class MovieRecommendations extends StatelessWidget {
                       itemBuilder: (context, index) {
                         final card = state.movieRecommendations.movies[index]
                             .toCard()
-                          ..genre = genre?[0].name;
+                          ..genres = state
+                              .movieRecommendations.movies[index].genres
+                              ?.map((genre) => genre.name)
+                              .toList();
                         return MovieCard(
                           onTap: () {
                             context.pushNamed(

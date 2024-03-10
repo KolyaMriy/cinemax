@@ -13,5 +13,5 @@ class ListMovieEntity extends Equatable {
   factory ListMovieEntity.empty() => ListMovieEntity(movies: [], page: 0);
 
   @override
-  List<Object?> get props => [movies, page];
+  List<Object> get props => [movies, page];
 }

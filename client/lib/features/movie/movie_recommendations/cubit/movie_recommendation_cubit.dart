@@ -8,11 +8,13 @@ part 'movie_recommendation_cubit.freezed.dart';
 
 class MovieRecommendationCubit extends Cubit<MovieRecommendationState> {
   final MovieRecommendationRepository _repository;
-  MovieRecommendationCubit({required MovieRecommendationRepository repository})
-      : _repository = repository,
+  MovieRecommendationCubit({
+    required MovieRecommendationRepository repository,
+  })  : _repository = repository,
         super(
           MovieRecommendationState(
-              movieRecommendations: ListMovieEntity.empty()),
+            movieRecommendations: ListMovieEntity.empty(),
+          ),
         );
 
   Future<void> loadMovieRecommendation({required int idMovie}) async {

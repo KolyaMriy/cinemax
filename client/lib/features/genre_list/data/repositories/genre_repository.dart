@@ -12,7 +12,7 @@ import 'package:flutter/material.dart';
 abstract interface class IGenreRepository {
   Future<Either<Failure, List<GenreEntity>>> getGenreList();
   Future<Either<Failure, List<GenreEntity>>> getGenreListByIds(
-    List<String> idsGenre,
+    List<int> idsGenre,
   );
 }
 
@@ -50,7 +50,7 @@ class GenreRepository implements IGenreRepository {
 
   @override
   Future<Either<Failure, List<GenreEntity>>> getGenreListByIds(
-    List<String> idsGenre,
+    List<int> idsGenre,
   ) async {
     try {
       final dtos = <GenreDTO>[];
@@ -66,7 +66,7 @@ class GenreRepository implements IGenreRepository {
         for (final data in results) {
           final dto = GenreDTO.fromJson(data as Map<String, dynamic>);
           // Проверяем, если ли id жанру в списке idsGenre
-          if (idsGenre.contains(dto.id.toString())) {
+          if (idsGenre.contains(dto.id)) {
             dtos.add(dto);
           }
         }

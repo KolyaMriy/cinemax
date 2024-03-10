@@ -5,11 +5,12 @@ import 'package:ui_kit/theme/color_scheme.dart';
 import 'package:ui_kit/theme/theme_context_extension.dart';
 
 class AddInfoMovie extends StatelessWidget {
-  const AddInfoMovie(
-      {super.key,
-      required this.releaseDate,
-      required this.runtime,
-      required this.genre});
+  const AddInfoMovie({
+    super.key,
+    required this.releaseDate,
+    required this.runtime,
+    required this.genre,
+  });
 
   final String releaseDate;
   final String runtime;
