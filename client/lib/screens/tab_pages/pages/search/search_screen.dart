@@ -16,13 +16,18 @@ class SearchScreen extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: Column(
             children: [
-              InputField(
-                prefixIcon: CinemaxIcons.search,
-                placeHolder: 'Type title,categories,year,etc',
-                onChanged: (query) =>
-                    context.read<SearchMovieCubit>().queryChanged(query),
+              Expanded(
+                flex: 0,
+                child: InputField(
+                  prefixIcon: CinemaxIcons.search,
+                  placeHolder: 'Type title,categories,year,etc',
+                  onChanged: (query) =>
+                      context.read<SearchMovieCubit>().queryChanged(query),
+                ),
               ),
-              const SearchMovie(),
+              const Expanded(
+                child: SearchMovie(),
+              ),
             ],
           ),
         ),

@@ -15,30 +15,30 @@ class SearchMovieCubit extends Cubit<SearchMovieState> {
   })  : _searchRepository = searchRepository,
         super(SearchMovieState());
 
-  void queryChanged(String query) {
+  Future<void> queryChanged(String query) async {
     if (state.query == query) {
       return;
+    } else {
+      emit(
+        state.copyWith(
+          query: query,
+        ),
+      );
+      await _loadMovie();
     }
-    emit(
-      state.copyWith(
-        query: query,
-      ),
-    );
-    _loadMovie();
   }
 
   Future<void> _loadMovie() async {
     if (state.loading != true) {
       emit(state.copyWith(loading: true));
     }
-    final movieRecommendation =
-        await _searchRepository.getMovie(query: state.query);
-
-    movieRecommendation.fold(
+    final searchMovies = await _searchRepository.getMovie(query: state.query);
+    searchMovies.fold(
       (failure) => emit(
         state.copyWith(
           loading: false,
           failure: failure,
+          movie: ListMovieEntity.empty(),
         ),
       ),
       (success) => emit(

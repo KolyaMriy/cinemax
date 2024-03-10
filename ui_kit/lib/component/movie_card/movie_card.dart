@@ -59,20 +59,35 @@ class MovieCard extends StatelessWidget {
                         averageRating: cardModel.averageRating,
                       )),
                   ListTile(
-                      title: Text(
-                        cardModel.title,
-                        style: context.textStyle.h5.copyWith(
-                          fontWeight: FontWeight.w600,
-                        ),
+                    title: Text(
+                      cardModel.title,
+                      style: context.textStyle.h5.copyWith(
+                        fontWeight: FontWeight.w600,
                       ),
-                      subtitle: cardModel.genre != null
-                          ? Text(
-                              cardModel.genre.toString(),
-                              style: context.textStyle.h5.copyWith(
-                                  color: TextColor.grey,
-                                  overflow: TextOverflow.ellipsis),
-                            )
-                          : null),
+                    ),
+                    subtitle: cardModel.genres != null
+                        ? SizedBox(
+                            width: double.infinity,
+                            height: 20,
+                            child: ListView.separated(
+                              scrollDirection: Axis.horizontal,
+                              itemBuilder: (context, index) {
+                                return Text(
+                                  cardModel.genres![index].toString(),
+                                  style: context.textStyle.h5.copyWith(
+                                    color: TextColor.grey,
+                                    overflow: TextOverflow.ellipsis,
+                                  ),
+                                );
+                              },
+                              separatorBuilder: (context, index) {
+                                return const Text(' | ');
+                              },
+                              itemCount: cardModel.genres!.length,
+                            ),
+                          )
+                        : null,
+                  ),
                 ],
               ),
             ),
