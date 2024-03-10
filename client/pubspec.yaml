@@ -15,7 +15,7 @@ dependencies:
   dio: ^5.4.0
   email_auth: ^1.1.1
   equatable: ^2.0.5
-  firebase_auth: ^4.17.4
+  firebase_auth: ^4.17.8
   firebase_core: ^2.25.4
   flutter:
     sdk: flutter
@@ -30,7 +30,7 @@ dependencies:
   smooth_page_indicator: ^1.1.0
   ui_kit:
     path: ../ui_kit
-  youtube_player_flutter: ^8.1.2
+  youtube_player_flutter: ^9.0.0
 
 dev_dependencies:
   build_runner: ^2.4.6
