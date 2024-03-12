@@ -2,6 +2,7 @@ import 'package:client/core/di/dependency_provider.dart';
 import 'package:client/core/router/app_router_name.dart';
 import 'package:client/features/auth/bloc/auth_bloc.dart';
 import 'package:client/features/detail_movie/detail_movie.dart';
+import 'package:client/features/movie_trailer/movie_trailer.dart';
 import 'package:client/screens/auth/log_in/log_in_screen.dart';
 import 'package:client/screens/auth/reset_password/reset_password_screen.dart';
 import 'package:client/screens/auth/sign_up/sing_up_screen.dart';
@@ -30,10 +31,11 @@ class AppRoutes {
   static const String _resetPasswordPath = 'resetPassword';
   static const String _verificationEmailPath = 'verificationEmail';
   static const String _singUpPath = 'singUp';
-  static const String _detailMoviePath = 'detailMovie';
+  static const String _detailMoviePath = '/detailMovie';
   static const String _homePath = '/home';
   static const String _searchPath = '/search';
   static const String _favoritePath = '/favorite';
+  static const String _trailerPath = 'trailer';
   static const String _profilePath = '/profile';
 
   static final GoRouter router = GoRouter(
@@ -55,21 +57,10 @@ class AppRoutes {
           StatefulShellBranch(
             routes: <RouteBase>[
               GoRoute(
-                  name: AppRouterName.homeName,
-                  path: AppRoutes._homePath,
-                  builder: (_, state) => const HomeScreen(),
-                  routes: [
-                    GoRoute(
-                      path: _detailMoviePath,
-                      name: AppRouterName.detailMovieName,
-                      pageBuilder: (_, state) {
-                        final id = state.extra! as int;
-                        return CupertinoPage(
-                          child: DetailMovieScreen(id: id),
-                        );
-                      },
-                    ),
-                  ]),
+                name: AppRouterName.homeName,
+                path: AppRoutes._homePath,
+                builder: (_, state) => const HomeScreen(),
+              ),
             ],
           ),
           StatefulShellBranch(
@@ -100,48 +91,72 @@ class AppRoutes {
         ],
       ),
       GoRoute(
-          path: AppRoutes._welcomePath,
-          name: AppRouterName.welcomeName,
-          pageBuilder: (_, state) => const CupertinoPage<void>(
-                child: WelcomeScreen(),
-              ),
+          path: _detailMoviePath,
+          name: AppRouterName.detailMovieName,
+          pageBuilder: (_, state) {
+            final id = state.extra! as int;
+            return CupertinoPage(
+              child: DetailMovieScreen(id: id),
+            );
+          },
           routes: [
             GoRoute(
-              path: AppRoutes._logInPath,
-              name: AppRouterName.logInName,
-              pageBuilder: (_, state) => const CupertinoPage<void>(
-                child: LoginScreen(),
-              ),
-              routes: [
-                GoRoute(
-                    path: AppRoutes._resetPasswordPath,
-                    name: AppRouterName.resetPasswordName,
-                    pageBuilder: (_, state) => const CupertinoPage<void>(
-                          child: ResetPasswordScreen(),
-                        ),
-                    routes: [
-                      GoRoute(
-                          path: AppRoutes._verificationEmailPath,
-                          name: AppRouterName.verificationEmailName,
-                          pageBuilder: (_, state) {
-                            final emailAddress = state.extra! as String;
-                            return CupertinoPage<void>(
-                              child: VerificationEmailScreen(
-                                emailAddress: emailAddress,
-                              ),
-                            );
-                          })
-                    ])
-              ],
-            ),
-            GoRoute(
-              path: AppRoutes._singUpPath,
-              name: AppRouterName.singUpName,
-              pageBuilder: (_, state) => const CupertinoPage<void>(
-                child: SignUpScreen(),
-              ),
-            ),
+              path: _trailerPath,
+              name: AppRouterName.trailerMovieName,
+              pageBuilder: (_, state) {
+                final movieId = state.extra! as int;
+                return CupertinoPage(
+                  child: MovieTrailerScreen(
+                    movieId: movieId,
+                  ),
+                );
+              },
+            )
           ]),
+      GoRoute(
+        path: AppRoutes._welcomePath,
+        name: AppRouterName.welcomeName,
+        pageBuilder: (_, state) => const CupertinoPage<void>(
+          child: WelcomeScreen(),
+        ),
+        routes: [
+          GoRoute(
+            path: AppRoutes._logInPath,
+            name: AppRouterName.logInName,
+            pageBuilder: (_, state) => const CupertinoPage<void>(
+              child: LoginScreen(),
+            ),
+            routes: [
+              GoRoute(
+                  path: AppRoutes._resetPasswordPath,
+                  name: AppRouterName.resetPasswordName,
+                  pageBuilder: (_, state) => const CupertinoPage<void>(
+                        child: ResetPasswordScreen(),
+                      ),
+                  routes: [
+                    GoRoute(
+                        path: AppRoutes._verificationEmailPath,
+                        name: AppRouterName.verificationEmailName,
+                        pageBuilder: (_, state) {
+                          final emailAddress = state.extra! as String;
+                          return CupertinoPage<void>(
+                            child: VerificationEmailScreen(
+                              emailAddress: emailAddress,
+                            ),
+                          );
+                        })
+                  ])
+            ],
+          ),
+          GoRoute(
+            path: AppRoutes._singUpPath,
+            name: AppRouterName.singUpName,
+            pageBuilder: (_, state) => const CupertinoPage<void>(
+              child: SignUpScreen(),
+            ),
+          ),
+        ],
+      ),
     ],
   );
 }

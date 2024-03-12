@@ -1,3 +1,4 @@
+import 'package:client/features/detail_movie/data/entity/backdrops_movie/backdrops_movie_entity.dart';
 import 'package:client/features/detail_movie/data/entity/production_company/production_company_entity.dart';
 import 'package:client/features/genre_list/data/entity/genre_entity.dart';
 import 'package:equatable/equatable.dart';
@@ -6,6 +7,7 @@ class MovieDetailEntity extends Equatable {
   final int id;
   final List<GenreEntity> genres;
   final String title;
+
   final String originalLanguage;
   final String originalTitle;
   final String description;
@@ -20,8 +22,10 @@ class MovieDetailEntity extends Equatable {
   final double voteAverage;
   final double voteCount;
   final String backdropPicture;
+  final List<BackdropMoviesEntity>? backdrops;
 
   const MovieDetailEntity({
+    this.backdrops,
     required this.id,
     required this.genres,
     required this.title,
@@ -59,6 +63,7 @@ class MovieDetailEntity extends Equatable {
         voteAverage: 0.0,
         voteCount: 0.0,
         backdropPicture: '',
+        backdrops: const [],
       );
 
   @override

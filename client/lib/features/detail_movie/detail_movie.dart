@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:client/core/di/dependency_provider.dart';
 import 'package:client/core/extension/font_weight_extension.dart';
+import 'package:client/core/router/app_router_name.dart';
 import 'package:client/features/detail_movie/cubit/detail_movie_cubit.dart';
 import 'package:client/features/detail_movie/widgets/add_info_movie.dart';
 import 'package:client/features/movie/movie_recommendations/movie_recommendations.dart';
@@ -27,6 +28,7 @@ class DetailMovieScreen extends StatelessWidget {
         ..loadDetailMovie(idMovie: id),
       child: BlocBuilder<DetailMovieCubit, DetailMovieState>(
         builder: (context, state) {
+          debugPrint(state.movieDetail.backdrops?.length.toString());
           if (state.loading) {
             return const Scaffold(
               body: Center(
@@ -150,45 +152,74 @@ class DetailMovieScreen extends StatelessWidget {
                             ),
                           ),
                         ),
-                        Padding(
-                          padding: const EdgeInsets.only(
-                            top: 20,
-                            left: 10,
-                          ),
-                          child: Text(
-                            'Trailer ${state.movieDetail.title}',
-                            style: context.textStyle.h3.copyWith(
-                              fontWeight: FontWeightStyle.semiBold.fontWeight,
-                              color: TextColor.whiteGrey,
-                            ),
-                          ),
-                        ),
-                        SizedBox(
-                          width: double.infinity,
-                          height: 300,
-                          child: state.showTrailer
-                              ? MovieTrailerScreen(
-                                  movieId: state.movieDetail.id,
-                                )
-                              : DecoratedBox(
-                                  decoration: BoxDecoration(
-                                    image: DecorationImage(
-                                      image: CachedNetworkImageProvider(
-                                        state.movieDetail.backdropPicture,
+                        SizedBox(height: context.spacerStyle.height),
+                        if (state.movieDetail.backdrops != null)
+                          SizedBox(
+                            width: double.infinity,
+                            height: 150,
+                            child: ListView.builder(
+                              scrollDirection: Axis.horizontal,
+                              itemCount: state.movieDetail.backdrops!.length,
+                              itemBuilder: (context, index) {
+                                return Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Container(
+                                    width: 250,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(20),
+                                      image: DecorationImage(
+                                        fit: BoxFit.cover,
+                                        image: CachedNetworkImageProvider(
+                                          state.movieDetail.backdrops![index]
+                                              .image,
+                                        ),
                                       ),
                                     ),
+                                    child: index == 0
+                                        ? Center(
+                                            child: CinemaxIcon(
+                                              icon: Icons.play_arrow,
+                                              iconColor:
+                                                  PrimaryColor.blueAccent,
+                                              onTap: () => context.pushNamed(
+                                                AppRouterName.trailerMovieName,
+                                                extra: state.movieDetail.id,
+                                              ),
+                                            ),
+                                          )
+                                        : const SizedBox(),
                                   ),
-                                  child: Center(
-                                    child: CinemaxIcon(
-                                      icon: Icons.play_arrow,
-                                      iconColor: PrimaryColor.blueAccent,
-                                      onTap: () => context
-                                          .read<DetailMovieCubit>()
-                                          .showTrailer(),
-                                    ),
-                                  ),
-                                ),
-                        ),
+                                );
+                              },
+                            ),
+                          ),
+
+                        // SizedBox(
+                        //   width: double.infinity,
+                        //   height: 300,
+                        //   child: state.showTrailer
+                        //       ? MovieTrailerScreen(
+                        //           movieId: state.movieDetail.id,
+                        //         )
+                        //       : DecoratedBox(
+                        //           decoration: BoxDecoration(
+                        //             image: DecorationImage(
+                        //               image: CachedNetworkImageProvider(
+                        //                 state.movieDetail.backdropPicture,
+                        //               ),
+                        //             ),
+                        //           ),
+                        //           child: Center(
+                        //             child: CinemaxIcon(
+                        //               icon: Icons.play_arrow,
+                        //               iconColor: PrimaryColor.blueAccent,
+                        //               onTap: () => context
+                        //                   .read<DetailMovieCubit>()
+                        //                   .showTrailer(),
+                        //             ),
+                        //           ),
+                        //         ),
+                        // ),
                         MovieRecommendations(
                           idMovie: id,
                           genre: state.movieDetail.genres,

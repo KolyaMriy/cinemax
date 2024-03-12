@@ -38,13 +38,13 @@ class SearchMovieCubit extends Cubit<SearchMovieState> {
         state.copyWith(
           loading: false,
           failure: failure,
-          movie: ListMovieEntity.empty(),
+          listSearchMovies: ListMovieEntity.empty(),
         ),
       ),
       (success) => emit(
         state.copyWith(
           loading: false,
-          movie: success,
+          listSearchMovies: success,
           failure: null,
         ),
       ),

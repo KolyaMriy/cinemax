@@ -38,7 +38,7 @@ class NewMovieList extends StatelessWidget {
                     itemCount: state.listNewMovie.movies.length,
                     itemBuilder: (context, index, realIndex) {
                       return PosterMovie(
-                        onTap: () => context.goNamed(
+                        onTap: () => context.pushNamed(
                             AppRouterName.detailMovieName,
                             extra: state.listNewMovie.movies[index].id),
                         posterMovie:

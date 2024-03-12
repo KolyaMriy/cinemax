@@ -16,7 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$SearchMovieState {
-  ListMovieEntity get movie => throw _privateConstructorUsedError;
+  ListMovieEntity get listSearchMovies => throw _privateConstructorUsedError;
   String get query => throw _privateConstructorUsedError;
   bool get loading => throw _privateConstructorUsedError;
   Failure? get failure => throw _privateConstructorUsedError;
@@ -33,7 +33,10 @@ abstract class $SearchMovieStateCopyWith<$Res> {
       _$SearchMovieStateCopyWithImpl<$Res, SearchMovieState>;
   @useResult
   $Res call(
-      {ListMovieEntity movie, String query, bool loading, Failure? failure});
+      {ListMovieEntity listSearchMovies,
+      String query,
+      bool loading,
+      Failure? failure});
 
   $FailureCopyWith<$Res>? get failure;
 }
@@ -51,15 +54,15 @@ class _$SearchMovieStateCopyWithImpl<$Res, $Val extends SearchMovieState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? movie = null,
+    Object? listSearchMovies = null,
     Object? query = null,
     Object? loading = null,
     Object? failure = freezed,
   }) {
     return _then(_value.copyWith(
-      movie: null == movie
-          ? _value.movie
-          : movie // ignore: cast_nullable_to_non_nullable
+      listSearchMovies: null == listSearchMovies
+          ? _value.listSearchMovies
+          : listSearchMovies // ignore: cast_nullable_to_non_nullable
               as ListMovieEntity,
       query: null == query
           ? _value.query
@@ -98,7 +101,10 @@ abstract class _$$SearchMovieStateImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {ListMovieEntity movie, String query, bool loading, Failure? failure});
+      {ListMovieEntity listSearchMovies,
+      String query,
+      bool loading,
+      Failure? failure});
 
   @override
   $FailureCopyWith<$Res>? get failure;
@@ -115,15 +121,15 @@ class __$$SearchMovieStateImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? movie = null,
+    Object? listSearchMovies = null,
     Object? query = null,
     Object? loading = null,
     Object? failure = freezed,
   }) {
     return _then(_$SearchMovieStateImpl(
-      movie: null == movie
-          ? _value.movie
-          : movie // ignore: cast_nullable_to_non_nullable
+      listSearchMovies: null == listSearchMovies
+          ? _value.listSearchMovies
+          : listSearchMovies // ignore: cast_nullable_to_non_nullable
               as ListMovieEntity,
       query: null == query
           ? _value.query
@@ -145,7 +151,7 @@ class __$$SearchMovieStateImplCopyWithImpl<$Res>
 
 class _$SearchMovieStateImpl extends _SearchMovieState {
   _$SearchMovieStateImpl(
-      {this.movie = const ListMovieEntity(movies: [], page: 0),
+      {this.listSearchMovies = const ListMovieEntity(movies: [], page: 0),
       this.query = '',
       this.loading = false,
       this.failure})
@@ -153,7 +159,7 @@ class _$SearchMovieStateImpl extends _SearchMovieState {
 
   @override
   @JsonKey()
-  final ListMovieEntity movie;
+  final ListMovieEntity listSearchMovies;
   @override
   @JsonKey()
   final String query;
@@ -165,7 +171,7 @@ class _$SearchMovieStateImpl extends _SearchMovieState {
 
   @override
   String toString() {
-    return 'SearchMovieState(movie: $movie, query: $query, loading: $loading, failure: $failure)';
+    return 'SearchMovieState(listSearchMovies: $listSearchMovies, query: $query, loading: $loading, failure: $failure)';
   }
 
   @override
@@ -173,14 +179,16 @@ class _$SearchMovieStateImpl extends _SearchMovieState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SearchMovieStateImpl &&
-            (identical(other.movie, movie) || other.movie == movie) &&
+            (identical(other.listSearchMovies, listSearchMovies) ||
+                other.listSearchMovies == listSearchMovies) &&
             (identical(other.query, query) || other.query == query) &&
             (identical(other.loading, loading) || other.loading == loading) &&
             (identical(other.failure, failure) || other.failure == failure));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, movie, query, loading, failure);
+  int get hashCode =>
+      Object.hash(runtimeType, listSearchMovies, query, loading, failure);
 
   @JsonKey(ignore: true)
   @override
@@ -192,14 +200,14 @@ class _$SearchMovieStateImpl extends _SearchMovieState {
 
 abstract class _SearchMovieState extends SearchMovieState {
   factory _SearchMovieState(
-      {final ListMovieEntity movie,
+      {final ListMovieEntity listSearchMovies,
       final String query,
       final bool loading,
       final Failure? failure}) = _$SearchMovieStateImpl;
   _SearchMovieState._() : super._();
 
   @override
-  ListMovieEntity get movie;
+  ListMovieEntity get listSearchMovies;
   @override
   String get query;
   @override

@@ -8,5 +8,5 @@ abstract class AppRouterName {
   static const String resetPasswordName = 'resetPassword';
   static const String verificationEmailName = 'verificationEmail';
   static const String detailMovieName = 'detailMovie';
+  static const String trailerMovieName = 'trailerMovie';
 }
-
