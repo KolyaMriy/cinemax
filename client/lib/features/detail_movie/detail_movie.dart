@@ -1,11 +1,10 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:client/core/di/dependency_provider.dart';
 import 'package:client/core/extension/font_weight_extension.dart';
-import 'package:client/core/router/app_router_name.dart';
 import 'package:client/features/detail_movie/cubit/detail_movie_cubit.dart';
 import 'package:client/features/detail_movie/widgets/add_info_movie.dart';
+import 'package:client/features/detail_movie/widgets/backdrops_movie.dart';
 import 'package:client/features/movie/movie_recommendations/movie_recommendations.dart';
-import 'package:client/features/movie_trailer/movie_trailer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -28,7 +27,6 @@ class DetailMovieScreen extends StatelessWidget {
         ..loadDetailMovie(idMovie: id),
       child: BlocBuilder<DetailMovieCubit, DetailMovieState>(
         builder: (context, state) {
-          debugPrint(state.movieDetail.backdrops?.length.toString());
           if (state.loading) {
             return const Scaffold(
               body: Center(
@@ -152,74 +150,58 @@ class DetailMovieScreen extends StatelessWidget {
                             ),
                           ),
                         ),
-                        SizedBox(height: context.spacerStyle.height),
                         if (state.movieDetail.backdrops != null)
-                          SizedBox(
-                            width: double.infinity,
-                            height: 150,
-                            child: ListView.builder(
-                              scrollDirection: Axis.horizontal,
-                              itemCount: state.movieDetail.backdrops!.length,
-                              itemBuilder: (context, index) {
-                                return Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Container(
-                                    width: 250,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(20),
-                                      image: DecorationImage(
-                                        fit: BoxFit.cover,
-                                        image: CachedNetworkImageProvider(
-                                          state.movieDetail.backdrops![index]
-                                              .image,
+                          BackdropsMovie(
+                            backdrops: state.movieDetail.backdrops!,
+                            movieId: state.movieDetail.id,
+                          ),
+                        SizedBox(height: context.spacerStyle.height),
+                        SizedBox(
+                          height: 170,
+                          child: ListView.builder(
+                            scrollDirection: Axis.horizontal,
+                            itemCount: state.movieDetail.credits?.cast.length,
+                            itemBuilder: (context, index) {
+                              final cast =
+                                  state.movieDetail.credits?.cast[index];
+                              return Padding(
+                                padding: const EdgeInsets.all(10),
+                                child: GestureDetector(
+                                  onTap: () {
+                                    debugPrint(cast.id.toString());
+                                  },
+                                  child: SizedBox(
+                                    width: 120,
+                                    child: Column(
+                                      children: [
+                                        CircleAvatar(
+                                          radius: 50,
+                                          foregroundImage:
+                                              CachedNetworkImageProvider(
+                                            cast!.image,
+                                          ),
                                         ),
-                                      ),
-                                    ),
-                                    child: index == 0
-                                        ? Center(
-                                            child: CinemaxIcon(
-                                              icon: Icons.play_arrow,
-                                              iconColor:
-                                                  PrimaryColor.blueAccent,
-                                              onTap: () => context.pushNamed(
-                                                AppRouterName.trailerMovieName,
-                                                extra: state.movieDetail.id,
-                                              ),
+                                        Text(
+                                          cast.name,
+                                          style: context.textStyle.h4,
+                                        ),
+                                        if (cast.character != '')
+                                          Text(
+                                            cast.character,
+                                            style:
+                                                context.textStyle.h4.copyWith(
+                                              color: TextColor.grey,
                                             ),
                                           )
-                                        : const SizedBox(),
+                                      ],
+                                    ),
                                   ),
-                                );
-                              },
-                            ),
+                                ),
+                              );
+                            },
                           ),
-
-                        // SizedBox(
-                        //   width: double.infinity,
-                        //   height: 300,
-                        //   child: state.showTrailer
-                        //       ? MovieTrailerScreen(
-                        //           movieId: state.movieDetail.id,
-                        //         )
-                        //       : DecoratedBox(
-                        //           decoration: BoxDecoration(
-                        //             image: DecorationImage(
-                        //               image: CachedNetworkImageProvider(
-                        //                 state.movieDetail.backdropPicture,
-                        //               ),
-                        //             ),
-                        //           ),
-                        //           child: Center(
-                        //             child: CinemaxIcon(
-                        //               icon: Icons.play_arrow,
-                        //               iconColor: PrimaryColor.blueAccent,
-                        //               onTap: () => context
-                        //                   .read<DetailMovieCubit>()
-                        //                   .showTrailer(),
-                        //             ),
-                        //           ),
-                        //         ),
-                        // ),
+                        ),
+                        SizedBox(height: context.spacerStyle.height),
                         MovieRecommendations(
                           idMovie: id,
                           genre: state.movieDetail.genres,

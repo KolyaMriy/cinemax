@@ -71,7 +71,7 @@ class MovieRecommendations extends StatelessWidget {
               ],
             );
           }
-          return const SizedBox();
+          return const SizedBox(height: 50);
         },
       ),
     );

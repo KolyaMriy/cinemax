@@ -1,12 +1,16 @@
 import 'package:client/core/api/api_config.dart';
 import 'package:client/features/detail_movie/data/dtos/movie_detail/movie_detail_dto.dart';
 import 'package:client/features/detail_movie/data/entity/backdrops_movie/backdrops_movie_entity.dart';
+import 'package:client/features/detail_movie/data/entity/credits/credits_entity.dart';
 import 'package:client/features/detail_movie/data/entity/movie_detail/movie_detail_entity.dart';
 import 'package:client/features/detail_movie/data/mappers/production_company_mapper.dart';
 import 'package:client/features/genre_list/data/mappers/genre_mappers.dart';
 
 extension MovieDetailMapper on MovieDetailDTO {
-  MovieDetailEntity toDomain({List<BackdropMoviesEntity>? backdrops}) =>
+  MovieDetailEntity toDomain({
+    List<BackdropMoviesEntity>? backdrops,
+    CreditsEntity? credits,
+  }) =>
       MovieDetailEntity(
         id: id,
         title: title,
@@ -27,5 +31,6 @@ extension MovieDetailMapper on MovieDetailDTO {
         voteAverage: voteAverage,
         voteCount: voteCount,
         backdrops: backdrops,
+        credits: credits,
       );
 }

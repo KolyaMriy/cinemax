@@ -20,7 +20,7 @@ class SearchMovie extends StatelessWidget {
           itemCount: state.listSearchMovies.movies.length,
           itemBuilder: (context, index) {
             return SearchMovieCard(
-              onTap: () => context.goNamed(AppRouterName.detailMovieName,
+              onTap: () => context.pushNamed(AppRouterName.detailMovieName,
                   extra: state.listSearchMovies.movies[index].id),
               listSearchMovie:
                   state.listSearchMovies.movies[index].toSearchCard(),
