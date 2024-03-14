@@ -1,7 +1,6 @@
 import 'package:client/core/di/dependency_provider.dart';
 import 'package:client/core/extension/font_weight_extension.dart';
 import 'package:client/core/router/app_router_name.dart';
-import 'package:client/features/genre_list/data/entity/genre_entity.dart';
 import 'package:client/features/movie/data/mappers/movie_card_mapper.dart';
 import 'package:client/features/movie/movie_recommendations/cubit/movie_recommendation_cubit.dart';
 import 'package:flutter/material.dart';
@@ -12,10 +11,12 @@ import 'package:ui_kit/theme/color_scheme.dart';
 import 'package:ui_kit/theme/theme_context_extension.dart';
 
 class MovieRecommendations extends StatelessWidget {
-  const MovieRecommendations({super.key, required this.idMovie, this.genre});
+  const MovieRecommendations({
+    super.key,
+    required this.idMovie,
+  });
 
   final int idMovie;
-  final List<GenreEntity>? genre;
 
   @override
   Widget build(BuildContext context) {

@@ -1,4 +1,5 @@
 import 'package:client/core/di/dependency_provider.dart';
+import 'package:client/features/genre_list/data/repositories/genre_repository.dart';
 import 'package:client/features/movie/movie_recommendations/cubit/movie_recommendation_cubit.dart';
 import 'package:client/features/movie/movie_recommendations/repositories/movie_recommendations_repository.dart';
 
@@ -12,7 +13,10 @@ class MovieRecommendationDependencyResolver {
       ),
     );
     DependencyProvider.registerLazySingleton<MovieRecommendationRepository>(
-      () => MovieRecommendationRepository(dio: DependencyProvider.get<Dio>()),
+      () => MovieRecommendationRepository(
+        dio: DependencyProvider.get<Dio>(),
+        genreRepository: DependencyProvider.get<GenreRepository>(),
+      ),
     );
   }
 }

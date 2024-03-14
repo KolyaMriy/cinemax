@@ -204,7 +204,6 @@ class DetailMovieScreen extends StatelessWidget {
                         SizedBox(height: context.spacerStyle.height),
                         MovieRecommendations(
                           idMovie: id,
-                          genre: state.movieDetail.genres,
                         )
                       ],
                     ),
