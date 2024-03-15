@@ -23,7 +23,7 @@ class MovieCard extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(10),
         child: Container(
-          height: 20,
+          height: 30,
           decoration: BoxDecoration(
             color: PrimaryColor.soft.withOpacity(0.5),
             borderRadius: const BorderRadius.only(
@@ -38,26 +38,29 @@ class MovieCard extends StatelessWidget {
               child: Column(
                 children: [
                   Container(
-                      height: 180,
-                      decoration: BoxDecoration(
-                        borderRadius: const BorderRadius.only(
-                          topLeft: Radius.circular(20),
-                          topRight: Radius.circular(20),
+                    height: 180,
+                    decoration: BoxDecoration(
+                      borderRadius: const BorderRadius.only(
+                        topLeft: Radius.circular(20),
+                        topRight: Radius.circular(20),
+                      ),
+                      image: DecorationImage(
+                        onError: (exception, stackTrace) => Image.asset(
+                          ImageAssets.cinemaxLogo,
+                          package: 'ui_kit',
                         ),
-                        image: DecorationImage(
-                          onError: (exception, stackTrace) => Image.asset(
-                            ImageAssets.cinemaxLogo,
-                            package: 'ui_kit',
-                          ),
-                          fit: BoxFit.cover,
-                          image: CachedNetworkImageProvider(
-                            cardModel.posterPicture,
-                          ),
+                        fit: BoxFit.cover,
+                        image: CachedNetworkImageProvider(
+                          cardModel.posterPicture,
                         ),
                       ),
-                      child: MovieRating(
-                        averageRating: cardModel.averageRating,
-                      )),
+                    ),
+                    child: cardModel.averageRating != 0.0
+                        ? MovieRating(
+                            averageRating: cardModel.averageRating,
+                          )
+                        : const SizedBox(),
+                  ),
                   ListTile(
                     title: Text(
                       cardModel.title,

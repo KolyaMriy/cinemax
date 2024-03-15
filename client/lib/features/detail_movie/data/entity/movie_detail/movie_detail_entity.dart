@@ -8,7 +8,6 @@ class MovieDetailEntity extends Equatable {
   final int id;
   final List<GenreEntity> genres;
   final String title;
-
   final String originalLanguage;
   final String originalTitle;
   final String description;

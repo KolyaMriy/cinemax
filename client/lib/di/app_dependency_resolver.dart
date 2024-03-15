@@ -4,6 +4,7 @@ import 'package:client/features/auth/login/di/dependency_resolver.dart';
 import 'package:client/features/auth/reset_password/di/dependency_resolver.dart';
 import 'package:client/features/auth/sign_up/di/dependency_resolver.dart';
 import 'package:client/features/auth/verification_email/di/dependency_resolver.dart';
+import 'package:client/features/detail_actor/di/dependency_resolver.dart';
 import 'package:client/features/detail_movie/di/dependency_resolver.dart';
 import 'package:client/features/genre_list/di/dependency_resolver.dart';
 import 'package:client/features/movie/di/dependency_resolver.dart';
@@ -31,6 +32,6 @@ class AppDependencyResolver {
     MovieTrailerDependencyResolver.register();
     MovieRecommendationDependencyResolver.register();
     SearchMovieDependencyResolver.register();
+    DetailActorDependencyResolver.register();
   }
 }
-

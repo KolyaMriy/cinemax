@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:client/core/di/dependency_provider.dart';
 import 'package:client/core/extension/font_weight_extension.dart';
+import 'package:client/core/router/app_router_name.dart';
 import 'package:client/features/detail_movie/cubit/detail_movie_cubit.dart';
 import 'package:client/features/detail_movie/widgets/add_info_movie.dart';
 import 'package:client/features/detail_movie/widgets/backdrops_movie.dart';
@@ -168,7 +169,11 @@ class DetailMovieScreen extends StatelessWidget {
                                 padding: const EdgeInsets.all(10),
                                 child: GestureDetector(
                                   onTap: () {
-                                    debugPrint(cast.id.toString());
+                                    context.pushNamed(
+                                      AppRouterName.detailActorName,
+                                      extra: state
+                                          .movieDetail.credits?.cast[index].id,
+                                    );
                                   },
                                   child: SizedBox(
                                     width: 120,

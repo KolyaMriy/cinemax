@@ -1,6 +1,7 @@
 import 'package:client/core/di/dependency_provider.dart';
 import 'package:client/core/router/app_router_name.dart';
 import 'package:client/features/auth/bloc/auth_bloc.dart';
+import 'package:client/features/detail_actor/detail_actor_screen.dart';
 import 'package:client/features/detail_movie/detail_movie.dart';
 import 'package:client/features/movie_trailer/movie_trailer.dart';
 import 'package:client/screens/auth/log_in/log_in_screen.dart';
@@ -37,6 +38,7 @@ class AppRoutes {
   static const String _favoritePath = '/favorite';
   static const String _trailerPath = 'trailer';
   static const String _profilePath = '/profile';
+  static const String _detailActorPath = 'detailActor';
 
   static final GoRouter router = GoRouter(
     navigatorKey: rootNavigationKey,
@@ -91,28 +93,41 @@ class AppRoutes {
         ],
       ),
       GoRoute(
-          path: _detailMoviePath,
-          name: AppRouterName.detailMovieName,
-          pageBuilder: (_, state) {
-            final id = state.extra! as int;
-            return CupertinoPage(
-              child: DetailMovieScreen(id: id),
-            );
-          },
-          routes: [
-            GoRoute(
-              path: _trailerPath,
-              name: AppRouterName.trailerMovieName,
-              pageBuilder: (_, state) {
-                final movieId = state.extra! as int;
-                return CupertinoPage(
-                  child: MovieTrailerScreen(
-                    movieId: movieId,
-                  ),
-                );
-              },
-            )
-          ]),
+        path: _detailMoviePath,
+        name: AppRouterName.detailMovieName,
+        pageBuilder: (_, state) {
+          final id = state.extra! as int;
+          return CupertinoPage(
+            child: DetailMovieScreen(id: id),
+          );
+        },
+        routes: [
+          GoRoute(
+            path: _trailerPath,
+            name: AppRouterName.trailerMovieName,
+            pageBuilder: (_, state) {
+              final movieId = state.extra! as int;
+              return CupertinoPage(
+                child: MovieTrailerScreen(
+                  movieId: movieId,
+                ),
+              );
+            },
+          ),
+          GoRoute(
+            path: _detailActorPath,
+            name: AppRouterName.detailActorName,
+            pageBuilder: (_, state) {
+              final actorId = state.extra! as int;
+              return CupertinoPage(
+                child: DetailActorScreen(
+                  actorID: actorId,
+                ),
+              );
+            },
+          )
+        ],
+      ),
       GoRoute(
         path: AppRoutes._welcomePath,
         name: AppRouterName.welcomeName,

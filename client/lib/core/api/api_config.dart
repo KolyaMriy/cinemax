@@ -4,6 +4,8 @@ abstract class MovieQuery {
   static const String queryNowPlaying = 'now_playing';
   static const String queryPopular = 'popular';
   static const String queryTrailer = 'videos';
+  static const String baseUrlPerson = 'https://api.themoviedb.org/3/person/';
+
   static const baseUrlSearch = 'https://api.themoviedb.org/3/search/movie';
   static const String queryRecommendations = 'recommendations';
 
