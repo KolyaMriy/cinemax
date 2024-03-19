@@ -23,7 +23,7 @@ class DetailActorScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider<DetailActorCubit>(
       create: (context) => DependencyProvider.get<DetailActorCubit>()
-        ..loadActorDetail(idMovie: actorID),
+        ..loadActorDetail(actorID: actorID),
       child: Scaffold(
         appBar: CinemaxAppBar(
           leading: CinemaxIcon(
@@ -74,10 +74,14 @@ class DetailActorScreen extends StatelessWidget {
                         itemBuilder: (context, index) {
                           final card = state.actor.alsoKnownAs![index].toCard();
                           return MovieCard(
-                            onTap: () => context.pushNamed(
-                              AppRouterName.detailMovieName,
-                              extra: state.actor.alsoKnownAs?[index].id,
-                            ),
+                            onTap: () {
+                              debugPrint(state.actor.alsoKnownAs![index].id
+                                  .toString());
+                              context.pushNamed(
+                                AppRouterName.detailMovieName,
+                                extra: state.actor.alsoKnownAs?[index].id,
+                              );
+                            },
                             cardModel: card,
                           );
                         }),

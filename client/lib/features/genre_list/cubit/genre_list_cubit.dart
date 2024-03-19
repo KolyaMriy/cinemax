@@ -1,6 +1,6 @@
-import 'package:client/core/error/failure.dart';
+import 'package:client/core/failure/failure.dart';
 import 'package:client/features/genre_list/data/entity/genre_entity.dart';
-import 'package:client/features/genre_list/data/repositories/genre_repository.dart';
+import 'package:client/features/genre_list/data/repositories/genre_repository_impl.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -8,9 +8,10 @@ part 'genre_list_state.dart';
 part 'genre_list_cubit.freezed.dart';
 
 class GenreListCubit extends Cubit<GenreListState> {
-  final GenreRepository _repository;
-  GenreListCubit({required GenreRepository repository})
-      : _repository = repository,
+  final GenreRepositoryImpl _repository;
+  GenreListCubit({
+    required GenreRepositoryImpl repository,
+  })  : _repository = repository,
         super(
           const GenreListState(),
         );

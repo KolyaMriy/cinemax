@@ -1,11 +1,21 @@
 import 'dart:io';
 import 'package:client/cinemax_app.dart';
 import 'package:client/core/flavor/export.dart';
+import 'package:client/features/detail_actor/data/entity/detail_actor_entity.dart';
+import 'package:client/features/genre_list/data/entity/genre_entity.dart';
+import 'package:client/features/movie/data/entity/movie.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/hive_flutter.dart';
+import 'package:path_provider/path_provider.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Hive.initFlutter((await getApplicationDocumentsDirectory()).path);
+  Hive
+    ..registerAdapter(DetailActorEntityAdapter())
+    ..registerAdapter(GenreEntityAdapter())
+    ..registerAdapter(MovieEntityAdapter());
 
   if (Platform.isAndroid) {
     await initializeFireBase(

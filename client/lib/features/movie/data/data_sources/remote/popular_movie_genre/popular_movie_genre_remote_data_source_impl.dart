@@ -1,8 +1,10 @@
 // ignore_for_file: inference_failure_on_function_invocation
+
 import 'package:client/core/api/api_config.dart';
-import 'package:client/core/error/failure.dart';
+import 'package:client/core/failure/failure.dart';
 import 'package:client/features/genre_list/data/entity/genre_entity.dart';
-import 'package:client/features/genre_list/data/repositories/genre_repository.dart';
+import 'package:client/features/genre_list/data/repositories/genre_repository_impl.dart';
+import 'package:client/features/movie/data/data_sources/remote/popular_movie_genre/popular_movie_genre_remote_data_source.dart';
 import 'package:client/features/movie/data/dtos/list_movie/list_new_movie_dto.dart';
 import 'package:client/features/movie/data/dtos/movie/movie_dto.dart';
 import 'package:client/features/movie/data/entity/list_movie.dart';
@@ -11,22 +13,17 @@ import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 
-abstract class IPopularMovieGenreRepository {
-  Future<Either<Failure, ListMovieEntity>> getPopularMovieGenre({
-    required GenreEntity genre,
-  });
-}
-
 abstract class _Constant {
   static const int sizeList = 10;
 }
 
-class PopularMovieGenreRepository implements IPopularMovieGenreRepository {
+class PopularMovieGenreRemoteDataSourceImpl
+    implements PopularMovieGenreRemoteDataSource {
   final Dio _dio;
-  final GenreRepository _genreRepository;
+  final GenreRepositoryImpl _genreRepository;
 
-  PopularMovieGenreRepository({
-    required GenreRepository genreRepository,
+  PopularMovieGenreRemoteDataSourceImpl({
+    required GenreRepositoryImpl genreRepository,
     required Dio dio,
   })  : _dio = dio,
         _genreRepository = genreRepository;

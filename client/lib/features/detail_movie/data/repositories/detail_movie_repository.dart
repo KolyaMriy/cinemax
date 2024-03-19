@@ -1,6 +1,6 @@
 // ignore_for_file: inference_failure_on_function_invocation
 import 'package:client/core/api/api_config.dart';
-import 'package:client/core/error/failure.dart';
+import 'package:client/core/failure/failure.dart';
 import 'package:client/features/detail_movie/data/dtos/backdrops_movie/backdrops_movie_dto.dart';
 import 'package:client/features/detail_movie/data/dtos/credits/credits_dto.dart';
 import 'package:client/features/detail_movie/data/dtos/movie_detail/movie_detail_dto.dart';

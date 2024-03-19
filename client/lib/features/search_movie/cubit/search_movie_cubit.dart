@@ -1,4 +1,4 @@
-import 'package:client/core/error/failure.dart';
+import 'package:client/core/failure/failure.dart';
 import 'package:client/features/movie/data/entity/list_movie.dart';
 import 'package:client/features/search_movie/repositories/search_movie_repository.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

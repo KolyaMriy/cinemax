@@ -1,4 +1,4 @@
-import 'package:client/core/error/failure.dart';
+import 'package:client/core/failure/failure.dart';
 import 'package:client/features/movie_trailer/data/entity/movie_trailer_entity.dart';
 import 'package:client/features/movie_trailer/data/repositories/movie_trailer_repository.dart';
 

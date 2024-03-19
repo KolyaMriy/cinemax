@@ -1,13 +1,24 @@
 import 'package:client/features/movie/data/entity/movie.dart';
 import 'package:equatable/equatable.dart';
+import 'package:hive/hive.dart';
 
+part 'detail_actor_entity.g.dart';
+
+@HiveType(typeId: 1)
 class DetailActorEntity extends Equatable {
+  @HiveField(0)
   final int id;
+  @HiveField(1)
   final String name;
+  @HiveField(2)
   final DateTime? deathday;
+  @HiveField(3)
   final DateTime birthday;
+  @HiveField(4)
   final String image;
+  @HiveField(5)
   final List<MovieEntity>? alsoKnownAs;
+  @HiveField(6)
   final String biography;
 
   const DetailActorEntity({

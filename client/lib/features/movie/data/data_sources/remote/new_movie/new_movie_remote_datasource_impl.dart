@@ -1,6 +1,8 @@
 // ignore_for_file: inference_failure_on_function_invocation
+
 import 'package:client/core/api/api_config.dart';
-import 'package:client/core/error/failure.dart';
+import 'package:client/core/failure/failure.dart';
+import 'package:client/features/movie/data/data_sources/remote/new_movie/new_movie_remote_datasource.dart';
 import 'package:client/features/movie/data/dtos/list_movie/list_new_movie_dto.dart';
 import 'package:client/features/movie/data/entity/list_movie.dart';
 import 'package:client/features/movie/data/mappers/list_movie_mapper.dart';
@@ -8,13 +10,9 @@ import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 
-abstract interface class INewMovieRepository {
-  Future<Either<Failure, ListMovieEntity>> getNewMovieList();
-}
-
-class NewMovieRepository implements INewMovieRepository {
+class NewMovieRemoteDataSourceImpl implements NewMovieRemoteDataSource {
   final Dio _dio;
-  NewMovieRepository({
+  NewMovieRemoteDataSourceImpl({
     required Dio dio,
   }) : _dio = dio;
 

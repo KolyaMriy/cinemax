@@ -1,15 +1,15 @@
-import 'package:client/core/error/failure.dart';
+import 'package:client/core/failure/failure.dart';
+import 'package:client/features/movie/data/data_sources/remote/movie_recommendations/movie_remote_datasource_impl.dart';
 import 'package:client/features/movie/data/entity/list_movie.dart';
-import 'package:client/features/movie/movie_recommendations/repositories/movie_recommendations_repository.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 part 'movie_recommendation_state.dart';
 part 'movie_recommendation_cubit.freezed.dart';
 
 class MovieRecommendationCubit extends Cubit<MovieRecommendationState> {
-  final MovieRecommendationRepository _repository;
+  final MovieRecommendationRemoteDataSourceImpl _repository;
   MovieRecommendationCubit({
-    required MovieRecommendationRepository repository,
+    required MovieRecommendationRemoteDataSourceImpl repository,
   })  : _repository = repository,
         super(
           MovieRecommendationState(

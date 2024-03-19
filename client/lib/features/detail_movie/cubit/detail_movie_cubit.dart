@@ -1,4 +1,4 @@
-import 'package:client/core/error/failure.dart';
+import 'package:client/core/failure/failure.dart';
 import 'package:client/features/detail_movie/data/entity/movie_detail/movie_detail_entity.dart';
 import 'package:client/features/detail_movie/data/repositories/detail_movie_repository.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -33,9 +33,5 @@ class DetailMovieCubit extends Cubit<DetailMovieState> {
         ),
       ),
     );
-  }
-
-  void showTrailer() {
-    emit(state.copyWith(showTrailer: true));
   }
 }

@@ -28,18 +28,18 @@ class _CinemaxAppState extends State<CinemaxApp> {
     return MultiBlocProvider(
       providers: [
         BlocProvider<AuthBloc>(
-          create: (context) => DependencyProvider.get<AuthBloc>(),
+          create: (_) => DependencyProvider.get<AuthBloc>(),
         ),
         BlocProvider<GenreListCubit>(
-          create: (context) =>
+          create: (_) =>
               DependencyProvider.get<GenreListCubit>()..loadGenreList(),
         ),
         BlocProvider<PopularMoviesGenreCubit>(
-          create: (context) =>
+          create: (_) =>
               DependencyProvider.get<PopularMoviesGenreCubit>()..initial(),
         ),
         BlocProvider<SearchMovieCubit>(
-          create: (context) => DependencyProvider.get<SearchMovieCubit>(),
+          create: (_) => DependencyProvider.get<SearchMovieCubit>(),
         ),
       ],
       child: MaterialApp.router(
