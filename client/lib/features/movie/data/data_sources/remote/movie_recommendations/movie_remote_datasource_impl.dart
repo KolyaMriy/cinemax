@@ -1,12 +1,10 @@
 // ignore_for_file: inference_failure_on_function_invocation
 import 'package:client/core/api/api_config.dart';
-import 'package:client/core/failure/failure.dart';
 import 'package:client/features/genre_list/data/repositories/genre_repository_impl.dart';
 import 'package:client/features/movie/data/data_sources/remote/movie_recommendations/movie_remote_datasource.dart';
 import 'package:client/features/movie/data/dtos/list_movie/list_new_movie_dto.dart';
 import 'package:client/features/movie/data/entity/list_movie.dart';
 import 'package:client/features/movie/data/mappers/movie_mapper.dart';
-import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 
@@ -22,7 +20,7 @@ class MovieRecommendationRemoteDataSourceImpl
         _repository = repository;
 
   @override
-  Future<Either<Failure, ListMovieEntity>> getMovieRecommendation({
+  Future<ListMovieEntity> getMovieRecommendation({
     required int idMovie,
   }) async {
     try {
@@ -54,13 +52,13 @@ class MovieRecommendationRemoteDataSourceImpl
         }).toList();
         final movies = await Future.wait(listMovieWithGenre!);
         listMoviesEntity.movies.addAll(movies);
-        return right(listMoviesEntity);
+        return listMoviesEntity;
       } else {
-        return left(const Failure.parseError());
+        throw Exception();
       }
     } catch (e) {
       debugPrint(e.toString());
-      return left(const Failure.serverError());
+      throw Exception();
     }
   }
 }

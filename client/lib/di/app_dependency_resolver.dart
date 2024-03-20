@@ -7,7 +7,7 @@ import 'package:client/features/auth/verification_email/di/dependency_resolver.d
 import 'package:client/features/detail_actor/di/dependency_resolver.dart';
 import 'package:client/features/detail_movie/di/dependency_resolver.dart';
 import 'package:client/features/genre_list/di/dependency_resolver.dart';
-import 'package:client/features/movie/di/dependency_resolver.dart';
+import 'package:client/features/movie/movie_recommendations/di/dependency_resolver.dart';
 import 'package:client/features/movie/new_movie_list/di/dependency_resolver.dart';
 import 'package:client/features/movie/popular_movie_genre/di/dependency_resolver.dart';
 import 'package:client/features/movie_trailer/di/dependency_resolver.dart';

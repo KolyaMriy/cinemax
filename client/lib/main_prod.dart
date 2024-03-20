@@ -3,6 +3,7 @@ import 'package:client/cinemax_app.dart';
 import 'package:client/core/flavor/export.dart';
 import 'package:client/features/detail_actor/data/entity/detail_actor_entity.dart';
 import 'package:client/features/genre_list/data/entity/genre_entity.dart';
+import 'package:client/features/movie/data/entity/list_movie.dart';
 import 'package:client/features/movie/data/entity/movie.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -15,7 +16,8 @@ Future<void> main() async {
   Hive
     ..registerAdapter(DetailActorEntityAdapter())
     ..registerAdapter(GenreEntityAdapter())
-    ..registerAdapter(MovieEntityAdapter());
+    ..registerAdapter(MovieEntityAdapter())
+    ..registerAdapter(ListMovieEntityAdapter());
 
   if (Platform.isAndroid) {
     await initializeFireBase(

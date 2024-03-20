@@ -1,13 +1,12 @@
 import 'package:client/features/movie/data/data_sources/local/movie_local_datasource.dart';
 import 'package:client/features/movie/data/entity/list_movie.dart';
-import 'package:client/features/movie/data/entity/movie.dart';
 import 'package:hive/hive.dart';
 
 class MovieLocalDataSourceImpl implements MovieLocalDataSource {
-  final Box<MovieEntity> _box;
+  final Box<ListMovieEntity> _box;
 
   MovieLocalDataSourceImpl({
-    required Box<MovieEntity> movieBox,
+    required Box<ListMovieEntity> movieBox,
   }) : _box = movieBox;
 
   @override
@@ -16,21 +15,16 @@ class MovieLocalDataSourceImpl implements MovieLocalDataSource {
   }
 
   @override
-  ListMovieEntity getSavedListMovie() {
-    final listmovie = _box.values.toList();
-    final listmovieEntity = ListMovieEntity(movies: listmovie, page: 1);
-    return listmovieEntity;
+  ListMovieEntity? getSavedListMovie({required int index}) {
+    final listmovie = _box.get(index);
+    return listmovie;
   }
 
   @override
-  bool isSavedMovie() {
-    final result = _box.isNotEmpty;
-    return result;
-  }
-
-  @override
-  Future<void> saveMovie({required ListMovieEntity listMovie}) async {
-    final movies = {for (final movie in listMovie.movies) movie.id: movie};
-    await _box.putAll(movies);
+  Future<void> saveMovie({
+    required ListMovieEntity listMovie,
+    required int index,
+  }) async {
+    await _box.put(index, listMovie);
   }
 }

@@ -31,7 +31,7 @@ class ProfileScreen extends StatelessWidget {
                 DependencyProvider.get<AuthBloc>().add(AuthLogoutRequested());
                 context.goNamed(AppRouterName.welcomeName);
               },
-            )
+            ),
           ],
         ),
       ),
