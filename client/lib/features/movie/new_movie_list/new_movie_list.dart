@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:ui_kit/component/poster_movie/poster_movie.dart';
+import 'package:ui_kit/theme/theme_context_extension.dart';
 
 class NewMovieList extends StatelessWidget {
   const NewMovieList({super.key});
@@ -17,11 +18,18 @@ class NewMovieList extends StatelessWidget {
       create: (_) =>
           DependencyProvider.get<NewMovieListCubit>()..loadNewMovieList(),
       child: BlocBuilder<NewMovieListCubit, NewMovieListState>(
-        buildWhen: (oldState, newState) =>
-            oldState.listNewMovie != newState.listNewMovie,
         builder: (context, state) {
+          debugPrint(state.toString());
           if (state.loading) {
             return const Center(child: CircularProgressIndicator());
+          }
+          if (state.failure != null) {
+            return Center(
+              child: Text(
+                state.failure.toString(),
+                style: context.textStyle.h3,
+              ),
+            );
           }
           if (state.listNewMovie.movies.isNotEmpty) {
             return Column(

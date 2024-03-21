@@ -15,4 +15,6 @@ abstract interface class MovieRecommendationRepository {
     required ListMovieEntity movieRecommendation,
     required int index,
   });
+
+  Future<Either<Failure, void>> clearListMovie();
 }

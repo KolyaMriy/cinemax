@@ -1,6 +1,6 @@
 import 'package:client/core/failure/failure.dart';
-import 'package:client/features/movie/data/data_sources/remote/new_movie/new_movie_remote_datasource_impl.dart';
 import 'package:client/features/movie/data/entity/list_movie.dart';
+import 'package:client/features/movie/data/repository/new_movie_repository_impl.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -8,9 +8,10 @@ part 'new_movie_list_state.dart';
 part 'new_movie_list_cubit.freezed.dart';
 
 class NewMovieListCubit extends Cubit<NewMovieListState> {
-  final NewMovieRemoteDataSourceImpl _repository;
-  NewMovieListCubit({required NewMovieRemoteDataSourceImpl repository})
-      : _repository = repository,
+  final NewMovieRepositoryImpl _repository;
+  NewMovieListCubit({
+    required NewMovieRepositoryImpl repository,
+  })  : _repository = repository,
         super(NewMovieListState(
           listNewMovie: ListMovieEntity.empty(),
         ));
@@ -19,7 +20,7 @@ class NewMovieListCubit extends Cubit<NewMovieListState> {
     if (state.loading != true) {
       emit(state.copyWith(loading: true));
     }
-    final listNewMovie = await _repository.getNewMovieList();
+    final listNewMovie = await _repository.getNewMovie();
     listNewMovie.fold(
       (failure) => emit(
         state.copyWith(

@@ -60,4 +60,14 @@ class MovieRecommendationRepositoryImpl
       return left(const Failure.serverError());
     }
   }
+
+  @override
+  Future<Either<Failure, void>> clearListMovie() async {
+    try {
+      final result = await _localDataSource.clearListMovie();
+      return right(result);
+    } catch (e) {
+      return left(const Failure.serverError());
+    }
+  }
 }
