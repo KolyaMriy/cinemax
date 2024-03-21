@@ -1,4 +1,5 @@
 import 'package:client/core/di/dependency_provider.dart';
+import 'package:client/core/network/connection_checker.dart';
 import 'package:client/features/auth/di/dependency_resolver.dart';
 import 'package:client/features/auth/login/di/dependency_resolver.dart';
 import 'package:client/features/auth/reset_password/di/dependency_resolver.dart';
@@ -13,11 +14,17 @@ import 'package:client/features/movie/popular_movie_genre/di/dependency_resolver
 import 'package:client/features/movie_trailer/di/dependency_resolver.dart';
 import 'package:client/features/search_movie/di/dependency_resolver.dart';
 import 'package:dio/dio.dart';
+import 'package:internet_connection_checker_plus/internet_connection_checker_plus.dart';
 
 class AppDependencyResolver {
   static void register() {
     DependencyProvider.registerLazySingleton<Dio>(
       () => Dio(),
+    );
+    DependencyProvider.registerLazySingleton<ConnectionCheckerImpl>(
+      () => ConnectionCheckerImpl(
+        internetConnection: InternetConnection(),
+      ),
     );
 
     AuthDependencyResolver.register();

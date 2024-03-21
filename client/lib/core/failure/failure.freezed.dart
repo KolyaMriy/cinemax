@@ -20,18 +20,21 @@ mixin _$Failure {
   TResult when<TResult extends Object?>({
     required TResult Function() serverError,
     required TResult Function() parseError,
+    required TResult Function() noInternetConnection,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? serverError,
     TResult? Function()? parseError,
+    TResult? Function()? noInternetConnection,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? serverError,
     TResult Function()? parseError,
+    TResult Function()? noInternetConnection,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -39,18 +42,21 @@ mixin _$Failure {
   TResult map<TResult extends Object?>({
     required TResult Function(_ServerError value) serverError,
     required TResult Function(_ParseError value) parseError,
+    required TResult Function(_NoInternetConnection value) noInternetConnection,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_ServerError value)? serverError,
     TResult? Function(_ParseError value)? parseError,
+    TResult? Function(_NoInternetConnection value)? noInternetConnection,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ServerError value)? serverError,
     TResult Function(_ParseError value)? parseError,
+    TResult Function(_NoInternetConnection value)? noInternetConnection,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -113,6 +119,7 @@ class _$ServerErrorImpl implements _ServerError {
   TResult when<TResult extends Object?>({
     required TResult Function() serverError,
     required TResult Function() parseError,
+    required TResult Function() noInternetConnection,
   }) {
     return serverError();
   }
@@ -122,6 +129,7 @@ class _$ServerErrorImpl implements _ServerError {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? serverError,
     TResult? Function()? parseError,
+    TResult? Function()? noInternetConnection,
   }) {
     return serverError?.call();
   }
@@ -131,6 +139,7 @@ class _$ServerErrorImpl implements _ServerError {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? serverError,
     TResult Function()? parseError,
+    TResult Function()? noInternetConnection,
     required TResult orElse(),
   }) {
     if (serverError != null) {
@@ -144,6 +153,7 @@ class _$ServerErrorImpl implements _ServerError {
   TResult map<TResult extends Object?>({
     required TResult Function(_ServerError value) serverError,
     required TResult Function(_ParseError value) parseError,
+    required TResult Function(_NoInternetConnection value) noInternetConnection,
   }) {
     return serverError(this);
   }
@@ -153,6 +163,7 @@ class _$ServerErrorImpl implements _ServerError {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_ServerError value)? serverError,
     TResult? Function(_ParseError value)? parseError,
+    TResult? Function(_NoInternetConnection value)? noInternetConnection,
   }) {
     return serverError?.call(this);
   }
@@ -162,6 +173,7 @@ class _$ServerErrorImpl implements _ServerError {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ServerError value)? serverError,
     TResult Function(_ParseError value)? parseError,
+    TResult Function(_NoInternetConnection value)? noInternetConnection,
     required TResult orElse(),
   }) {
     if (serverError != null) {
@@ -215,6 +227,7 @@ class _$ParseErrorImpl implements _ParseError {
   TResult when<TResult extends Object?>({
     required TResult Function() serverError,
     required TResult Function() parseError,
+    required TResult Function() noInternetConnection,
   }) {
     return parseError();
   }
@@ -224,6 +237,7 @@ class _$ParseErrorImpl implements _ParseError {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? serverError,
     TResult? Function()? parseError,
+    TResult? Function()? noInternetConnection,
   }) {
     return parseError?.call();
   }
@@ -233,6 +247,7 @@ class _$ParseErrorImpl implements _ParseError {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? serverError,
     TResult Function()? parseError,
+    TResult Function()? noInternetConnection,
     required TResult orElse(),
   }) {
     if (parseError != null) {
@@ -246,6 +261,7 @@ class _$ParseErrorImpl implements _ParseError {
   TResult map<TResult extends Object?>({
     required TResult Function(_ServerError value) serverError,
     required TResult Function(_ParseError value) parseError,
+    required TResult Function(_NoInternetConnection value) noInternetConnection,
   }) {
     return parseError(this);
   }
@@ -255,6 +271,7 @@ class _$ParseErrorImpl implements _ParseError {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_ServerError value)? serverError,
     TResult? Function(_ParseError value)? parseError,
+    TResult? Function(_NoInternetConnection value)? noInternetConnection,
   }) {
     return parseError?.call(this);
   }
@@ -264,6 +281,7 @@ class _$ParseErrorImpl implements _ParseError {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ServerError value)? serverError,
     TResult Function(_ParseError value)? parseError,
+    TResult Function(_NoInternetConnection value)? noInternetConnection,
     required TResult orElse(),
   }) {
     if (parseError != null) {
@@ -275,4 +293,113 @@ class _$ParseErrorImpl implements _ParseError {
 
 abstract class _ParseError implements Failure {
   const factory _ParseError() = _$ParseErrorImpl;
+}
+
+/// @nodoc
+abstract class _$$NoInternetConnectionImplCopyWith<$Res> {
+  factory _$$NoInternetConnectionImplCopyWith(_$NoInternetConnectionImpl value,
+          $Res Function(_$NoInternetConnectionImpl) then) =
+      __$$NoInternetConnectionImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$NoInternetConnectionImplCopyWithImpl<$Res>
+    extends _$FailureCopyWithImpl<$Res, _$NoInternetConnectionImpl>
+    implements _$$NoInternetConnectionImplCopyWith<$Res> {
+  __$$NoInternetConnectionImplCopyWithImpl(_$NoInternetConnectionImpl _value,
+      $Res Function(_$NoInternetConnectionImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$NoInternetConnectionImpl implements _NoInternetConnection {
+  const _$NoInternetConnectionImpl();
+
+  @override
+  String toString() {
+    return 'Failure.noInternetConnection()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$NoInternetConnectionImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() serverError,
+    required TResult Function() parseError,
+    required TResult Function() noInternetConnection,
+  }) {
+    return noInternetConnection();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? serverError,
+    TResult? Function()? parseError,
+    TResult? Function()? noInternetConnection,
+  }) {
+    return noInternetConnection?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? serverError,
+    TResult Function()? parseError,
+    TResult Function()? noInternetConnection,
+    required TResult orElse(),
+  }) {
+    if (noInternetConnection != null) {
+      return noInternetConnection();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_ServerError value) serverError,
+    required TResult Function(_ParseError value) parseError,
+    required TResult Function(_NoInternetConnection value) noInternetConnection,
+  }) {
+    return noInternetConnection(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ServerError value)? serverError,
+    TResult? Function(_ParseError value)? parseError,
+    TResult? Function(_NoInternetConnection value)? noInternetConnection,
+  }) {
+    return noInternetConnection?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ServerError value)? serverError,
+    TResult Function(_ParseError value)? parseError,
+    TResult Function(_NoInternetConnection value)? noInternetConnection,
+    required TResult orElse(),
+  }) {
+    if (noInternetConnection != null) {
+      return noInternetConnection(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _NoInternetConnection implements Failure {
+  const factory _NoInternetConnection() = _$NoInternetConnectionImpl;
 }
