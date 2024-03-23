@@ -3,7 +3,7 @@ import 'package:client/core/network/connection_checker.dart';
 import 'package:client/features/movie/data/data_sources/local/movie_local_datasource_impl.dart';
 import 'package:client/features/movie/data/data_sources/remote/popular_movie_genre/popular_movie_genre_remote_data_source_impl.dart';
 import 'package:client/features/movie/data/entity/list_movie.dart';
-import 'package:client/features/movie/data/repository/popular_movie_genre_repository.dart';
+import 'package:client/features/movie/data/repository/popular_movie_genre/popular_movie_genre_repository.dart';
 import 'package:dartz/dartz.dart';
 
 class PopularMovieGenreRepositoryImpl implements PopularMovieGenreRepository {

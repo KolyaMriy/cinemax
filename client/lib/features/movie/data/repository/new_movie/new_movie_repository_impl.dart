@@ -4,7 +4,7 @@ import 'package:client/features/movie/data/data_sources/local/movie_local_dataso
 import 'package:client/features/movie/data/data_sources/remote/new_movie/new_movie_remote_datasource_impl.dart';
 
 import 'package:client/features/movie/data/entity/list_movie.dart';
-import 'package:client/features/movie/data/repository/new_movie_repository.dart';
+import 'package:client/features/movie/data/repository/new_movie/new_movie_repository.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 

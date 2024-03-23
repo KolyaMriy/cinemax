@@ -1,20 +1,18 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:client/core/di/dependency_provider.dart';
 import 'package:client/core/extension/font_weight_extension.dart';
-import 'package:client/core/router/app_router_name.dart';
 import 'package:client/features/detail_movie/cubit/detail_movie_cubit.dart';
 import 'package:client/features/detail_movie/widgets/add_info_movie.dart';
 import 'package:client/features/detail_movie/widgets/backdrops_movie.dart';
+import 'package:client/features/detail_movie/widgets/cast_list.dart';
 import 'package:client/features/detail_movie/widgets/list_genres_movie.dart';
 import 'package:client/features/movie/movie_recommendations/movie_recommendations.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:ui_kit/assets/icons/cinemax_icons.dart';
 import 'package:ui_kit/component/component.dart';
 import 'package:ui_kit/component/image/cinemax_image.dart';
-import 'package:ui_kit/component/movie_card/movie_rating.dart';
 import 'package:ui_kit/theme/color_scheme.dart';
 import 'package:ui_kit/theme/theme_context_extension.dart';
 
@@ -66,6 +64,7 @@ class DetailMovieScreen extends StatelessWidget {
                 Scaffold(
                   backgroundColor: Colors.transparent,
                   appBar: CinemaxAppBar(
+                    textAlign: TextAlign.center,
                     backgroundColor: Colors.transparent,
                     leading: CinemaxIcon(
                       icon: CinemaxIcons.arrowBack,
@@ -84,23 +83,22 @@ class DetailMovieScreen extends StatelessWidget {
                         children: [
                           Padding(
                             padding: const EdgeInsets.symmetric(horizontal: 10),
-                            child: GestureDetector(
-                              child: Container(
-                                width: 200,
-                                height: 300,
-                                decoration: BoxDecoration(
-                                  boxShadow: [
-                                    BoxShadow(
-                                      color: Colors.black.withOpacity(0.3),
-                                      spreadRadius: 20,
-                                      blurRadius: 20,
-                                      offset: const Offset(0, 5),
-                                    ),
-                                  ],
-                                  borderRadius: BorderRadius.circular(20),
-                                  image: DecorationImage(
-                                    image: CachedNetworkImageProvider(
-                                        movie.posterPicture),
+                            child: Container(
+                              width: 200,
+                              height: 300,
+                              decoration: BoxDecoration(
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Colors.black.withOpacity(0.3),
+                                    spreadRadius: 20,
+                                    blurRadius: 20,
+                                    offset: const Offset(0, 5),
+                                  ),
+                                ],
+                                borderRadius: BorderRadius.circular(20),
+                                image: DecorationImage(
+                                  image: CachedNetworkImageProvider(
+                                    movie.posterPicture,
                                   ),
                                 ),
                               ),
@@ -108,21 +106,15 @@ class DetailMovieScreen extends StatelessWidget {
                           ),
                           Padding(
                             padding: const EdgeInsets.symmetric(
-                                vertical: 20, horizontal: 30),
+                              vertical: 20,
+                              horizontal: 30,
+                            ),
                             child: AddInfoMovie(
                               releaseDate: movie.releaseDate.year.toString(),
                               runtime: movie.runtime.toString(),
+                              rating: movie.voteAverage,
                             ),
                           ),
-                          MovieRating(
-                            alignment: Alignment.center,
-                            backgroundColor: PrimaryColor.soft,
-                            averageRating: movie.voteAverage,
-                          ),
-                          SizedBox(
-                              height: 30,
-                              child:
-                                  ListMovieGenresMovie(genres: movie.genres)),
                           Padding(
                             padding: const EdgeInsets.symmetric(vertical: 30),
                             child: IntrinsicWidth(
@@ -136,7 +128,31 @@ class DetailMovieScreen extends StatelessWidget {
                           ),
                           Padding(
                             padding: const EdgeInsets.symmetric(
-                                horizontal: 25, vertical: 10),
+                              horizontal: 25,
+                              vertical: 10,
+                            ),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Genres',
+                                  style: context.textStyle.h3,
+                                ),
+                                SizedBox(
+                                  height: 40,
+                                  width: double.maxFinite,
+                                  child: ListMovieGenresMovie(
+                                    genres: movie.genres,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 25,
+                              vertical: 10,
+                            ),
                             child: Align(
                               alignment: Alignment.centerLeft,
                               child: Text(
@@ -165,49 +181,8 @@ class DetailMovieScreen extends StatelessWidget {
                           SizedBox(height: context.spacerStyle.height),
                           SizedBox(
                             height: 170,
-                            child: ListView.builder(
-                              scrollDirection: Axis.horizontal,
-                              itemCount: movie.credits?.cast.length,
-                              itemBuilder: (context, index) {
-                                final cast = movie.credits?.cast[index];
-                                return Padding(
-                                  padding: const EdgeInsets.all(10),
-                                  child: GestureDetector(
-                                    onTap: () {
-                                      context.pushNamed(
-                                        AppRouterName.detailActorName,
-                                        extra: movie.credits?.cast[index].id,
-                                      );
-                                    },
-                                    child: SizedBox(
-                                      width: 120,
-                                      child: Column(
-                                        children: [
-                                          CircleAvatar(
-                                            radius: 50,
-                                            foregroundImage:
-                                                CachedNetworkImageProvider(
-                                              cast!.image,
-                                            ),
-                                          ),
-                                          Text(
-                                            cast.name,
-                                            style: context.textStyle.h4,
-                                          ),
-                                          if (cast.character != '')
-                                            Text(
-                                              cast.character,
-                                              style:
-                                                  context.textStyle.h4.copyWith(
-                                                color: TextColor.grey,
-                                              ),
-                                            )
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                );
-                              },
+                            child: CastList(
+                              casts: movie.credits!.cast,
                             ),
                           ),
                           SizedBox(height: context.spacerStyle.height),

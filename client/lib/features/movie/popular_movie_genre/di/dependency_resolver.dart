@@ -4,7 +4,7 @@ import 'package:client/features/genre_list/data/repositories/genre_repository_im
 import 'package:client/features/movie/data/data_sources/local/movie_local_datasource_impl.dart';
 import 'package:client/features/movie/data/data_sources/remote/popular_movie_genre/popular_movie_genre_remote_data_source_impl.dart';
 import 'package:client/features/movie/data/dtos/list_movie/list_new_movie_dto.dart';
-import 'package:client/features/movie/data/repository/popular_movie_genre_repository_impl.dart';
+import 'package:client/features/movie/data/repository/popular_movie_genre/popular_movie_genre_repository_impl.dart';
 import 'package:client/features/movie/popular_movie_genre/cubit/popular_movies_genre_cubit.dart';
 
 import 'package:dio/dio.dart';

@@ -22,7 +22,6 @@ class HomeScreen extends StatelessWidget {
               leading: Avatar(
                 photoUrl: state.user.photoUrl,
               ),
-              centerTitle: false,
               titleText: 'Hello, ${state.user.email}',
               subTitle: 'Let’s stream your favorite movie',
             ),

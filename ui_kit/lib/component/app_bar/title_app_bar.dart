@@ -7,16 +7,19 @@ class TitleAppBar extends StatelessWidget {
     this.title,
     this.titleText,
     this.subTitle,
+    required this.textAlign,
   });
 
   final Widget? title;
   final String? titleText;
   final String? subTitle;
+  final TextAlign textAlign;
 
   @override
   Widget build(BuildContext context) {
     if (titleText != null) {
       return RichText(
+        textAlign: textAlign,
         text: TextSpan(
           style: context.appBarStyle.titleTextStyle.copyWith(
             overflow: TextOverflow.ellipsis,

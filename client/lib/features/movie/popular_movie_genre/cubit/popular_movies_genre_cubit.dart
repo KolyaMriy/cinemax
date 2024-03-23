@@ -1,7 +1,7 @@
 import 'package:client/core/failure/failure.dart';
 import 'package:client/features/genre_list/data/entity/genre_entity.dart';
 import 'package:client/features/movie/data/entity/list_movie.dart';
-import 'package:client/features/movie/data/repository/popular_movie_genre_repository_impl.dart';
+import 'package:client/features/movie/data/repository/popular_movie_genre/popular_movie_genre_repository_impl.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 

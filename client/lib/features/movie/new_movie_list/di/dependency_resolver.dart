@@ -3,7 +3,7 @@ import 'package:client/core/network/connection_checker.dart';
 import 'package:client/features/movie/data/data_sources/local/movie_local_datasource_impl.dart';
 import 'package:client/features/movie/data/data_sources/remote/new_movie/new_movie_remote_datasource_impl.dart';
 import 'package:client/features/movie/data/dtos/list_movie/list_new_movie_dto.dart';
-import 'package:client/features/movie/data/repository/new_movie_repository_impl.dart';
+import 'package:client/features/movie/data/repository/new_movie/new_movie_repository_impl.dart';
 import 'package:client/features/movie/new_movie_list/cubit/new_movie_list_cubit.dart';
 
 import 'package:dio/dio.dart';

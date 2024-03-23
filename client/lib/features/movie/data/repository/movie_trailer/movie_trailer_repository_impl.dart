@@ -4,21 +4,18 @@ import 'package:client/core/failure/failure.dart';
 import 'package:client/features/movie/data/dtos/youtube_trailer/youtube_trailer_dto.dart';
 import 'package:client/features/movie/data/entity/youtube_trailer_entity.dart';
 import 'package:client/features/movie/data/mappers/movie_trailer_mapper.dart';
+import 'package:client/features/movie/data/repository/movie_trailer/movie_trailer_repository.dart';
 
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 
-abstract interface class IMovieTrailerRepository {
-  Future<Either<Failure, YouTubeTrailerEntity>> getMovieTrailer({
-    required int id,
-  });
-}
-
-class MovieTrailerRepository implements IMovieTrailerRepository {
+class MovieTrailerRepositoryImpl implements MovieTrailerRepository {
   final Dio _dio;
 
-  MovieTrailerRepository({required Dio dio}) : _dio = dio;
+  MovieTrailerRepositoryImpl({
+    required Dio dio,
+  }) : _dio = dio;
   @override
   Future<Either<Failure, YouTubeTrailerEntity>> getMovieTrailer({
     required int id,

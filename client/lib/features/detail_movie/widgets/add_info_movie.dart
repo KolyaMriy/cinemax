@@ -9,10 +9,12 @@ class AddInfoMovie extends StatelessWidget {
     super.key,
     required this.releaseDate,
     required this.runtime,
+    required this.rating,
   });
 
   final String releaseDate;
   final String runtime;
+  final double rating;
 
   @override
   Widget build(BuildContext context) {
@@ -46,6 +48,26 @@ class AddInfoMovie extends StatelessWidget {
             Icon(CinemaxIcons.clock, color: TextColor.grey),
             Text(
               '$runtime Minutes',
+              style: context.textStyle.h4.copyWith(
+                color: TextColor.grey,
+                fontWeight: FontWeightStyle.medium.fontWeight,
+              ),
+            )
+          ],
+        ),
+        Text(
+          '|',
+          style: context.textStyle.h4.copyWith(
+            color: TextColor.grey,
+            fontWeight: FontWeightStyle.medium.fontWeight,
+          ),
+        ),
+        Wrap(
+          spacing: 5,
+          children: [
+            Icon(CinemaxIcons.star, color: SecondaryColor.orange),
+            Text(
+              rating.toStringAsFixed(2),
               style: context.textStyle.h4.copyWith(
                 color: TextColor.grey,
                 fontWeight: FontWeightStyle.medium.fontWeight,
