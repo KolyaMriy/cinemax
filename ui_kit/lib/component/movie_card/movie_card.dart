@@ -38,29 +38,26 @@ class MovieCard extends StatelessWidget {
               child: Column(
                 children: [
                   Container(
-                    height: 180,
-                    decoration: BoxDecoration(
-                      borderRadius: const BorderRadius.only(
-                        topLeft: Radius.circular(20),
-                        topRight: Radius.circular(20),
-                      ),
-                      image: DecorationImage(
-                        onError: (exception, stackTrace) => Image.asset(
-                          ImageAssets.cinemaxLogo,
-                          package: 'ui_kit',
+                      height: 180,
+                      decoration: BoxDecoration(
+                        borderRadius: const BorderRadius.only(
+                          topLeft: Radius.circular(20),
+                          topRight: Radius.circular(20),
                         ),
-                        fit: BoxFit.cover,
-                        image: CachedNetworkImageProvider(
-                          cardModel.posterPicture,
+                        image: DecorationImage(
+                          onError: (exception, stackTrace) => Image.asset(
+                            ImageAssets.cinemaxLogo,
+                            package: 'ui_kit',
+                          ),
+                          fit: BoxFit.cover,
+                          image: CachedNetworkImageProvider(
+                            cardModel.posterPicture,
+                          ),
                         ),
                       ),
-                    ),
-                    child: cardModel.averageRating != 0.0
-                        ? MovieRating(
-                            averageRating: cardModel.averageRating,
-                          )
-                        : const SizedBox(),
-                  ),
+                      child: MovieRating(
+                        averageRating: cardModel.averageRating,
+                      )),
                   ListTile(
                     title: Text(
                       cardModel.title,

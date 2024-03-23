@@ -11,7 +11,7 @@ class DetailMovieCubit extends Cubit<DetailMovieState> {
   final DetailMovieRepository _repository;
   DetailMovieCubit({required DetailMovieRepository repository})
       : _repository = repository,
-        super(DetailMovieState(movieDetail: MovieDetailEntity.empty()));
+        super(DetailMovieState());
 
   Future<void> loadDetailMovie({required int idMovie}) async {
     if (state.loading != true) {

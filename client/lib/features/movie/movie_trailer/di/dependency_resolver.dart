@@ -1,6 +1,6 @@
 import 'package:client/core/di/dependency_provider.dart';
-import 'package:client/features/movie_trailer/cubit/movie_trailer_cubit.dart';
-import 'package:client/features/movie_trailer/data/repositories/movie_trailer_repository.dart';
+import 'package:client/features/movie/movie_trailer/cubit/movie_trailer_cubit.dart';
+import 'package:client/features/movie/movie_trailer/data/repositories/movie_trailer_repository.dart';
 
 import 'package:dio/dio.dart';
 

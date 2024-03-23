@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'movie_trailer_dto.dart';
+part of 'youtube_trailer_dto.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -14,12 +14,12 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
-MovieTrailerDTO _$MovieTrailerDTOFromJson(Map<String, dynamic> json) {
-  return _MovieTrailerDTO.fromJson(json);
+YoutubeTrailerDTO _$YoutubeTrailerDTOFromJson(Map<String, dynamic> json) {
+  return _YoutubeTrailerDTO.fromJson(json);
 }
 
 /// @nodoc
-mixin _$MovieTrailerDTO {
+mixin _$YoutubeTrailerDTO {
   @JsonKey(name: 'name', defaultValue: '')
   String get name => throw _privateConstructorUsedError;
   @JsonKey(name: 'key', defaultValue: '')
@@ -27,15 +27,15 @@ mixin _$MovieTrailerDTO {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $MovieTrailerDTOCopyWith<MovieTrailerDTO> get copyWith =>
+  $YoutubeTrailerDTOCopyWith<YoutubeTrailerDTO> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $MovieTrailerDTOCopyWith<$Res> {
-  factory $MovieTrailerDTOCopyWith(
-          MovieTrailerDTO value, $Res Function(MovieTrailerDTO) then) =
-      _$MovieTrailerDTOCopyWithImpl<$Res, MovieTrailerDTO>;
+abstract class $YoutubeTrailerDTOCopyWith<$Res> {
+  factory $YoutubeTrailerDTOCopyWith(
+          YoutubeTrailerDTO value, $Res Function(YoutubeTrailerDTO) then) =
+      _$YoutubeTrailerDTOCopyWithImpl<$Res, YoutubeTrailerDTO>;
   @useResult
   $Res call(
       {@JsonKey(name: 'name', defaultValue: '') String name,
@@ -43,9 +43,9 @@ abstract class $MovieTrailerDTOCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$MovieTrailerDTOCopyWithImpl<$Res, $Val extends MovieTrailerDTO>
-    implements $MovieTrailerDTOCopyWith<$Res> {
-  _$MovieTrailerDTOCopyWithImpl(this._value, this._then);
+class _$YoutubeTrailerDTOCopyWithImpl<$Res, $Val extends YoutubeTrailerDTO>
+    implements $YoutubeTrailerDTOCopyWith<$Res> {
+  _$YoutubeTrailerDTOCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -72,11 +72,11 @@ class _$MovieTrailerDTOCopyWithImpl<$Res, $Val extends MovieTrailerDTO>
 }
 
 /// @nodoc
-abstract class _$$MovieTrailerDTOImplCopyWith<$Res>
-    implements $MovieTrailerDTOCopyWith<$Res> {
-  factory _$$MovieTrailerDTOImplCopyWith(_$MovieTrailerDTOImpl value,
-          $Res Function(_$MovieTrailerDTOImpl) then) =
-      __$$MovieTrailerDTOImplCopyWithImpl<$Res>;
+abstract class _$$YoutubeTrailerDTOImplCopyWith<$Res>
+    implements $YoutubeTrailerDTOCopyWith<$Res> {
+  factory _$$YoutubeTrailerDTOImplCopyWith(_$YoutubeTrailerDTOImpl value,
+          $Res Function(_$YoutubeTrailerDTOImpl) then) =
+      __$$YoutubeTrailerDTOImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -85,11 +85,11 @@ abstract class _$$MovieTrailerDTOImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$MovieTrailerDTOImplCopyWithImpl<$Res>
-    extends _$MovieTrailerDTOCopyWithImpl<$Res, _$MovieTrailerDTOImpl>
-    implements _$$MovieTrailerDTOImplCopyWith<$Res> {
-  __$$MovieTrailerDTOImplCopyWithImpl(
-      _$MovieTrailerDTOImpl _value, $Res Function(_$MovieTrailerDTOImpl) _then)
+class __$$YoutubeTrailerDTOImplCopyWithImpl<$Res>
+    extends _$YoutubeTrailerDTOCopyWithImpl<$Res, _$YoutubeTrailerDTOImpl>
+    implements _$$YoutubeTrailerDTOImplCopyWith<$Res> {
+  __$$YoutubeTrailerDTOImplCopyWithImpl(_$YoutubeTrailerDTOImpl _value,
+      $Res Function(_$YoutubeTrailerDTOImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -98,7 +98,7 @@ class __$$MovieTrailerDTOImplCopyWithImpl<$Res>
     Object? name = null,
     Object? youtubeKey = null,
   }) {
-    return _then(_$MovieTrailerDTOImpl(
+    return _then(_$YoutubeTrailerDTOImpl(
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -113,14 +113,13 @@ class __$$MovieTrailerDTOImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$MovieTrailerDTOImpl extends _MovieTrailerDTO {
-  _$MovieTrailerDTOImpl(
+class _$YoutubeTrailerDTOImpl implements _YoutubeTrailerDTO {
+  _$YoutubeTrailerDTOImpl(
       {@JsonKey(name: 'name', defaultValue: '') required this.name,
-      @JsonKey(name: 'key', defaultValue: '') required this.youtubeKey})
-      : super._();
+      @JsonKey(name: 'key', defaultValue: '') required this.youtubeKey});
 
-  factory _$MovieTrailerDTOImpl.fromJson(Map<String, dynamic> json) =>
-      _$$MovieTrailerDTOImplFromJson(json);
+  factory _$YoutubeTrailerDTOImpl.fromJson(Map<String, dynamic> json) =>
+      _$$YoutubeTrailerDTOImplFromJson(json);
 
   @override
   @JsonKey(name: 'name', defaultValue: '')
@@ -131,14 +130,14 @@ class _$MovieTrailerDTOImpl extends _MovieTrailerDTO {
 
   @override
   String toString() {
-    return 'MovieTrailerDTO(name: $name, youtubeKey: $youtubeKey)';
+    return 'YoutubeTrailerDTO(name: $name, youtubeKey: $youtubeKey)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$MovieTrailerDTOImpl &&
+            other is _$YoutubeTrailerDTOImpl &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.youtubeKey, youtubeKey) ||
                 other.youtubeKey == youtubeKey));
@@ -151,27 +150,26 @@ class _$MovieTrailerDTOImpl extends _MovieTrailerDTO {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$MovieTrailerDTOImplCopyWith<_$MovieTrailerDTOImpl> get copyWith =>
-      __$$MovieTrailerDTOImplCopyWithImpl<_$MovieTrailerDTOImpl>(
+  _$$YoutubeTrailerDTOImplCopyWith<_$YoutubeTrailerDTOImpl> get copyWith =>
+      __$$YoutubeTrailerDTOImplCopyWithImpl<_$YoutubeTrailerDTOImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$MovieTrailerDTOImplToJson(
+    return _$$YoutubeTrailerDTOImplToJson(
       this,
     );
   }
 }
 
-abstract class _MovieTrailerDTO extends MovieTrailerDTO {
-  factory _MovieTrailerDTO(
+abstract class _YoutubeTrailerDTO implements YoutubeTrailerDTO {
+  factory _YoutubeTrailerDTO(
       {@JsonKey(name: 'name', defaultValue: '') required final String name,
       @JsonKey(name: 'key', defaultValue: '')
-      required final String youtubeKey}) = _$MovieTrailerDTOImpl;
-  _MovieTrailerDTO._() : super._();
+      required final String youtubeKey}) = _$YoutubeTrailerDTOImpl;
 
-  factory _MovieTrailerDTO.fromJson(Map<String, dynamic> json) =
-      _$MovieTrailerDTOImpl.fromJson;
+  factory _YoutubeTrailerDTO.fromJson(Map<String, dynamic> json) =
+      _$YoutubeTrailerDTOImpl.fromJson;
 
   @override
   @JsonKey(name: 'name', defaultValue: '')
@@ -181,6 +179,6 @@ abstract class _MovieTrailerDTO extends MovieTrailerDTO {
   String get youtubeKey;
   @override
   @JsonKey(ignore: true)
-  _$$MovieTrailerDTOImplCopyWith<_$MovieTrailerDTOImpl> get copyWith =>
+  _$$YoutubeTrailerDTOImplCopyWith<_$YoutubeTrailerDTOImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -17,42 +17,45 @@ class MovieRating extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(5),
-      child: Align(
-        alignment: alignment ?? Alignment.bottomRight,
-        child: IntrinsicWidth(
-          child: DecoratedBox(
-            decoration: BoxDecoration(
-              color: backgroundColor ?? Colors.black.withOpacity(0.5),
-              borderRadius: BorderRadius.circular(20),
-            ),
-            child: Padding(
-              padding: const EdgeInsets.symmetric(
-                vertical: 10,
-                horizontal: 15,
+    if (averageRating != 0.0) {
+      return Padding(
+        padding: const EdgeInsets.all(5),
+        child: Align(
+          alignment: alignment ?? Alignment.bottomRight,
+          child: IntrinsicWidth(
+            child: DecoratedBox(
+              decoration: BoxDecoration(
+                color: backgroundColor ?? Colors.black.withOpacity(0.5),
+                borderRadius: BorderRadius.circular(20),
               ),
-              child: Row(
-                children: [
-                  Icon(
-                    CinemaxIcons.star,
-                    color: SecondaryColor.orange,
-                    size: 16,
-                  ),
-                  const SizedBox(width: 5),
-                  Text(
-                    averageRating.toStringAsFixed(2),
-                    style: context.textStyle.h6.copyWith(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(
+                  vertical: 10,
+                  horizontal: 15,
+                ),
+                child: Row(
+                  children: [
+                    Icon(
+                      CinemaxIcons.star,
                       color: SecondaryColor.orange,
-                      fontWeight: FontWeight.w600,
+                      size: 16,
                     ),
-                  ),
-                ],
+                    const SizedBox(width: 5),
+                    Text(
+                      averageRating.toStringAsFixed(2),
+                      style: context.textStyle.h6.copyWith(
+                        color: SecondaryColor.orange,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
         ),
-      ),
-    );
+      );
+    }
+    return const SizedBox();
   }
 }

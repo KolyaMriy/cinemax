@@ -39,14 +39,14 @@ class MovieRecommendationRemoteDataSourceImpl
           if (isSavedGenre) {
             final result = await _repository.getGenreListByIds(movieDto.genres);
             return result.fold(
-              (l) => movieDto.toDomain(),
-              (genres) => movieDto.toDomain(listGenre: genres),
+              (l) => movieDto.toEntity(),
+              (genres) => movieDto.toEntity(listGenre: genres),
             );
           } else {
             final result = await _repository.getGenreListByIds(movieDto.genres);
             return result.fold(
-              (l) => movieDto.toDomain(),
-              (genres) => movieDto.toDomain(listGenre: genres),
+              (l) => movieDto.toEntity(),
+              (genres) => movieDto.toEntity(listGenre: genres),
             );
           }
         }).toList();

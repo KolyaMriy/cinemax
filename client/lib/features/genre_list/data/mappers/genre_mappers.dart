@@ -1,8 +1,15 @@
 import 'package:client/features/genre_list/data/dtos/genre_dto.dart';
 import 'package:client/features/genre_list/data/entity/genre_entity.dart';
 
-extension GenreMapper on GenreDTO {
-  GenreEntity toDomain() => GenreEntity(
+extension GenreToEntity on GenreDTO {
+  GenreEntity toEntity() => GenreEntity(
+        id: id,
+        name: name,
+      );
+}
+
+extension GenreToDTO on GenreEntity {
+  GenreDTO toDTO() => GenreDTO(
         id: id,
         name: name,
       );

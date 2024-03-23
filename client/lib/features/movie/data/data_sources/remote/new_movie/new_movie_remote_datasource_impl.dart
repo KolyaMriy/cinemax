@@ -23,7 +23,7 @@ class NewMovieRemoteDataSourceImpl implements NewMovieRemoteDataSource {
       final responseData = response.data;
       if (responseData is Map<String, dynamic>) {
         final newMovieListDTO = ListMovieDTO.fromJson(responseData);
-        final listMovieEntity = newMovieListDTO.toDomain();
+        final listMovieEntity = newMovieListDTO.toEntity();
         return listMovieEntity;
       } else {
         throw Exception();

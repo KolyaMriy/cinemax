@@ -1,10 +1,10 @@
 import 'dart:io';
 import 'package:client/cinemax_app.dart';
 import 'package:client/core/flavor/export.dart';
-import 'package:client/features/detail_actor/data/entity/detail_actor_entity.dart';
-import 'package:client/features/genre_list/data/entity/genre_entity.dart';
-import 'package:client/features/movie/data/entity/list_movie.dart';
-import 'package:client/features/movie/data/entity/movie.dart';
+import 'package:client/features/detail_actor/data/dtos/detail_actor/detail_actor_dto.dart';
+import 'package:client/features/genre_list/data/dtos/genre_dto.dart';
+import 'package:client/features/movie/data/dtos/list_movie/list_new_movie_dto.dart';
+import 'package:client/features/movie/data/dtos/movie/movie_dto.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
@@ -14,10 +14,10 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Hive.initFlutter((await getApplicationDocumentsDirectory()).path);
   Hive
-    ..registerAdapter(DetailActorEntityAdapter())
-    ..registerAdapter(GenreEntityAdapter())
-    ..registerAdapter(MovieEntityAdapter())
-    ..registerAdapter(ListMovieEntityAdapter());
+    ..registerAdapter(DetailActorDTOAdapter())
+    ..registerAdapter(GenreDTOAdapter())
+    ..registerAdapter(MovieDTOAdapter())
+    ..registerAdapter(ListMovieDTOAdapter());
 
   if (Platform.isAndroid) {
     await initializeFireBase(

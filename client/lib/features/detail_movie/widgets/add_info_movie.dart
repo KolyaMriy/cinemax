@@ -9,12 +9,10 @@ class AddInfoMovie extends StatelessWidget {
     super.key,
     required this.releaseDate,
     required this.runtime,
-    required this.genre,
   });
 
   final String releaseDate;
   final String runtime;
-  final String genre;
 
   @override
   Widget build(BuildContext context) {
@@ -55,26 +53,6 @@ class AddInfoMovie extends StatelessWidget {
             )
           ],
         ),
-        Text(
-          '|',
-          style: context.textStyle.h4.copyWith(
-            color: TextColor.grey,
-            fontWeight: FontWeightStyle.medium.fontWeight,
-          ),
-        ),
-        Wrap(
-          spacing: 5,
-          children: [
-            Icon(CinemaxIcons.film, color: TextColor.grey),
-            Text(
-              genre,
-              style: context.textStyle.h4.copyWith(
-                color: TextColor.grey,
-                fontWeight: FontWeightStyle.medium.fontWeight,
-              ),
-            )
-          ],
-        )
       ],
     );
   }

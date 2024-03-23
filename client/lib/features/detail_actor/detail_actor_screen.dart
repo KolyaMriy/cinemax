@@ -3,7 +3,9 @@ import 'package:client/core/di/dependency_provider.dart';
 import 'package:client/core/router/app_router_name.dart';
 import 'package:client/features/detail_actor/cubit/detail_actor_cubit.dart';
 import 'package:client/features/movie/data/mappers/movie_card_mapper.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:ui_kit/assets/icons/cinemax_icons.dart';
@@ -37,34 +39,41 @@ class DetailActorScreen extends StatelessWidget {
               return const Center(child: CircularProgressIndicator());
             }
             return Center(
-              child: Column(
+              child: Flex(
+                direction: Axis.vertical,
                 children: [
-                  Column(
-                    children: [
-                      SizedBox(
-                        width: 200,
-                        height: 300,
-                        child: DecoratedBox(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(20),
-                            image: DecorationImage(
-                              fit: BoxFit.cover,
-                              image:
-                                  CachedNetworkImageProvider(state.actor.image),
+                  Flexible(
+                    flex: 4,
+                    child: Column(
+                      children: [
+                        SizedBox(
+                          width: 200,
+                          height: 250,
+                          child: DecoratedBox(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(20),
+                              image: DecorationImage(
+                                fit: BoxFit.cover,
+                                image: CachedNetworkImageProvider(
+                                  state.actor.image,
+                                ),
+                              ),
                             ),
                           ),
                         ),
-                      ),
-                      SizedBox(height: context.spacerStyle.height),
-                      Text(
-                        state.actor.name,
-                        style: context.textStyle.h1,
-                      ),
-                      SizedBox(height: context.spacerStyle.height),
-                    ],
+                        SizedBox(height: context.spacerStyle.height),
+                        Text(
+                          state.actor.name,
+                          style: context.textStyle.h2,
+                        ),
+                        SizedBox(height: context.spacerStyle.height),
+                      ],
+                    ),
                   ),
-                  Expanded(
-                    child: GridView.builder(
+                  if (state.actor.alsoKnownAs != null)
+                    Flexible(
+                      flex: 5,
+                      child: GridView.builder(
                         itemCount: state.actor.alsoKnownAs!.length,
                         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                           childAspectRatio: MediaQuery.of(context).size.width /
@@ -84,8 +93,9 @@ class DetailActorScreen extends StatelessWidget {
                             },
                             cardModel: card,
                           );
-                        }),
-                  )
+                        },
+                      ),
+                    )
                 ],
               ),
             );

@@ -20,18 +20,27 @@ DetailActorDTO _$DetailActorDTOFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$DetailActorDTO {
+  @HiveField(0)
   @JsonKey(name: 'name', defaultValue: '')
   String get name => throw _privateConstructorUsedError;
+  @HiveField(1)
   @JsonKey(name: 'biography', defaultValue: '')
   String get biography => throw _privateConstructorUsedError;
+  @HiveField(2)
   @JsonKey(name: 'birthday', defaultValue: '')
   String get birthday => throw _privateConstructorUsedError;
+  @HiveField(3)
   @JsonKey(name: 'id', defaultValue: 0)
   int get id => throw _privateConstructorUsedError;
+  @HiveField(4)
   @JsonKey(name: 'profile_path', defaultValue: '')
   String get image => throw _privateConstructorUsedError;
+  @HiveField(5)
   @JsonKey(name: 'deathday', defaultValue: '')
   String get deathday => throw _privateConstructorUsedError;
+  @HiveField(6)
+  @JsonKey(name: 'alsoKnownAs', defaultValue: [])
+  List<MovieDTO> get alsoKnownAs => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -46,12 +55,23 @@ abstract class $DetailActorDTOCopyWith<$Res> {
       _$DetailActorDTOCopyWithImpl<$Res, DetailActorDTO>;
   @useResult
   $Res call(
-      {@JsonKey(name: 'name', defaultValue: '') String name,
-      @JsonKey(name: 'biography', defaultValue: '') String biography,
-      @JsonKey(name: 'birthday', defaultValue: '') String birthday,
-      @JsonKey(name: 'id', defaultValue: 0) int id,
-      @JsonKey(name: 'profile_path', defaultValue: '') String image,
-      @JsonKey(name: 'deathday', defaultValue: '') String deathday});
+      {@HiveField(0) @JsonKey(name: 'name', defaultValue: '') String name,
+      @HiveField(1)
+      @JsonKey(name: 'biography', defaultValue: '')
+      String biography,
+      @HiveField(2)
+      @JsonKey(name: 'birthday', defaultValue: '')
+      String birthday,
+      @HiveField(3) @JsonKey(name: 'id', defaultValue: 0) int id,
+      @HiveField(4)
+      @JsonKey(name: 'profile_path', defaultValue: '')
+      String image,
+      @HiveField(5)
+      @JsonKey(name: 'deathday', defaultValue: '')
+      String deathday,
+      @HiveField(6)
+      @JsonKey(name: 'alsoKnownAs', defaultValue: [])
+      List<MovieDTO> alsoKnownAs});
 }
 
 /// @nodoc
@@ -73,6 +93,7 @@ class _$DetailActorDTOCopyWithImpl<$Res, $Val extends DetailActorDTO>
     Object? id = null,
     Object? image = null,
     Object? deathday = null,
+    Object? alsoKnownAs = null,
   }) {
     return _then(_value.copyWith(
       name: null == name
@@ -99,6 +120,10 @@ class _$DetailActorDTOCopyWithImpl<$Res, $Val extends DetailActorDTO>
           ? _value.deathday
           : deathday // ignore: cast_nullable_to_non_nullable
               as String,
+      alsoKnownAs: null == alsoKnownAs
+          ? _value.alsoKnownAs
+          : alsoKnownAs // ignore: cast_nullable_to_non_nullable
+              as List<MovieDTO>,
     ) as $Val);
   }
 }
@@ -112,12 +137,23 @@ abstract class _$$DetailActorDTOImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: 'name', defaultValue: '') String name,
-      @JsonKey(name: 'biography', defaultValue: '') String biography,
-      @JsonKey(name: 'birthday', defaultValue: '') String birthday,
-      @JsonKey(name: 'id', defaultValue: 0) int id,
-      @JsonKey(name: 'profile_path', defaultValue: '') String image,
-      @JsonKey(name: 'deathday', defaultValue: '') String deathday});
+      {@HiveField(0) @JsonKey(name: 'name', defaultValue: '') String name,
+      @HiveField(1)
+      @JsonKey(name: 'biography', defaultValue: '')
+      String biography,
+      @HiveField(2)
+      @JsonKey(name: 'birthday', defaultValue: '')
+      String birthday,
+      @HiveField(3) @JsonKey(name: 'id', defaultValue: 0) int id,
+      @HiveField(4)
+      @JsonKey(name: 'profile_path', defaultValue: '')
+      String image,
+      @HiveField(5)
+      @JsonKey(name: 'deathday', defaultValue: '')
+      String deathday,
+      @HiveField(6)
+      @JsonKey(name: 'alsoKnownAs', defaultValue: [])
+      List<MovieDTO> alsoKnownAs});
 }
 
 /// @nodoc
@@ -137,6 +173,7 @@ class __$$DetailActorDTOImplCopyWithImpl<$Res>
     Object? id = null,
     Object? image = null,
     Object? deathday = null,
+    Object? alsoKnownAs = null,
   }) {
     return _then(_$DetailActorDTOImpl(
       name: null == name
@@ -163,6 +200,10 @@ class __$$DetailActorDTOImplCopyWithImpl<$Res>
           ? _value.deathday
           : deathday // ignore: cast_nullable_to_non_nullable
               as String,
+      alsoKnownAs: null == alsoKnownAs
+          ? _value._alsoKnownAs
+          : alsoKnownAs // ignore: cast_nullable_to_non_nullable
+              as List<MovieDTO>,
     ));
   }
 }
@@ -171,38 +212,67 @@ class __$$DetailActorDTOImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$DetailActorDTOImpl implements _DetailActorDTO {
   const _$DetailActorDTOImpl(
-      {@JsonKey(name: 'name', defaultValue: '') required this.name,
-      @JsonKey(name: 'biography', defaultValue: '') required this.biography,
-      @JsonKey(name: 'birthday', defaultValue: '') required this.birthday,
-      @JsonKey(name: 'id', defaultValue: 0) required this.id,
-      @JsonKey(name: 'profile_path', defaultValue: '') required this.image,
-      @JsonKey(name: 'deathday', defaultValue: '') required this.deathday});
+      {@HiveField(0)
+      @JsonKey(name: 'name', defaultValue: '')
+      required this.name,
+      @HiveField(1)
+      @JsonKey(name: 'biography', defaultValue: '')
+      required this.biography,
+      @HiveField(2)
+      @JsonKey(name: 'birthday', defaultValue: '')
+      required this.birthday,
+      @HiveField(3) @JsonKey(name: 'id', defaultValue: 0) required this.id,
+      @HiveField(4)
+      @JsonKey(name: 'profile_path', defaultValue: '')
+      required this.image,
+      @HiveField(5)
+      @JsonKey(name: 'deathday', defaultValue: '')
+      required this.deathday,
+      @HiveField(6)
+      @JsonKey(name: 'alsoKnownAs', defaultValue: [])
+      required final List<MovieDTO> alsoKnownAs})
+      : _alsoKnownAs = alsoKnownAs;
 
   factory _$DetailActorDTOImpl.fromJson(Map<String, dynamic> json) =>
       _$$DetailActorDTOImplFromJson(json);
 
   @override
+  @HiveField(0)
   @JsonKey(name: 'name', defaultValue: '')
   final String name;
   @override
+  @HiveField(1)
   @JsonKey(name: 'biography', defaultValue: '')
   final String biography;
   @override
+  @HiveField(2)
   @JsonKey(name: 'birthday', defaultValue: '')
   final String birthday;
   @override
+  @HiveField(3)
   @JsonKey(name: 'id', defaultValue: 0)
   final int id;
   @override
+  @HiveField(4)
   @JsonKey(name: 'profile_path', defaultValue: '')
   final String image;
   @override
+  @HiveField(5)
   @JsonKey(name: 'deathday', defaultValue: '')
   final String deathday;
+  final List<MovieDTO> _alsoKnownAs;
+  @override
+  @HiveField(6)
+  @JsonKey(name: 'alsoKnownAs', defaultValue: [])
+  List<MovieDTO> get alsoKnownAs {
+    if (_alsoKnownAs is EqualUnmodifiableListView) return _alsoKnownAs;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_alsoKnownAs);
+  }
 
   @override
   String toString() {
-    return 'DetailActorDTO(name: $name, biography: $biography, birthday: $birthday, id: $id, image: $image, deathday: $deathday)';
+    return 'DetailActorDTO(name: $name, biography: $biography, birthday: $birthday, id: $id, image: $image, deathday: $deathday, alsoKnownAs: $alsoKnownAs)';
   }
 
   @override
@@ -218,13 +288,15 @@ class _$DetailActorDTOImpl implements _DetailActorDTO {
             (identical(other.id, id) || other.id == id) &&
             (identical(other.image, image) || other.image == image) &&
             (identical(other.deathday, deathday) ||
-                other.deathday == deathday));
+                other.deathday == deathday) &&
+            const DeepCollectionEquality()
+                .equals(other._alsoKnownAs, _alsoKnownAs));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, name, biography, birthday, id, image, deathday);
+  int get hashCode => Object.hash(runtimeType, name, biography, birthday, id,
+      image, deathday, const DeepCollectionEquality().hash(_alsoKnownAs));
 
   @JsonKey(ignore: true)
   @override
@@ -243,38 +315,57 @@ class _$DetailActorDTOImpl implements _DetailActorDTO {
 
 abstract class _DetailActorDTO implements DetailActorDTO {
   const factory _DetailActorDTO(
-      {@JsonKey(name: 'name', defaultValue: '') required final String name,
+      {@HiveField(0)
+      @JsonKey(name: 'name', defaultValue: '')
+      required final String name,
+      @HiveField(1)
       @JsonKey(name: 'biography', defaultValue: '')
       required final String biography,
+      @HiveField(2)
       @JsonKey(name: 'birthday', defaultValue: '')
       required final String birthday,
-      @JsonKey(name: 'id', defaultValue: 0) required final int id,
+      @HiveField(3) @JsonKey(name: 'id', defaultValue: 0) required final int id,
+      @HiveField(4)
       @JsonKey(name: 'profile_path', defaultValue: '')
       required final String image,
+      @HiveField(5)
       @JsonKey(name: 'deathday', defaultValue: '')
-      required final String deathday}) = _$DetailActorDTOImpl;
+      required final String deathday,
+      @HiveField(6)
+      @JsonKey(name: 'alsoKnownAs', defaultValue: [])
+      required final List<MovieDTO> alsoKnownAs}) = _$DetailActorDTOImpl;
 
   factory _DetailActorDTO.fromJson(Map<String, dynamic> json) =
       _$DetailActorDTOImpl.fromJson;
 
   @override
+  @HiveField(0)
   @JsonKey(name: 'name', defaultValue: '')
   String get name;
   @override
+  @HiveField(1)
   @JsonKey(name: 'biography', defaultValue: '')
   String get biography;
   @override
+  @HiveField(2)
   @JsonKey(name: 'birthday', defaultValue: '')
   String get birthday;
   @override
+  @HiveField(3)
   @JsonKey(name: 'id', defaultValue: 0)
   int get id;
   @override
+  @HiveField(4)
   @JsonKey(name: 'profile_path', defaultValue: '')
   String get image;
   @override
+  @HiveField(5)
   @JsonKey(name: 'deathday', defaultValue: '')
   String get deathday;
+  @override
+  @HiveField(6)
+  @JsonKey(name: 'alsoKnownAs', defaultValue: [])
+  List<MovieDTO> get alsoKnownAs;
   @override
   @JsonKey(ignore: true)
   _$$DetailActorDTOImplCopyWith<_$DetailActorDTOImpl> get copyWith =>

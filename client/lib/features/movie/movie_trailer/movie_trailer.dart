@@ -1,5 +1,5 @@
 import 'package:client/core/di/dependency_provider.dart';
-import 'package:client/features/movie_trailer/cubit/movie_trailer_cubit.dart';
+import 'package:client/features/movie/movie_trailer/cubit/movie_trailer_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';

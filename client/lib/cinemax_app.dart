@@ -36,7 +36,7 @@ class _CinemaxAppState extends State<CinemaxApp> {
         ),
         BlocProvider<PopularMoviesGenreCubit>(
           create: (_) =>
-              DependencyProvider.get<PopularMoviesGenreCubit>()..initial(),
+              DependencyProvider.get<PopularMoviesGenreCubit>()..loadPopularMovieGenre()
         ),
         BlocProvider<SearchMovieCubit>(
           create: (_) => DependencyProvider.get<SearchMovieCubit>(),

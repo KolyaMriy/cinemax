@@ -12,9 +12,11 @@ class NewMovieListCubit extends Cubit<NewMovieListState> {
   NewMovieListCubit({
     required NewMovieRepositoryImpl repository,
   })  : _repository = repository,
-        super(NewMovieListState(
-          listNewMovie: ListMovieEntity.empty(),
-        ));
+        super(
+          NewMovieListState(
+            listNewMovie: ListMovieEntity.empty(),
+          ),
+        );
 
   Future<void> loadNewMovieList() async {
     if (state.loading != true) {

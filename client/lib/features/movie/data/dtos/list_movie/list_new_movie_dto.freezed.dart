@@ -20,8 +20,10 @@ ListMovieDTO _$ListMovieDTOFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ListMovieDTO {
+  @HiveField(0)
   @JsonKey(name: 'results', defaultValue: [])
   List<MovieDTO>? get movies => throw _privateConstructorUsedError;
+  @HiveField(1)
   @JsonKey(name: 'page', defaultValue: 1)
   int get page => throw _privateConstructorUsedError;
 
@@ -38,8 +40,10 @@ abstract class $ListMovieDTOCopyWith<$Res> {
       _$ListMovieDTOCopyWithImpl<$Res, ListMovieDTO>;
   @useResult
   $Res call(
-      {@JsonKey(name: 'results', defaultValue: []) List<MovieDTO>? movies,
-      @JsonKey(name: 'page', defaultValue: 1) int page});
+      {@HiveField(0)
+      @JsonKey(name: 'results', defaultValue: [])
+      List<MovieDTO>? movies,
+      @HiveField(1) @JsonKey(name: 'page', defaultValue: 1) int page});
 }
 
 /// @nodoc
@@ -80,8 +84,10 @@ abstract class _$$ListNewMovieDTOImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: 'results', defaultValue: []) List<MovieDTO>? movies,
-      @JsonKey(name: 'page', defaultValue: 1) int page});
+      {@HiveField(0)
+      @JsonKey(name: 'results', defaultValue: [])
+      List<MovieDTO>? movies,
+      @HiveField(1) @JsonKey(name: 'page', defaultValue: 1) int page});
 }
 
 /// @nodoc
@@ -115,9 +121,10 @@ class __$$ListNewMovieDTOImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$ListNewMovieDTOImpl extends _ListNewMovieDTO {
   _$ListNewMovieDTOImpl(
-      {@JsonKey(name: 'results', defaultValue: [])
+      {@HiveField(0)
+      @JsonKey(name: 'results', defaultValue: [])
       required final List<MovieDTO>? movies,
-      @JsonKey(name: 'page', defaultValue: 1) required this.page})
+      @HiveField(1) @JsonKey(name: 'page', defaultValue: 1) required this.page})
       : _movies = movies,
         super._();
 
@@ -126,6 +133,7 @@ class _$ListNewMovieDTOImpl extends _ListNewMovieDTO {
 
   final List<MovieDTO>? _movies;
   @override
+  @HiveField(0)
   @JsonKey(name: 'results', defaultValue: [])
   List<MovieDTO>? get movies {
     final value = _movies;
@@ -136,6 +144,7 @@ class _$ListNewMovieDTOImpl extends _ListNewMovieDTO {
   }
 
   @override
+  @HiveField(1)
   @JsonKey(name: 'page', defaultValue: 1)
   final int page;
 
@@ -175,19 +184,23 @@ class _$ListNewMovieDTOImpl extends _ListNewMovieDTO {
 
 abstract class _ListNewMovieDTO extends ListMovieDTO {
   factory _ListNewMovieDTO(
-          {@JsonKey(name: 'results', defaultValue: [])
-          required final List<MovieDTO>? movies,
-          @JsonKey(name: 'page', defaultValue: 1) required final int page}) =
-      _$ListNewMovieDTOImpl;
+      {@HiveField(0)
+      @JsonKey(name: 'results', defaultValue: [])
+      required final List<MovieDTO>? movies,
+      @HiveField(1)
+      @JsonKey(name: 'page', defaultValue: 1)
+      required final int page}) = _$ListNewMovieDTOImpl;
   _ListNewMovieDTO._() : super._();
 
   factory _ListNewMovieDTO.fromJson(Map<String, dynamic> json) =
       _$ListNewMovieDTOImpl.fromJson;
 
   @override
+  @HiveField(0)
   @JsonKey(name: 'results', defaultValue: [])
   List<MovieDTO>? get movies;
   @override
+  @HiveField(1)
   @JsonKey(name: 'page', defaultValue: 1)
   int get page;
   @override

@@ -2,7 +2,7 @@
 
 import 'package:client/core/api/api_config.dart';
 import 'package:client/core/failure/failure.dart';
-import 'package:client/features/genre_list/data/repositories/genre_repository.dart';
+import 'package:client/features/genre_list/data/repositories/genre_repository_impl.dart';
 import 'package:client/features/movie/data/dtos/list_movie/list_new_movie_dto.dart';
 import 'package:client/features/movie/data/entity/list_movie.dart';
 import 'package:client/features/movie/data/mappers/movie_mapper.dart';
@@ -18,10 +18,10 @@ abstract class ISearchRepository {
 
 class SearchRepository implements ISearchRepository {
   final Dio _dio;
-  final GenreRepository _genreRepository;
+  final GenreRepositoryImpl _genreRepository;
 
   SearchRepository({
-    required GenreRepository genreRepository,
+    required GenreRepositoryImpl genreRepository,
     required Dio dio,
   })  : _dio = dio,
         _genreRepository = genreRepository;
@@ -47,11 +47,11 @@ class SearchRepository implements ISearchRepository {
           movieFutures.add(genreEntityFuture.then((genreEntity) {
             genreEntity.fold(
               (failure) {
-                final movieEntity = movie.toDomain();
+                final movieEntity = movie.toEntity();
                 listMovieEntity.movies.add(movieEntity);
               },
               (success) {
-                final movieEntity = movie.toDomain(listGenre: success);
+                final movieEntity = movie.toEntity(listGenre: success);
                 listMovieEntity.movies.add(movieEntity);
               },
             );

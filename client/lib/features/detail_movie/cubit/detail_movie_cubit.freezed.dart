@@ -16,7 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$DetailMovieState {
-  MovieDetailEntity get movieDetail => throw _privateConstructorUsedError;
+  MovieDetailEntity? get movieDetail => throw _privateConstructorUsedError;
   bool get loading => throw _privateConstructorUsedError;
   bool get showTrailer => throw _privateConstructorUsedError;
   Failure? get failure => throw _privateConstructorUsedError;
@@ -33,7 +33,7 @@ abstract class $DetailMovieStateCopyWith<$Res> {
       _$DetailMovieStateCopyWithImpl<$Res, DetailMovieState>;
   @useResult
   $Res call(
-      {MovieDetailEntity movieDetail,
+      {MovieDetailEntity? movieDetail,
       bool loading,
       bool showTrailer,
       Failure? failure});
@@ -54,16 +54,16 @@ class _$DetailMovieStateCopyWithImpl<$Res, $Val extends DetailMovieState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? movieDetail = null,
+    Object? movieDetail = freezed,
     Object? loading = null,
     Object? showTrailer = null,
     Object? failure = freezed,
   }) {
     return _then(_value.copyWith(
-      movieDetail: null == movieDetail
+      movieDetail: freezed == movieDetail
           ? _value.movieDetail
           : movieDetail // ignore: cast_nullable_to_non_nullable
-              as MovieDetailEntity,
+              as MovieDetailEntity?,
       loading: null == loading
           ? _value.loading
           : loading // ignore: cast_nullable_to_non_nullable
@@ -101,7 +101,7 @@ abstract class _$$DetailMovieStateImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {MovieDetailEntity movieDetail,
+      {MovieDetailEntity? movieDetail,
       bool loading,
       bool showTrailer,
       Failure? failure});
@@ -121,16 +121,16 @@ class __$$DetailMovieStateImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? movieDetail = null,
+    Object? movieDetail = freezed,
     Object? loading = null,
     Object? showTrailer = null,
     Object? failure = freezed,
   }) {
     return _then(_$DetailMovieStateImpl(
-      movieDetail: null == movieDetail
+      movieDetail: freezed == movieDetail
           ? _value.movieDetail
           : movieDetail // ignore: cast_nullable_to_non_nullable
-              as MovieDetailEntity,
+              as MovieDetailEntity?,
       loading: null == loading
           ? _value.loading
           : loading // ignore: cast_nullable_to_non_nullable
@@ -151,13 +151,13 @@ class __$$DetailMovieStateImplCopyWithImpl<$Res>
 
 class _$DetailMovieStateImpl implements _DetailMovieState {
   _$DetailMovieStateImpl(
-      {required this.movieDetail,
+      {this.movieDetail,
       this.loading = false,
       this.showTrailer = false,
       this.failure});
 
   @override
-  final MovieDetailEntity movieDetail;
+  final MovieDetailEntity? movieDetail;
   @override
   @JsonKey()
   final bool loading;
@@ -199,13 +199,13 @@ class _$DetailMovieStateImpl implements _DetailMovieState {
 
 abstract class _DetailMovieState implements DetailMovieState {
   factory _DetailMovieState(
-      {required final MovieDetailEntity movieDetail,
+      {final MovieDetailEntity? movieDetail,
       final bool loading,
       final bool showTrailer,
       final Failure? failure}) = _$DetailMovieStateImpl;
 
   @override
-  MovieDetailEntity get movieDetail;
+  MovieDetailEntity? get movieDetail;
   @override
   bool get loading;
   @override

@@ -11,7 +11,7 @@ import 'package:client/features/genre_list/di/dependency_resolver.dart';
 import 'package:client/features/movie/movie_recommendations/di/dependency_resolver.dart';
 import 'package:client/features/movie/new_movie_list/di/dependency_resolver.dart';
 import 'package:client/features/movie/popular_movie_genre/di/dependency_resolver.dart';
-import 'package:client/features/movie_trailer/di/dependency_resolver.dart';
+import 'package:client/features/movie/movie_trailer/di/dependency_resolver.dart';
 import 'package:client/features/search_movie/di/dependency_resolver.dart';
 import 'package:dio/dio.dart';
 import 'package:internet_connection_checker_plus/internet_connection_checker_plus.dart';

@@ -19,7 +19,6 @@ class NewMovieList extends StatelessWidget {
           DependencyProvider.get<NewMovieListCubit>()..loadNewMovieList(),
       child: BlocBuilder<NewMovieListCubit, NewMovieListState>(
         builder: (context, state) {
-          debugPrint(state.toString());
           if (state.loading) {
             return const Center(child: CircularProgressIndicator());
           }
@@ -32,29 +31,24 @@ class NewMovieList extends StatelessWidget {
             );
           }
           if (state.listNewMovie.movies.isNotEmpty) {
-            return Column(
-              children: [
-                CarouselSlider.builder(
-                    options: CarouselOptions(
-                      enlargeFactor: 0.1,
-                      autoPlay: true,
-                      enlargeCenterPage: true,
-                      height: 180.0,
-                      enlargeStrategy: CenterPageEnlargeStrategy.height,
-                      autoPlayInterval: const Duration(seconds: 10),
-                    ),
-                    itemCount: state.listNewMovie.movies.length,
-                    itemBuilder: (context, index, realIndex) {
-                      return PosterMovie(
-                        onTap: () => context.pushNamed(
-                            AppRouterName.detailMovieName,
-                            extra: state.listNewMovie.movies[index].id),
-                        posterMovie:
-                            state.listNewMovie.movies[index].toPoster(),
-                      );
-                    }),
-              ],
-            );
+            return CarouselSlider.builder(
+                options: CarouselOptions(
+                  enlargeFactor: 0.1,
+                  autoPlay: true,
+                  height: 180,
+                  enlargeCenterPage: true,
+                  enlargeStrategy: CenterPageEnlargeStrategy.height,
+                  autoPlayInterval: const Duration(seconds: 10),
+                ),
+                itemCount: state.listNewMovie.movies.length,
+                itemBuilder: (context, index, realIndex) {
+                  return PosterMovie(
+                    onTap: () => context.pushNamed(
+                        AppRouterName.detailMovieName,
+                        extra: state.listNewMovie.movies[index].id),
+                    posterMovie: state.listNewMovie.movies[index].toPoster(),
+                  );
+                });
           }
           return const SizedBox();
         },

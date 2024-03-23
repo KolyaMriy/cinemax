@@ -31,7 +31,7 @@ class GenreRemoteDataSourceImpl implements GenreRemoteDataSource {
       } else {
         throw Exception();
       }
-      final genreEntity = dtos.map((dto) => dto.toDomain()).toList();
+      final genreEntity = dtos.map((dto) => dto.toEntity()).toList();
 
       return genreEntity;
     } catch (e) {
@@ -63,7 +63,7 @@ class GenreRemoteDataSourceImpl implements GenreRemoteDataSource {
       } else {
         throw Exception();
       }
-      final genreEntity = dtos.map((dto) => dto.toDomain()).toList();
+      final genreEntity = dtos.map((dto) => dto.toEntity()).toList();
 
       return genreEntity;
     } catch (e) {

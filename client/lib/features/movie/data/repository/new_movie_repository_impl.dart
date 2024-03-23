@@ -33,12 +33,19 @@ class NewMovieRepositoryImpl implements NewMovieRepository {
 
   @override
   Future<Either<Failure, ListMovieEntity>> getNewMovie() async {
-    if (!(await _connectionChecker.isConnected)) {
-      return left(const Failure.noInternetConnection());
-    }
     try {
-      final newMovies = await _newMovieRemoteDataSource.getNewMovieList();
-      return right(newMovies);
+      if (!(await _connectionChecker.isConnected)) {
+        final newSavedMovies = _localDataSource.getSavedListMovie(index: 1);
+        if (newSavedMovies != null) {
+          return right(newSavedMovies);
+        } else {
+          return left(const Failure.noInternetConnection());
+        }
+      } else {
+        final newMovies = await _newMovieRemoteDataSource.getNewMovieList();
+        await _localDataSource.saveMovie(listMovie: newMovies, index: 1);
+        return right(newMovies);
+      }
     } catch (e) {
       debugPrint(e.toString());
       return left(const Failure.serverError());

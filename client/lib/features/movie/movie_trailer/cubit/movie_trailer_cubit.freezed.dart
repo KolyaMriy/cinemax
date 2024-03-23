@@ -16,7 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$MovieTrailerState {
-  MovieTrailerEntity get movieTrailer => throw _privateConstructorUsedError;
+  YouTubeTrailerEntity get movieTrailer => throw _privateConstructorUsedError;
   bool get loading => throw _privateConstructorUsedError;
   @Deprecated('Not Working')
   bool get startPlayer => throw _privateConstructorUsedError;
@@ -36,7 +36,7 @@ abstract class $MovieTrailerStateCopyWith<$Res> {
       _$MovieTrailerStateCopyWithImpl<$Res, MovieTrailerState>;
   @useResult
   $Res call(
-      {MovieTrailerEntity movieTrailer,
+      {YouTubeTrailerEntity movieTrailer,
       bool loading,
       @Deprecated('Not Working') bool startPlayer,
       @Deprecated('Not Working') bool mute,
@@ -68,7 +68,7 @@ class _$MovieTrailerStateCopyWithImpl<$Res, $Val extends MovieTrailerState>
       movieTrailer: null == movieTrailer
           ? _value.movieTrailer
           : movieTrailer // ignore: cast_nullable_to_non_nullable
-              as MovieTrailerEntity,
+              as YouTubeTrailerEntity,
       loading: null == loading
           ? _value.loading
           : loading // ignore: cast_nullable_to_non_nullable
@@ -110,7 +110,7 @@ abstract class _$$MovieTrailerStateImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {MovieTrailerEntity movieTrailer,
+      {YouTubeTrailerEntity movieTrailer,
       bool loading,
       @Deprecated('Not Working') bool startPlayer,
       @Deprecated('Not Working') bool mute,
@@ -141,7 +141,7 @@ class __$$MovieTrailerStateImplCopyWithImpl<$Res>
       movieTrailer: null == movieTrailer
           ? _value.movieTrailer
           : movieTrailer // ignore: cast_nullable_to_non_nullable
-              as MovieTrailerEntity,
+              as YouTubeTrailerEntity,
       loading: null == loading
           ? _value.loading
           : loading // ignore: cast_nullable_to_non_nullable
@@ -174,7 +174,7 @@ class _$MovieTrailerStateImpl extends _MovieTrailerState {
       : super._();
 
   @override
-  final MovieTrailerEntity movieTrailer;
+  final YouTubeTrailerEntity movieTrailer;
   @override
   @JsonKey()
   final bool loading;
@@ -222,7 +222,7 @@ class _$MovieTrailerStateImpl extends _MovieTrailerState {
 
 abstract class _MovieTrailerState extends MovieTrailerState {
   factory _MovieTrailerState(
-      {required final MovieTrailerEntity movieTrailer,
+      {required final YouTubeTrailerEntity movieTrailer,
       final bool loading,
       @Deprecated('Not Working') final bool startPlayer,
       @Deprecated('Not Working') final bool mute,
@@ -230,7 +230,7 @@ abstract class _MovieTrailerState extends MovieTrailerState {
   _MovieTrailerState._() : super._();
 
   @override
-  MovieTrailerEntity get movieTrailer;
+  YouTubeTrailerEntity get movieTrailer;
   @override
   bool get loading;
   @override

@@ -1,16 +1,16 @@
 // ignore_for_file: inference_failure_on_function_invocation
 import 'package:client/core/api/api_config.dart';
 import 'package:client/core/failure/failure.dart';
-import 'package:client/features/movie_trailer/data/dtos/movie_trailer_dto.dart';
-import 'package:client/features/movie_trailer/data/entity/movie_trailer_entity.dart';
-import 'package:client/features/movie_trailer/data/mappers/movie_trailer_mapper.dart';
+import 'package:client/features/movie/data/dtos/youtube_trailer/youtube_trailer_dto.dart';
+import 'package:client/features/movie/data/entity/youtube_trailer_entity.dart';
+import 'package:client/features/movie/data/mappers/movie_trailer_mapper.dart';
 
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 
 abstract interface class IMovieTrailerRepository {
-  Future<Either<Failure, MovieTrailerEntity>> getMovieTrailer({
+  Future<Either<Failure, YouTubeTrailerEntity>> getMovieTrailer({
     required int id,
   });
 }
@@ -20,7 +20,7 @@ class MovieTrailerRepository implements IMovieTrailerRepository {
 
   MovieTrailerRepository({required Dio dio}) : _dio = dio;
   @override
-  Future<Either<Failure, MovieTrailerEntity>> getMovieTrailer({
+  Future<Either<Failure, YouTubeTrailerEntity>> getMovieTrailer({
     required int id,
   }) async {
     try {
@@ -34,11 +34,11 @@ class MovieTrailerRepository implements IMovieTrailerRepository {
       if (responseData is Map<String, dynamic> &&
           responseData.containsKey('results')) {
         final results = responseData['results'] as List<dynamic>;
-        MovieTrailerDTO? movieTrailerDTO;
+        YoutubeTrailerDTO? movieTrailerDTO;
 
         for (final data in results) {
           final movieDto =
-              MovieTrailerDTO.fromJson(data as Map<String, dynamic>);
+              YoutubeTrailerDTO.fromJson(data as Map<String, dynamic>);
           if (movieDto.name == 'Official Trailer') {
             movieTrailerDTO = movieDto;
             break; // Найден официальный трейлер, выходим из цикла
@@ -51,8 +51,8 @@ class MovieTrailerRepository implements IMovieTrailerRepository {
         } else {
           // Если официальный трейлер не найден, возвращаем первый трейлер
           if (results.isNotEmpty) {
-            final movieDto =
-                MovieTrailerDTO.fromJson(results.first as Map<String, dynamic>);
+            final movieDto = YoutubeTrailerDTO.fromJson(
+                results.first as Map<String, dynamic>);
             final movieTrailerEntity = movieDto.toDomain();
             return right(movieTrailerEntity);
           } else {

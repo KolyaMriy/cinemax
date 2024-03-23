@@ -1,6 +1,6 @@
 import 'package:client/core/failure/failure.dart';
-import 'package:client/features/movie_trailer/data/entity/movie_trailer_entity.dart';
-import 'package:client/features/movie_trailer/data/repositories/movie_trailer_repository.dart';
+import 'package:client/features/movie/data/entity/youtube_trailer_entity.dart';
+import 'package:client/features/movie/movie_trailer/data/repositories/movie_trailer_repository.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -9,10 +9,9 @@ part 'movie_trailer_state.dart';
 part 'movie_trailer_cubit.freezed.dart';
 
 class MovieTrailerCubit extends Cubit<MovieTrailerState> {
-  
   MovieTrailerCubit({required MovieTrailerRepository repository})
       : _repository = repository,
-        super(MovieTrailerState(movieTrailer: MovieTrailerEntity.empty()));
+        super(MovieTrailerState(movieTrailer: YouTubeTrailerEntity.empty()));
 
   final MovieTrailerRepository _repository;
 

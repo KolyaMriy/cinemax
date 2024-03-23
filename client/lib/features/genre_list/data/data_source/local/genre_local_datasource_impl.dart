@@ -1,12 +1,14 @@
 import 'package:client/features/genre_list/data/data_source/local/genre_local_datasource.dart';
+import 'package:client/features/genre_list/data/dtos/genre_dto.dart';
 import 'package:client/features/genre_list/data/entity/genre_entity.dart';
+import 'package:client/features/genre_list/data/mappers/genre_mappers.dart';
 import 'package:hive/hive.dart';
 
 class GenreLocalDataSourceImpl implements GenreLocalDataSource {
-  final Box<GenreEntity> _box;
+  final Box<GenreDTO> _box;
 
   GenreLocalDataSourceImpl({
-    required Box<GenreEntity> box,
+    required Box<GenreDTO> box,
   }) : _box = box;
 
   @override
@@ -17,7 +19,8 @@ class GenreLocalDataSourceImpl implements GenreLocalDataSource {
   @override
   List<GenreEntity> getSavedListGenres() {
     final genres = _box.values.toList();
-    return genres;
+    final listGenres = genres.map((e) => e.toEntity()).toList();
+    return listGenres;
   }
 
   @override
@@ -30,7 +33,7 @@ class GenreLocalDataSourceImpl implements GenreLocalDataSource {
   Future<void> saveGenres({
     required List<GenreEntity> genres,
   }) async {
-    final movies = {for (final genre in genres) genre.id: genre};
+    final movies = {for (final genre in genres) genre.id: genre.toDTO()};
     await _box.putAll(movies);
   }
 
@@ -41,7 +44,7 @@ class GenreLocalDataSourceImpl implements GenreLocalDataSource {
     for (final genre in genres) {
       for (final index in idsGenre) {
         if (genre.id == index) {
-          genresIds.add(genre);
+          genresIds.add(genre.toEntity());
         }
       }
     }

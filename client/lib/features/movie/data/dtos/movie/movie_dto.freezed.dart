@@ -20,28 +20,39 @@ MovieDTO _$MovieDTOFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$MovieDTO {
-  @JsonKey(name: 'backdrop_path', defaultValue: '')
-  String get backdropPath => throw _privateConstructorUsedError;
-  @JsonKey(name: 'poster_path', defaultValue: '')
-  String get posterPath => throw _privateConstructorUsedError;
+  @HiveField(0)
   @JsonKey(name: 'id', defaultValue: 0)
   int get id => throw _privateConstructorUsedError;
+  @HiveField(1)
   @JsonKey(name: 'title', defaultValue: '')
   String get title => throw _privateConstructorUsedError;
+  @HiveField(2)
   @JsonKey(name: 'original_title', defaultValue: '')
   String get originalTitle => throw _privateConstructorUsedError;
-  @JsonKey(name: 'original_language', defaultValue: '')
-  String get originalLanguage => throw _privateConstructorUsedError;
+  @HiveField(3)
   @JsonKey(name: 'overview', defaultValue: '')
   String get description => throw _privateConstructorUsedError;
+  @HiveField(4)
   @JsonKey(name: 'popularity', defaultValue: 0)
   double get popularity => throw _privateConstructorUsedError;
+  @HiveField(5)
+  @JsonKey(name: 'poster_path', defaultValue: '')
+  String get posterPath => throw _privateConstructorUsedError;
+  @HiveField(6)
+  @JsonKey(name: 'backdrop_path', defaultValue: '')
+  String get backdropPath => throw _privateConstructorUsedError;
+  @HiveField(7)
   @JsonKey(name: 'release_date', defaultValue: '')
   String get releaseDate => throw _privateConstructorUsedError;
+  @HiveField(8)
   @JsonKey(name: 'vote_average', defaultValue: 0)
   double get voteAverage => throw _privateConstructorUsedError;
+  @HiveField(9)
   @JsonKey(name: 'genre_ids', defaultValue: [])
   List<int> get genres => throw _privateConstructorUsedError;
+  @HiveField(10)
+  @JsonKey(name: 'original_language', defaultValue: '')
+  String get originalLanguage => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -55,18 +66,35 @@ abstract class $MovieDTOCopyWith<$Res> {
       _$MovieDTOCopyWithImpl<$Res, MovieDTO>;
   @useResult
   $Res call(
-      {@JsonKey(name: 'backdrop_path', defaultValue: '') String backdropPath,
-      @JsonKey(name: 'poster_path', defaultValue: '') String posterPath,
-      @JsonKey(name: 'id', defaultValue: 0) int id,
-      @JsonKey(name: 'title', defaultValue: '') String title,
-      @JsonKey(name: 'original_title', defaultValue: '') String originalTitle,
+      {@HiveField(0) @JsonKey(name: 'id', defaultValue: 0) int id,
+      @HiveField(1) @JsonKey(name: 'title', defaultValue: '') String title,
+      @HiveField(2)
+      @JsonKey(name: 'original_title', defaultValue: '')
+      String originalTitle,
+      @HiveField(3)
+      @JsonKey(name: 'overview', defaultValue: '')
+      String description,
+      @HiveField(4)
+      @JsonKey(name: 'popularity', defaultValue: 0)
+      double popularity,
+      @HiveField(5)
+      @JsonKey(name: 'poster_path', defaultValue: '')
+      String posterPath,
+      @HiveField(6)
+      @JsonKey(name: 'backdrop_path', defaultValue: '')
+      String backdropPath,
+      @HiveField(7)
+      @JsonKey(name: 'release_date', defaultValue: '')
+      String releaseDate,
+      @HiveField(8)
+      @JsonKey(name: 'vote_average', defaultValue: 0)
+      double voteAverage,
+      @HiveField(9)
+      @JsonKey(name: 'genre_ids', defaultValue: [])
+      List<int> genres,
+      @HiveField(10)
       @JsonKey(name: 'original_language', defaultValue: '')
-      String originalLanguage,
-      @JsonKey(name: 'overview', defaultValue: '') String description,
-      @JsonKey(name: 'popularity', defaultValue: 0) double popularity,
-      @JsonKey(name: 'release_date', defaultValue: '') String releaseDate,
-      @JsonKey(name: 'vote_average', defaultValue: 0) double voteAverage,
-      @JsonKey(name: 'genre_ids', defaultValue: []) List<int> genres});
+      String originalLanguage});
 }
 
 /// @nodoc
@@ -82,27 +110,19 @@ class _$MovieDTOCopyWithImpl<$Res, $Val extends MovieDTO>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? backdropPath = null,
-    Object? posterPath = null,
     Object? id = null,
     Object? title = null,
     Object? originalTitle = null,
-    Object? originalLanguage = null,
     Object? description = null,
     Object? popularity = null,
+    Object? posterPath = null,
+    Object? backdropPath = null,
     Object? releaseDate = null,
     Object? voteAverage = null,
     Object? genres = null,
+    Object? originalLanguage = null,
   }) {
     return _then(_value.copyWith(
-      backdropPath: null == backdropPath
-          ? _value.backdropPath
-          : backdropPath // ignore: cast_nullable_to_non_nullable
-              as String,
-      posterPath: null == posterPath
-          ? _value.posterPath
-          : posterPath // ignore: cast_nullable_to_non_nullable
-              as String,
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -115,10 +135,6 @@ class _$MovieDTOCopyWithImpl<$Res, $Val extends MovieDTO>
           ? _value.originalTitle
           : originalTitle // ignore: cast_nullable_to_non_nullable
               as String,
-      originalLanguage: null == originalLanguage
-          ? _value.originalLanguage
-          : originalLanguage // ignore: cast_nullable_to_non_nullable
-              as String,
       description: null == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
@@ -127,6 +143,14 @@ class _$MovieDTOCopyWithImpl<$Res, $Val extends MovieDTO>
           ? _value.popularity
           : popularity // ignore: cast_nullable_to_non_nullable
               as double,
+      posterPath: null == posterPath
+          ? _value.posterPath
+          : posterPath // ignore: cast_nullable_to_non_nullable
+              as String,
+      backdropPath: null == backdropPath
+          ? _value.backdropPath
+          : backdropPath // ignore: cast_nullable_to_non_nullable
+              as String,
       releaseDate: null == releaseDate
           ? _value.releaseDate
           : releaseDate // ignore: cast_nullable_to_non_nullable
@@ -139,6 +163,10 @@ class _$MovieDTOCopyWithImpl<$Res, $Val extends MovieDTO>
           ? _value.genres
           : genres // ignore: cast_nullable_to_non_nullable
               as List<int>,
+      originalLanguage: null == originalLanguage
+          ? _value.originalLanguage
+          : originalLanguage // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 }
@@ -152,18 +180,35 @@ abstract class _$$MovieCardDTOImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: 'backdrop_path', defaultValue: '') String backdropPath,
-      @JsonKey(name: 'poster_path', defaultValue: '') String posterPath,
-      @JsonKey(name: 'id', defaultValue: 0) int id,
-      @JsonKey(name: 'title', defaultValue: '') String title,
-      @JsonKey(name: 'original_title', defaultValue: '') String originalTitle,
+      {@HiveField(0) @JsonKey(name: 'id', defaultValue: 0) int id,
+      @HiveField(1) @JsonKey(name: 'title', defaultValue: '') String title,
+      @HiveField(2)
+      @JsonKey(name: 'original_title', defaultValue: '')
+      String originalTitle,
+      @HiveField(3)
+      @JsonKey(name: 'overview', defaultValue: '')
+      String description,
+      @HiveField(4)
+      @JsonKey(name: 'popularity', defaultValue: 0)
+      double popularity,
+      @HiveField(5)
+      @JsonKey(name: 'poster_path', defaultValue: '')
+      String posterPath,
+      @HiveField(6)
+      @JsonKey(name: 'backdrop_path', defaultValue: '')
+      String backdropPath,
+      @HiveField(7)
+      @JsonKey(name: 'release_date', defaultValue: '')
+      String releaseDate,
+      @HiveField(8)
+      @JsonKey(name: 'vote_average', defaultValue: 0)
+      double voteAverage,
+      @HiveField(9)
+      @JsonKey(name: 'genre_ids', defaultValue: [])
+      List<int> genres,
+      @HiveField(10)
       @JsonKey(name: 'original_language', defaultValue: '')
-      String originalLanguage,
-      @JsonKey(name: 'overview', defaultValue: '') String description,
-      @JsonKey(name: 'popularity', defaultValue: 0) double popularity,
-      @JsonKey(name: 'release_date', defaultValue: '') String releaseDate,
-      @JsonKey(name: 'vote_average', defaultValue: 0) double voteAverage,
-      @JsonKey(name: 'genre_ids', defaultValue: []) List<int> genres});
+      String originalLanguage});
 }
 
 /// @nodoc
@@ -177,27 +222,19 @@ class __$$MovieCardDTOImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? backdropPath = null,
-    Object? posterPath = null,
     Object? id = null,
     Object? title = null,
     Object? originalTitle = null,
-    Object? originalLanguage = null,
     Object? description = null,
     Object? popularity = null,
+    Object? posterPath = null,
+    Object? backdropPath = null,
     Object? releaseDate = null,
     Object? voteAverage = null,
     Object? genres = null,
+    Object? originalLanguage = null,
   }) {
     return _then(_$MovieCardDTOImpl(
-      backdropPath: null == backdropPath
-          ? _value.backdropPath
-          : backdropPath // ignore: cast_nullable_to_non_nullable
-              as String,
-      posterPath: null == posterPath
-          ? _value.posterPath
-          : posterPath // ignore: cast_nullable_to_non_nullable
-              as String,
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -210,10 +247,6 @@ class __$$MovieCardDTOImplCopyWithImpl<$Res>
           ? _value.originalTitle
           : originalTitle // ignore: cast_nullable_to_non_nullable
               as String,
-      originalLanguage: null == originalLanguage
-          ? _value.originalLanguage
-          : originalLanguage // ignore: cast_nullable_to_non_nullable
-              as String,
       description: null == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
@@ -222,6 +255,14 @@ class __$$MovieCardDTOImplCopyWithImpl<$Res>
           ? _value.popularity
           : popularity // ignore: cast_nullable_to_non_nullable
               as double,
+      posterPath: null == posterPath
+          ? _value.posterPath
+          : posterPath // ignore: cast_nullable_to_non_nullable
+              as String,
+      backdropPath: null == backdropPath
+          ? _value.backdropPath
+          : backdropPath // ignore: cast_nullable_to_non_nullable
+              as String,
       releaseDate: null == releaseDate
           ? _value.releaseDate
           : releaseDate // ignore: cast_nullable_to_non_nullable
@@ -234,6 +275,10 @@ class __$$MovieCardDTOImplCopyWithImpl<$Res>
           ? _value._genres
           : genres // ignore: cast_nullable_to_non_nullable
               as List<int>,
+      originalLanguage: null == originalLanguage
+          ? _value.originalLanguage
+          : originalLanguage // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -242,22 +287,37 @@ class __$$MovieCardDTOImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$MovieCardDTOImpl extends _MovieCardDTO {
   _$MovieCardDTOImpl(
-      {@JsonKey(name: 'backdrop_path', defaultValue: '')
-      required this.backdropPath,
-      @JsonKey(name: 'poster_path', defaultValue: '') required this.posterPath,
-      @JsonKey(name: 'id', defaultValue: 0) required this.id,
-      @JsonKey(name: 'title', defaultValue: '') required this.title,
+      {@HiveField(0) @JsonKey(name: 'id', defaultValue: 0) required this.id,
+      @HiveField(1)
+      @JsonKey(name: 'title', defaultValue: '')
+      required this.title,
+      @HiveField(2)
       @JsonKey(name: 'original_title', defaultValue: '')
       required this.originalTitle,
-      @JsonKey(name: 'original_language', defaultValue: '')
-      required this.originalLanguage,
-      @JsonKey(name: 'overview', defaultValue: '') required this.description,
-      @JsonKey(name: 'popularity', defaultValue: 0) required this.popularity,
+      @HiveField(3)
+      @JsonKey(name: 'overview', defaultValue: '')
+      required this.description,
+      @HiveField(4)
+      @JsonKey(name: 'popularity', defaultValue: 0)
+      required this.popularity,
+      @HiveField(5)
+      @JsonKey(name: 'poster_path', defaultValue: '')
+      required this.posterPath,
+      @HiveField(6)
+      @JsonKey(name: 'backdrop_path', defaultValue: '')
+      required this.backdropPath,
+      @HiveField(7)
       @JsonKey(name: 'release_date', defaultValue: '')
       required this.releaseDate,
-      @JsonKey(name: 'vote_average', defaultValue: 0) required this.voteAverage,
+      @HiveField(8)
+      @JsonKey(name: 'vote_average', defaultValue: 0)
+      required this.voteAverage,
+      @HiveField(9)
       @JsonKey(name: 'genre_ids', defaultValue: [])
-      required final List<int> genres})
+      required final List<int> genres,
+      @HiveField(10)
+      @JsonKey(name: 'original_language', defaultValue: '')
+      required this.originalLanguage})
       : _genres = genres,
         super._();
 
@@ -265,37 +325,44 @@ class _$MovieCardDTOImpl extends _MovieCardDTO {
       _$$MovieCardDTOImplFromJson(json);
 
   @override
-  @JsonKey(name: 'backdrop_path', defaultValue: '')
-  final String backdropPath;
-  @override
-  @JsonKey(name: 'poster_path', defaultValue: '')
-  final String posterPath;
-  @override
+  @HiveField(0)
   @JsonKey(name: 'id', defaultValue: 0)
   final int id;
   @override
+  @HiveField(1)
   @JsonKey(name: 'title', defaultValue: '')
   final String title;
   @override
+  @HiveField(2)
   @JsonKey(name: 'original_title', defaultValue: '')
   final String originalTitle;
   @override
-  @JsonKey(name: 'original_language', defaultValue: '')
-  final String originalLanguage;
-  @override
+  @HiveField(3)
   @JsonKey(name: 'overview', defaultValue: '')
   final String description;
   @override
+  @HiveField(4)
   @JsonKey(name: 'popularity', defaultValue: 0)
   final double popularity;
   @override
+  @HiveField(5)
+  @JsonKey(name: 'poster_path', defaultValue: '')
+  final String posterPath;
+  @override
+  @HiveField(6)
+  @JsonKey(name: 'backdrop_path', defaultValue: '')
+  final String backdropPath;
+  @override
+  @HiveField(7)
   @JsonKey(name: 'release_date', defaultValue: '')
   final String releaseDate;
   @override
+  @HiveField(8)
   @JsonKey(name: 'vote_average', defaultValue: 0)
   final double voteAverage;
   final List<int> _genres;
   @override
+  @HiveField(9)
   @JsonKey(name: 'genre_ids', defaultValue: [])
   List<int> get genres {
     if (_genres is EqualUnmodifiableListView) return _genres;
@@ -304,8 +371,13 @@ class _$MovieCardDTOImpl extends _MovieCardDTO {
   }
 
   @override
+  @HiveField(10)
+  @JsonKey(name: 'original_language', defaultValue: '')
+  final String originalLanguage;
+
+  @override
   String toString() {
-    return 'MovieDTO(backdropPath: $backdropPath, posterPath: $posterPath, id: $id, title: $title, originalTitle: $originalTitle, originalLanguage: $originalLanguage, description: $description, popularity: $popularity, releaseDate: $releaseDate, voteAverage: $voteAverage, genres: $genres)';
+    return 'MovieDTO(id: $id, title: $title, originalTitle: $originalTitle, description: $description, popularity: $popularity, posterPath: $posterPath, backdropPath: $backdropPath, releaseDate: $releaseDate, voteAverage: $voteAverage, genres: $genres, originalLanguage: $originalLanguage)';
   }
 
   @override
@@ -313,42 +385,42 @@ class _$MovieCardDTOImpl extends _MovieCardDTO {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$MovieCardDTOImpl &&
-            (identical(other.backdropPath, backdropPath) ||
-                other.backdropPath == backdropPath) &&
-            (identical(other.posterPath, posterPath) ||
-                other.posterPath == posterPath) &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.title, title) || other.title == title) &&
             (identical(other.originalTitle, originalTitle) ||
                 other.originalTitle == originalTitle) &&
-            (identical(other.originalLanguage, originalLanguage) ||
-                other.originalLanguage == originalLanguage) &&
             (identical(other.description, description) ||
                 other.description == description) &&
             (identical(other.popularity, popularity) ||
                 other.popularity == popularity) &&
+            (identical(other.posterPath, posterPath) ||
+                other.posterPath == posterPath) &&
+            (identical(other.backdropPath, backdropPath) ||
+                other.backdropPath == backdropPath) &&
             (identical(other.releaseDate, releaseDate) ||
                 other.releaseDate == releaseDate) &&
             (identical(other.voteAverage, voteAverage) ||
                 other.voteAverage == voteAverage) &&
-            const DeepCollectionEquality().equals(other._genres, _genres));
+            const DeepCollectionEquality().equals(other._genres, _genres) &&
+            (identical(other.originalLanguage, originalLanguage) ||
+                other.originalLanguage == originalLanguage));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      backdropPath,
-      posterPath,
       id,
       title,
       originalTitle,
-      originalLanguage,
       description,
       popularity,
+      posterPath,
+      backdropPath,
       releaseDate,
       voteAverage,
-      const DeepCollectionEquality().hash(_genres));
+      const DeepCollectionEquality().hash(_genres),
+      originalLanguage);
 
   @JsonKey(ignore: true)
   @override
@@ -366,64 +438,88 @@ class _$MovieCardDTOImpl extends _MovieCardDTO {
 
 abstract class _MovieCardDTO extends MovieDTO {
   factory _MovieCardDTO(
-      {@JsonKey(name: 'backdrop_path', defaultValue: '')
-      required final String backdropPath,
-      @JsonKey(name: 'poster_path', defaultValue: '')
-      required final String posterPath,
-      @JsonKey(name: 'id', defaultValue: 0) required final int id,
-      @JsonKey(name: 'title', defaultValue: '') required final String title,
+      {@HiveField(0)
+      @JsonKey(name: 'id', defaultValue: 0)
+      required final int id,
+      @HiveField(1)
+      @JsonKey(name: 'title', defaultValue: '')
+      required final String title,
+      @HiveField(2)
       @JsonKey(name: 'original_title', defaultValue: '')
       required final String originalTitle,
-      @JsonKey(name: 'original_language', defaultValue: '')
-      required final String originalLanguage,
+      @HiveField(3)
       @JsonKey(name: 'overview', defaultValue: '')
       required final String description,
+      @HiveField(4)
       @JsonKey(name: 'popularity', defaultValue: 0)
       required final double popularity,
+      @HiveField(5)
+      @JsonKey(name: 'poster_path', defaultValue: '')
+      required final String posterPath,
+      @HiveField(6)
+      @JsonKey(name: 'backdrop_path', defaultValue: '')
+      required final String backdropPath,
+      @HiveField(7)
       @JsonKey(name: 'release_date', defaultValue: '')
       required final String releaseDate,
+      @HiveField(8)
       @JsonKey(name: 'vote_average', defaultValue: 0)
       required final double voteAverage,
+      @HiveField(9)
       @JsonKey(name: 'genre_ids', defaultValue: [])
-      required final List<int> genres}) = _$MovieCardDTOImpl;
+      required final List<int> genres,
+      @HiveField(10)
+      @JsonKey(name: 'original_language', defaultValue: '')
+      required final String originalLanguage}) = _$MovieCardDTOImpl;
   _MovieCardDTO._() : super._();
 
   factory _MovieCardDTO.fromJson(Map<String, dynamic> json) =
       _$MovieCardDTOImpl.fromJson;
 
   @override
-  @JsonKey(name: 'backdrop_path', defaultValue: '')
-  String get backdropPath;
-  @override
-  @JsonKey(name: 'poster_path', defaultValue: '')
-  String get posterPath;
-  @override
+  @HiveField(0)
   @JsonKey(name: 'id', defaultValue: 0)
   int get id;
   @override
+  @HiveField(1)
   @JsonKey(name: 'title', defaultValue: '')
   String get title;
   @override
+  @HiveField(2)
   @JsonKey(name: 'original_title', defaultValue: '')
   String get originalTitle;
   @override
-  @JsonKey(name: 'original_language', defaultValue: '')
-  String get originalLanguage;
-  @override
+  @HiveField(3)
   @JsonKey(name: 'overview', defaultValue: '')
   String get description;
   @override
+  @HiveField(4)
   @JsonKey(name: 'popularity', defaultValue: 0)
   double get popularity;
   @override
+  @HiveField(5)
+  @JsonKey(name: 'poster_path', defaultValue: '')
+  String get posterPath;
+  @override
+  @HiveField(6)
+  @JsonKey(name: 'backdrop_path', defaultValue: '')
+  String get backdropPath;
+  @override
+  @HiveField(7)
   @JsonKey(name: 'release_date', defaultValue: '')
   String get releaseDate;
   @override
+  @HiveField(8)
   @JsonKey(name: 'vote_average', defaultValue: 0)
   double get voteAverage;
   @override
+  @HiveField(9)
   @JsonKey(name: 'genre_ids', defaultValue: [])
   List<int> get genres;
+  @override
+  @HiveField(10)
+  @JsonKey(name: 'original_language', defaultValue: '')
+  String get originalLanguage;
   @override
   @JsonKey(ignore: true)
   _$$MovieCardDTOImplCopyWith<_$MovieCardDTOImpl> get copyWith =>

@@ -5,8 +5,10 @@ import 'package:client/core/router/app_router_name.dart';
 import 'package:client/features/detail_movie/cubit/detail_movie_cubit.dart';
 import 'package:client/features/detail_movie/widgets/add_info_movie.dart';
 import 'package:client/features/detail_movie/widgets/backdrops_movie.dart';
+import 'package:client/features/detail_movie/widgets/list_genres_movie.dart';
 import 'package:client/features/movie/movie_recommendations/movie_recommendations.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:ui_kit/assets/icons/cinemax_icons.dart';
@@ -17,7 +19,10 @@ import 'package:ui_kit/theme/color_scheme.dart';
 import 'package:ui_kit/theme/theme_context_extension.dart';
 
 class DetailMovieScreen extends StatelessWidget {
-  const DetailMovieScreen({super.key, required this.id});
+  const DetailMovieScreen({
+    super.key,
+    required this.id,
+  });
 
   final int id;
 
@@ -35,187 +40,195 @@ class DetailMovieScreen extends StatelessWidget {
               ),
             );
           }
-          return Stack(
-            children: [
-              Opacity(
-                opacity: 0.2,
-                child: DecoratedBox(
-                  position: DecorationPosition.foreground,
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter,
-                      colors: [
-                        Colors.transparent,
-                        PrimaryColor.dark.withOpacity(1),
-                      ],
+          if (state.movieDetail != null) {
+            final movie = state.movieDetail!;
+            return Stack(
+              children: [
+                Opacity(
+                  opacity: 0.2,
+                  child: DecoratedBox(
+                    position: DecorationPosition.foreground,
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter,
+                        colors: [
+                          Colors.transparent,
+                          PrimaryColor.dark.withOpacity(1),
+                        ],
+                      ),
                     ),
-                  ),
-                  child: Hero(
-                    tag: id,
                     child: CinemaxImage(
-                      imageUrl: state.movieDetail.posterPicture,
+                      imageUrl: movie.posterPicture,
                     ),
                   ),
                 ),
-              ),
-              Scaffold(
-                backgroundColor: Colors.transparent,
-                appBar: CinemaxAppBar(
+                Scaffold(
                   backgroundColor: Colors.transparent,
-                  leading: CinemaxIcon(
-                    icon: CinemaxIcons.arrowBack,
-                    onTap: () => context.pop(),
+                  appBar: CinemaxAppBar(
+                    backgroundColor: Colors.transparent,
+                    leading: CinemaxIcon(
+                      icon: CinemaxIcons.arrowBack,
+                      onTap: () => context.pop(),
+                    ),
+                    actionIcon: CinemaxIcon(
+                      icon: CinemaxIcons.heart,
+                      iconColor: SecondaryColor.red,
+                      onTap: () {},
+                    ),
+                    titleText: movie.title,
                   ),
-                  actionIcon: CinemaxIcon(
-                    icon: CinemaxIcons.heart,
-                    iconColor: SecondaryColor.red,
-                    onTap: () {},
-                  ),
-                  titleText: state.movieDetail.title,
-                ),
-                body: Center(
-                  child: SingleChildScrollView(
-                    child: Column(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 10),
-                          child: GestureDetector(
-                            child: Container(
-                              width: 200,
-                              height: 300,
-                              decoration: BoxDecoration(
-                                boxShadow: [
-                                  BoxShadow(
-                                    color: Colors.black.withOpacity(0.3),
-                                    spreadRadius: 20,
-                                    blurRadius: 20,
-                                    offset: const Offset(0, 5),
+                  body: Center(
+                    child: SingleChildScrollView(
+                      child: Column(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 10),
+                            child: GestureDetector(
+                              child: Container(
+                                width: 200,
+                                height: 300,
+                                decoration: BoxDecoration(
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: Colors.black.withOpacity(0.3),
+                                      spreadRadius: 20,
+                                      blurRadius: 20,
+                                      offset: const Offset(0, 5),
+                                    ),
+                                  ],
+                                  borderRadius: BorderRadius.circular(20),
+                                  image: DecorationImage(
+                                    image: CachedNetworkImageProvider(
+                                        movie.posterPicture),
                                   ),
-                                ],
-                                borderRadius: BorderRadius.circular(20),
-                                image: DecorationImage(
-                                  image: CachedNetworkImageProvider(
-                                      state.movieDetail.posterPicture),
                                 ),
                               ),
                             ),
                           ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(
-                              vertical: 20, horizontal: 30),
-                          child: AddInfoMovie(
-                            releaseDate:
-                                state.movieDetail.releaseDate.year.toString(),
-                            runtime: state.movieDetail.runtime.toString(),
-                            genre: state.movieDetail.genres[0].name,
-                          ),
-                        ),
-                        MovieRating(
-                          alignment: Alignment.center,
-                          backgroundColor: PrimaryColor.soft,
-                          averageRating: state.movieDetail.voteAverage,
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 30),
-                          child: IntrinsicWidth(
-                            stepWidth: 100,
-                            child: CinemaxFilledButton(
-                              label: 'Buy Ticket',
-                              color: SecondaryColor.orange,
-                              onPressed: () {},
+                          Padding(
+                            padding: const EdgeInsets.symmetric(
+                                vertical: 20, horizontal: 30),
+                            child: AddInfoMovie(
+                              releaseDate: movie.releaseDate.year.toString(),
+                              runtime: movie.runtime.toString(),
                             ),
                           ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 25, vertical: 10),
-                          child: Align(
-                            alignment: Alignment.centerLeft,
+                          MovieRating(
+                            alignment: Alignment.center,
+                            backgroundColor: PrimaryColor.soft,
+                            averageRating: movie.voteAverage,
+                          ),
+                          SizedBox(
+                              height: 30,
+                              child:
+                                  ListMovieGenresMovie(genres: movie.genres)),
+                          Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 30),
+                            child: IntrinsicWidth(
+                              stepWidth: 100,
+                              child: CinemaxFilledButton(
+                                label: 'Buy Ticket',
+                                color: SecondaryColor.orange,
+                                onPressed: () {},
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 25, vertical: 10),
+                            child: Align(
+                              alignment: Alignment.centerLeft,
+                              child: Text(
+                                'Description',
+                                style: context.textStyle.h3.copyWith(
+                                    fontWeight:
+                                        FontWeightStyle.semiBold.fontWeight),
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 25),
                             child: Text(
-                              'Description',
-                              style: context.textStyle.h3.copyWith(
-                                  fontWeight:
-                                      FontWeightStyle.semiBold.fontWeight),
+                              movie.description,
+                              style: context.textStyle.h5.copyWith(
+                                overflow: TextOverflow.clip,
+                                fontWeight: FontWeightStyle.regular.fontWeight,
+                              ),
                             ),
                           ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 25),
-                          child: Text(
-                            state.movieDetail.description,
-                            style: context.textStyle.h5.copyWith(
-                              overflow: TextOverflow.clip,
-                              fontWeight: FontWeightStyle.regular.fontWeight,
+                          if (movie.backdrops != null)
+                            BackdropsMovie(
+                              backdrops: movie.backdrops!,
+                              movieId: movie.id,
                             ),
-                          ),
-                        ),
-                        if (state.movieDetail.backdrops != null)
-                          BackdropsMovie(
-                            backdrops: state.movieDetail.backdrops!,
-                            movieId: state.movieDetail.id,
-                          ),
-                        SizedBox(height: context.spacerStyle.height),
-                        SizedBox(
-                          height: 170,
-                          child: ListView.builder(
-                            scrollDirection: Axis.horizontal,
-                            itemCount: state.movieDetail.credits?.cast.length,
-                            itemBuilder: (context, index) {
-                              final cast =
-                                  state.movieDetail.credits?.cast[index];
-                              return Padding(
-                                padding: const EdgeInsets.all(10),
-                                child: GestureDetector(
-                                  onTap: () {
-                                    context.pushNamed(
-                                      AppRouterName.detailActorName,
-                                      extra: state
-                                          .movieDetail.credits?.cast[index].id,
-                                    );
-                                  },
-                                  child: SizedBox(
-                                    width: 120,
-                                    child: Column(
-                                      children: [
-                                        CircleAvatar(
-                                          radius: 50,
-                                          foregroundImage:
-                                              CachedNetworkImageProvider(
-                                            cast!.image,
-                                          ),
-                                        ),
-                                        Text(
-                                          cast.name,
-                                          style: context.textStyle.h4,
-                                        ),
-                                        if (cast.character != '')
-                                          Text(
-                                            cast.character,
-                                            style:
-                                                context.textStyle.h4.copyWith(
-                                              color: TextColor.grey,
+                          SizedBox(height: context.spacerStyle.height),
+                          SizedBox(
+                            height: 170,
+                            child: ListView.builder(
+                              scrollDirection: Axis.horizontal,
+                              itemCount: movie.credits?.cast.length,
+                              itemBuilder: (context, index) {
+                                final cast = movie.credits?.cast[index];
+                                return Padding(
+                                  padding: const EdgeInsets.all(10),
+                                  child: GestureDetector(
+                                    onTap: () {
+                                      context.pushNamed(
+                                        AppRouterName.detailActorName,
+                                        extra: movie.credits?.cast[index].id,
+                                      );
+                                    },
+                                    child: SizedBox(
+                                      width: 120,
+                                      child: Column(
+                                        children: [
+                                          CircleAvatar(
+                                            radius: 50,
+                                            foregroundImage:
+                                                CachedNetworkImageProvider(
+                                              cast!.image,
                                             ),
-                                          )
-                                      ],
+                                          ),
+                                          Text(
+                                            cast.name,
+                                            style: context.textStyle.h4,
+                                          ),
+                                          if (cast.character != '')
+                                            Text(
+                                              cast.character,
+                                              style:
+                                                  context.textStyle.h4.copyWith(
+                                                color: TextColor.grey,
+                                              ),
+                                            )
+                                        ],
+                                      ),
                                     ),
                                   ),
-                                ),
-                              );
-                            },
+                                );
+                              },
+                            ),
                           ),
-                        ),
-                        SizedBox(height: context.spacerStyle.height),
-                        MovieRecommendations(
-                          idMovie: id,
-                        )
-                      ],
+                          SizedBox(height: context.spacerStyle.height),
+                          MovieRecommendations(
+                            idMovie: id,
+                          )
+                        ],
+                      ),
                     ),
                   ),
                 ),
+              ],
+            );
+          }
+          return Scaffold(
+            body: Center(
+              child: Text(
+                'Фильм не найден',
+                style: context.textStyle.h2,
               ),
-            ],
+            ),
           );
         },
       ),

@@ -29,36 +29,13 @@ class DetailActorRemoteDataSourceImpl implements DetailActorRemoteDataSource {
           DetailActorDTO.fromJson(responseData as Map<String, dynamic>);
       final backdropsImage = await getCastMovie(actorId: actorID);
       final detailActorEntity =
-          movieDetailDto.toDomain(castMovie: backdropsImage);
+          movieDetailDto.toEntity(castMovie: backdropsImage);
       return detailActorEntity;
     } catch (e) {
       debugPrint(e.toString());
       throw Exception();
     }
   }
-
-  // @override
-  // Future<DetailActorEntity> getDetailActor({
-  //   required int id,
-  // }) async {
-  //   try {
-  //     final url = '${MovieQuery.baseUrlPerson}$id';
-  //     final response =
-  //         await _dio.get(url, queryParameters: MovieQuery.queryParametersBase);
-  //     final responseData = response.data;
-  //     final movieDetailDto =
-  //         DetailActorDTO.fromJson(responseData as Map<String, dynamic>);
-  //     final backdropsImage = await getCastMovie(id: id);
-  //     var listMovie = <MovieEntity>[];
-  //     backdropsImage.fold((failure) {}, (castMovie) {
-  //       listMovie = castMovie;
-  //     });
-  //     final detailActorEntity = movieDetailDto.toDomain(castMovie: listMovie);
-  //     return detailActorEntity;
-  //   } catch (e) {
-  //     debugPrint(e.toString());
-  //   }
-  // }
 
   @override
   Future<List<MovieEntity>> getCastMovie({
@@ -75,33 +52,11 @@ class DetailActorRemoteDataSourceImpl implements DetailActorRemoteDataSource {
       for (final data in results) {
         dtos.add(MovieDTO.fromJson(data as Map<String, dynamic>));
       }
-      final castMovies = dtos.map((dto) => dto.toDomain()).toList();
+      final castMovies = dtos.map((dto) => dto.toEntity()).toList();
       return castMovies;
     } catch (e) {
       debugPrint(e.toString());
       return [];
     }
   }
-
-//   Future<Either<Failure, CreditsEntity>> getCreditsMovie({
-//     required int id,
-//   }) async {
-//     try {
-//       final url = '${MovieQuery.baseUrl}$id/credits';
-//       final response =
-//           await _dio.get(url, queryParameters: MovieQuery.queryParametersBase);
-//       final responseData = response.data;
-//       if (responseData is Map<String, dynamic>) {
-//         final backdropsDTO = CreditsDTO.fromJson(responseData);
-//         final backdropsMovie = backdropsDTO.toDomain();
-//         return right(backdropsMovie);
-//       } else {
-//         return left(const Failure.serverError());
-//       }
-//     } catch (e) {
-//       debugPrint(e.toString());
-//       return left(const Failure.serverError());
-//     }
-//   }
-// }
 }

@@ -164,7 +164,6 @@ linter:
 
     # Style rules.
     always_declare_return_types: true
-    always_require_non_null_named_parameters: true
     annotate_overrides: true
     avoid_annotating_with_dynamic: true
     avoid_bool_literals_in_conditional_expressions: true
@@ -184,8 +183,6 @@ linter:
     avoid_redundant_argument_values: true
     avoid_renaming_method_parameters: true
     avoid_return_types_on_setters: true
-    avoid_returning_null: true
-    avoid_returning_null_for_void: true
     avoid_returning_this: true
     avoid_setters_without_getters: true
     avoid_shadowing_type_parameters: true

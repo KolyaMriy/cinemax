@@ -20,8 +20,10 @@ GenreDTO _$GenreDTOFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$GenreDTO {
+  @HiveField(0)
   @JsonKey(name: 'id', defaultValue: 0)
   int get id => throw _privateConstructorUsedError;
+  @HiveField(1)
   @JsonKey(name: 'name', defaultValue: '')
   String get name => throw _privateConstructorUsedError;
 
@@ -37,8 +39,8 @@ abstract class $GenreDTOCopyWith<$Res> {
       _$GenreDTOCopyWithImpl<$Res, GenreDTO>;
   @useResult
   $Res call(
-      {@JsonKey(name: 'id', defaultValue: 0) int id,
-      @JsonKey(name: 'name', defaultValue: '') String name});
+      {@HiveField(0) @JsonKey(name: 'id', defaultValue: 0) int id,
+      @HiveField(1) @JsonKey(name: 'name', defaultValue: '') String name});
 }
 
 /// @nodoc
@@ -79,8 +81,8 @@ abstract class _$$GenreDTOImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: 'id', defaultValue: 0) int id,
-      @JsonKey(name: 'name', defaultValue: '') String name});
+      {@HiveField(0) @JsonKey(name: 'id', defaultValue: 0) int id,
+      @HiveField(1) @JsonKey(name: 'name', defaultValue: '') String name});
 }
 
 /// @nodoc
@@ -114,17 +116,21 @@ class __$$GenreDTOImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$GenreDTOImpl extends _GenreDTO {
   _$GenreDTOImpl(
-      {@JsonKey(name: 'id', defaultValue: 0) required this.id,
-      @JsonKey(name: 'name', defaultValue: '') required this.name})
+      {@HiveField(0) @JsonKey(name: 'id', defaultValue: 0) required this.id,
+      @HiveField(1)
+      @JsonKey(name: 'name', defaultValue: '')
+      required this.name})
       : super._();
 
   factory _$GenreDTOImpl.fromJson(Map<String, dynamic> json) =>
       _$$GenreDTOImplFromJson(json);
 
   @override
+  @HiveField(0)
   @JsonKey(name: 'id', defaultValue: 0)
   final int id;
   @override
+  @HiveField(1)
   @JsonKey(name: 'name', defaultValue: '')
   final String name;
 
@@ -162,7 +168,10 @@ class _$GenreDTOImpl extends _GenreDTO {
 
 abstract class _GenreDTO extends GenreDTO {
   factory _GenreDTO(
-      {@JsonKey(name: 'id', defaultValue: 0) required final int id,
+      {@HiveField(0)
+      @JsonKey(name: 'id', defaultValue: 0)
+      required final int id,
+      @HiveField(1)
       @JsonKey(name: 'name', defaultValue: '')
       required final String name}) = _$GenreDTOImpl;
   _GenreDTO._() : super._();
@@ -171,9 +180,11 @@ abstract class _GenreDTO extends GenreDTO {
       _$GenreDTOImpl.fromJson;
 
   @override
+  @HiveField(0)
   @JsonKey(name: 'id', defaultValue: 0)
   int get id;
   @override
+  @HiveField(1)
   @JsonKey(name: 'name', defaultValue: '')
   String get name;
   @override

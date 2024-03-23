@@ -14,7 +14,7 @@ extension MovieDetailMapper on MovieDetailDTO {
       MovieDetailEntity(
         id: id,
         title: title,
-        genres: genres.map((genre) => genre.toDomain()).toList(),
+        genres: genres.map((genre) => genre.toEntity()).toList(),
         originalLanguage: originalLanguage,
         originalTitle: originalTitle,
         description: description,

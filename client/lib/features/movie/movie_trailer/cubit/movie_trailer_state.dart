@@ -5,7 +5,7 @@ class MovieTrailerState with _$MovieTrailerState {
   MovieTrailerState._();
 
   factory MovieTrailerState({
-    required MovieTrailerEntity movieTrailer,
+    required YouTubeTrailerEntity movieTrailer,
     @Default(false) bool loading,
     @Deprecated('Not Working')
     @Default(false) bool startPlayer,

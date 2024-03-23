@@ -3,8 +3,11 @@ import 'package:client/features/genre_list/data/entity/genre_entity.dart';
 import 'package:client/features/movie/data/dtos/movie/movie_dto.dart';
 import 'package:client/features/movie/data/entity/movie.dart';
 
-extension MovieMapper on MovieDTO {
-  MovieEntity toDomain({List<GenreEntity>? listGenre}) => MovieEntity(
+extension MovieToEntity on MovieDTO {
+  MovieEntity toEntity({
+    List<GenreEntity>? listGenre,
+  }) =>
+      MovieEntity(
         id: id,
         title: title,
         originalLanguage: originalLanguage.toUpperCase(),
@@ -18,4 +21,20 @@ extension MovieMapper on MovieDTO {
         releaseDate: DateTime.tryParse(releaseDate),
         genres: listGenre,
       );
+}
+
+extension MovieToDTO on MovieEntity {
+  MovieDTO toDTO() => MovieDTO(
+      id: id,
+      title: title,
+      originalLanguage:
+          originalLanguage != null ? originalLanguage!.toUpperCase() : '',
+      originalTitle: originalTitle ?? '',
+      description: description ?? '',
+      popularity: popularity ?? 0,
+      posterPath: posterPath ?? '',
+      backdropPath: backdropPath ?? '',
+      voteAverage: voteAverage ?? 0,
+      releaseDate: '',
+      genres: genres != null ? genres!.map((genre) => genre.id).toList() : []);
 }

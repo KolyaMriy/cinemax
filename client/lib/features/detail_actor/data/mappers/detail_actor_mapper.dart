@@ -2,9 +2,10 @@ import 'package:client/core/api/api_config.dart';
 import 'package:client/features/detail_actor/data/dtos/detail_actor/detail_actor_dto.dart';
 import 'package:client/features/detail_actor/data/entity/detail_actor_entity.dart';
 import 'package:client/features/movie/data/entity/movie.dart';
+import 'package:client/features/movie/data/mappers/movie_mapper.dart';
 
-extension DetailActorMapper on DetailActorDTO {
-  DetailActorEntity toDomain({
+extension DetailActorToDTO on DetailActorDTO {
+  DetailActorEntity toEntity({
     List<MovieEntity>? castMovie,
   }) =>
       DetailActorEntity(
@@ -16,4 +17,20 @@ extension DetailActorMapper on DetailActorDTO {
         birthday: DateTime.tryParse(birthday) ?? DateTime.now(),
         image: '${MovieQuery.image}$image',
       );
+}
+
+extension DetailActorMapper on DetailActorEntity {
+  DetailActorDTO toDTO() {
+    return DetailActorDTO(
+      id: id,
+      biography: biography,
+      name: name,
+      deathday: deathday.toString(),
+      birthday: birthday.toString(),
+      image: image,
+      alsoKnownAs: alsoKnownAs != null
+          ? alsoKnownAs!.map((e) => e.toDTO()).toList()
+          : [],
+    );
+  }
 }
