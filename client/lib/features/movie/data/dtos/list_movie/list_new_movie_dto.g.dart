@@ -8,7 +8,7 @@ part of 'list_new_movie_dto.dart';
 
 class ListMovieDTOAdapter extends TypeAdapter<ListMovieDTO> {
   @override
-  final int typeId = 4;
+  final int typeId = 5;
 
   @override
   ListMovieDTO read(BinaryReader reader) {

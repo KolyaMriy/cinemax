@@ -6,7 +6,7 @@ part 'list_new_movie_dto.g.dart';
 part 'list_new_movie_dto.freezed.dart';
 
 @freezed
-@HiveType(typeId: 4)
+@HiveType(typeId: 5)
 class ListMovieDTO with _$ListMovieDTO {
   ListMovieDTO._();
 

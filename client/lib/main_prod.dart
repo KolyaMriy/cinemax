@@ -2,6 +2,10 @@ import 'dart:io';
 import 'package:client/cinemax_app.dart';
 import 'package:client/core/flavor/export.dart';
 import 'package:client/features/detail_actor/data/dtos/detail_actor/detail_actor_dto.dart';
+import 'package:client/features/detail_movie/movie_backdrops/data/dtos/backdrops_movie_dto.dart';
+import 'package:client/features/detail_movie/movie_credits/data/dtos/cast/cast_dto.dart';
+import 'package:client/features/detail_movie/movie_credits/data/dtos/credits_dto.dart';
+import 'package:client/features/detail_movie/movie_credits/data/dtos/crew/crew_dto.dart';
 import 'package:client/features/genre_list/data/dtos/genre_dto.dart';
 import 'package:client/features/movie/data/dtos/list_movie/list_new_movie_dto.dart';
 import 'package:client/features/movie/data/dtos/movie/movie_dto.dart';
@@ -13,11 +17,16 @@ import 'package:path_provider/path_provider.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Hive.initFlutter((await getApplicationDocumentsDirectory()).path);
+
   Hive
     ..registerAdapter(DetailActorDTOAdapter())
     ..registerAdapter(GenreDTOAdapter())
     ..registerAdapter(MovieDTOAdapter())
-    ..registerAdapter(ListMovieDTOAdapter());
+    ..registerAdapter(ListMovieDTOAdapter())
+    ..registerAdapter(BackdropMoviesDTOAdapter())
+    ..registerAdapter(CrewDTOAdapter())
+    ..registerAdapter(CastDTOAdapter())
+    ..registerAdapter(CreditsDTOAdapter());
 
   if (Platform.isAndroid) {
     await initializeFireBase(

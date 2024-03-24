@@ -2,9 +2,9 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:client/core/di/dependency_provider.dart';
 import 'package:client/core/extension/font_weight_extension.dart';
 import 'package:client/features/detail_movie/cubit/detail_movie_cubit.dart';
+import 'package:client/features/detail_movie/movie_backdrops/movie_backdrops.dart';
+import 'package:client/features/detail_movie/movie_credits/cast_list.dart';
 import 'package:client/features/detail_movie/widgets/add_info_movie.dart';
-import 'package:client/features/detail_movie/widgets/backdrops_movie.dart';
-import 'package:client/features/detail_movie/widgets/cast_list.dart';
 import 'package:client/features/detail_movie/widgets/list_genres_movie.dart';
 import 'package:client/features/movie/movie_recommendations/movie_recommendations.dart';
 import 'package:flutter/material.dart';
@@ -19,16 +19,16 @@ import 'package:ui_kit/theme/theme_context_extension.dart';
 class DetailMovieScreen extends StatelessWidget {
   const DetailMovieScreen({
     super.key,
-    required this.id,
+    required this.idMovie,
   });
 
-  final int id;
+  final int idMovie;
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider<DetailMovieCubit>(
       create: (context) => DependencyProvider.get<DetailMovieCubit>()
-        ..loadDetailMovie(idMovie: id),
+        ..loadDetailMovie(idMovie: idMovie),
       child: BlocBuilder<DetailMovieCubit, DetailMovieState>(
         builder: (context, state) {
           if (state.loading) {
@@ -173,21 +173,15 @@ class DetailMovieScreen extends StatelessWidget {
                               ),
                             ),
                           ),
-                          if (movie.backdrops != null)
-                            BackdropsMovie(
-                              backdrops: movie.backdrops!,
-                              movieId: movie.id,
-                            ),
                           SizedBox(height: context.spacerStyle.height),
-                          SizedBox(
-                            height: 170,
-                            child: CastList(
-                              casts: movie.credits!.cast,
-                            ),
+                          BackdropsMovie(
+                            idMovie: movie.id,
                           ),
                           SizedBox(height: context.spacerStyle.height),
+                          CastList(idMovie: idMovie),
+                          SizedBox(height: context.spacerStyle.height),
                           MovieRecommendations(
-                            idMovie: id,
+                            idMovie: idMovie,
                           )
                         ],
                       ),

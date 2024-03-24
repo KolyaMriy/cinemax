@@ -3,7 +3,7 @@ import 'package:client/core/router/app_router_name.dart';
 import 'package:client/features/auth/bloc/auth_bloc.dart';
 import 'package:client/features/detail_actor/detail_actor_screen.dart';
 import 'package:client/features/detail_movie/detail_movie.dart';
-import 'package:client/features/movie/movie_trailer/movie_trailer.dart';
+import 'package:client/features/movie_trailer/movie_trailer.dart';
 import 'package:client/screens/auth/log_in/log_in_screen.dart';
 import 'package:client/screens/auth/reset_password/reset_password_screen.dart';
 import 'package:client/screens/auth/sign_up/sing_up_screen.dart';
@@ -98,7 +98,7 @@ class AppRoutes {
         pageBuilder: (_, state) {
           final id = state.extra! as int;
           return CupertinoPage(
-            child: DetailMovieScreen(id: id),
+            child: DetailMovieScreen(idMovie: id),
           );
         },
         routes: [

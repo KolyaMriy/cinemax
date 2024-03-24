@@ -1,5 +1,4 @@
 import 'package:client/features/genre_list/data/entity/genre_entity.dart';
-import 'package:client/features/movie/data/entity/youtube_trailer_entity.dart';
 import 'package:equatable/equatable.dart';
 
 class MovieEntity extends Equatable {
@@ -14,13 +13,11 @@ class MovieEntity extends Equatable {
   final double? voteAverage;
   final List<GenreEntity>? genres;
   final String? originalLanguage;
-  final YouTubeTrailerEntity? youTubeTrailer;
 
   const MovieEntity({
     required this.id,
     required this.title,
     this.originalLanguage,
-    this.youTubeTrailer,
     this.backdropPath,
     this.genres,
     this.originalTitle,

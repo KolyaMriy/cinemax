@@ -1,3 +1,4 @@
+
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hive/hive.dart';
 
@@ -5,7 +6,7 @@ part 'genre_dto.g.dart';
 part 'genre_dto.freezed.dart';
 
 @freezed
-@HiveType(typeId: 2)
+@HiveType(typeId: 3)
 class GenreDTO with _$GenreDTO {
   GenreDTO._();
 

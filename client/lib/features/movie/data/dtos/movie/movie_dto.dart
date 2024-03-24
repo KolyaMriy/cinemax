@@ -5,7 +5,7 @@ part 'movie_dto.g.dart';
 part 'movie_dto.freezed.dart';
 
 @freezed
-@HiveType(typeId: 3)
+@HiveType(typeId: 4)
 class MovieDTO with _$MovieDTO {
   MovieDTO._();
   factory MovieDTO({

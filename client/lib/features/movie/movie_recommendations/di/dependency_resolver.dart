@@ -1,3 +1,4 @@
+import 'package:client/core/constant/hive_constant.dart';
 import 'package:client/core/di/dependency_provider.dart';
 import 'package:client/core/network/connection_checker.dart';
 import 'package:client/features/genre_list/data/repositories/genre_repository_impl.dart';
@@ -12,8 +13,8 @@ import 'package:dio/dio.dart';
 import 'package:hive/hive.dart';
 
 class MovieRecommendationDependencyResolver {
-  static void register() async {
-    final boxMovie = await Hive.openBox<ListMovieDTO>('moviesRecommendation');
+  static Future<void> register() async {
+    final boxMovie = await Hive.openBox<ListMovieDTO>(HiveConstantBoxName.boxMovieRecommendation);
     DependencyProvider.registerFactory<MovieRecommendationCubit>(
       () => MovieRecommendationCubit(
         repository: DependencyProvider.get<MovieRecommendationRepositoryImpl>(),

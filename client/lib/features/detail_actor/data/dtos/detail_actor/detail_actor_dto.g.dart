@@ -8,7 +8,7 @@ part of 'detail_actor_dto.dart';
 
 class DetailActorDTOAdapter extends TypeAdapter<DetailActorDTO> {
   @override
-  final int typeId = 1;
+  final int typeId = 2;
 
   @override
   DetailActorDTO read(BinaryReader reader) {

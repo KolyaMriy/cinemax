@@ -6,7 +6,7 @@ import 'package:ui_kit/component/poster_movie/poster_movie_model.dart';
 extension PosterMovieMapper on MovieEntity {
   PosterMovieModel toPoster() => PosterMovieModel(
         title: title,
-        backdropPath: '${MovieQuery.image}$backdropPath',
+        backdropPath: '${MovieQuery.baseImageHttp}$backdropPath',
         release: releaseDate != null
             ? DateFormat('MMMM d').format(releaseDate!)
             : null,

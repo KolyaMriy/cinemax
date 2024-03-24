@@ -8,7 +8,7 @@ part of 'genre_dto.dart';
 
 class GenreDTOAdapter extends TypeAdapter<GenreDTO> {
   @override
-  final int typeId = 2;
+  final int typeId = 3;
 
   @override
   GenreDTO read(BinaryReader reader) {

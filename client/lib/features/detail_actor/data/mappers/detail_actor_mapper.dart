@@ -15,7 +15,11 @@ extension DetailActorToDTO on DetailActorDTO {
         name: name,
         deathday: DateTime.tryParse(deathday),
         birthday: DateTime.tryParse(birthday) ?? DateTime.now(),
-        image: '${MovieQuery.image}$image',
+        image: image == MovieQuery.avatarPlaceHolder
+            ? MovieQuery.avatarPlaceHolder
+            : image != ''
+                ? '${MovieQuery.baseImageHttp}$image'
+                : MovieQuery.avatarPlaceHolder,
       );
 }
 

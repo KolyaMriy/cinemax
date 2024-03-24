@@ -1,3 +1,4 @@
+import 'package:client/core/constant/hive_constant.dart';
 import 'package:client/core/di/dependency_provider.dart';
 import 'package:client/core/network/connection_checker.dart';
 import 'package:client/features/movie/data/data_sources/local/movie_local_datasource_impl.dart';
@@ -10,8 +11,9 @@ import 'package:dio/dio.dart';
 import 'package:hive/hive.dart';
 
 class NewMovieDependencyResolver {
-  static void register() async {
-    final boxNewMovie = await Hive.openBox<ListMovieDTO>('newMovies');
+  static Future<void> register() async {
+    final boxNewMovie =
+        await Hive.openBox<ListMovieDTO>(HiveConstantBoxName.boxNewMovie);
     final localDataSource = MovieLocalDataSourceImpl(movieBox: boxNewMovie);
     DependencyProvider.registerFactory<NewMovieListCubit>(
       () => NewMovieListCubit(

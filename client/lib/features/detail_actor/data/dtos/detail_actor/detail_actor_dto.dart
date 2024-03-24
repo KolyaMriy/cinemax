@@ -6,7 +6,7 @@ part 'detail_actor_dto.freezed.dart';
 part 'detail_actor_dto.g.dart';
 
 @freezed
-@HiveType(typeId: 1)
+@HiveType(typeId: 2)
 class DetailActorDTO with _$DetailActorDTO {
   const factory DetailActorDTO({
     @HiveField(0) @JsonKey(name: 'name', defaultValue: '') required String name,

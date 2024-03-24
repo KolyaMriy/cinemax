@@ -1,6 +1,6 @@
 abstract class MovieQuery {
   static const String baseUrl = 'https://api.themoviedb.org/3/movie/';
-  static const String image = 'https://image.tmdb.org/t/p/w500/';
+  static const String baseImageHttp = 'https://image.tmdb.org/t/p/w500/';
   static const String queryNowPlaying = 'now_playing';
   static const String queryPopular = 'popular';
   static const String queryTrailer = 'videos';
@@ -15,4 +15,7 @@ abstract class MovieQuery {
   static Map<String, dynamic> queryParametersBase = <String, dynamic>{
     'api_key': MovieQuery._apikey
   };
+
+  static const String avatarPlaceHolder =
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Unknown_person.jpg/694px-Unknown_person.jpg';
 }

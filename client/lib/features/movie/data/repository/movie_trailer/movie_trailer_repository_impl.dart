@@ -1,9 +1,9 @@
 // ignore_for_file: inference_failure_on_function_invocation
 import 'package:client/core/api/api_config.dart';
 import 'package:client/core/failure/failure.dart';
-import 'package:client/features/movie/data/dtos/youtube_trailer/youtube_trailer_dto.dart';
-import 'package:client/features/movie/data/entity/youtube_trailer_entity.dart';
-import 'package:client/features/movie/data/mappers/movie_trailer_mapper.dart';
+import 'package:client/features/movie_trailer/data/dtos/youtube_trailer/youtube_trailer_dto.dart';
+import 'package:client/features/movie_trailer/data/entity/youtube_trailer_entity.dart';
+import 'package:client/features/movie_trailer/data/mappers/youtube_trailer_mapper.dart';
 import 'package:client/features/movie/data/repository/movie_trailer/movie_trailer_repository.dart';
 
 import 'package:dartz/dartz.dart';
