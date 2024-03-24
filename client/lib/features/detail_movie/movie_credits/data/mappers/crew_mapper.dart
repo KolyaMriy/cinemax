@@ -4,9 +4,11 @@ import 'package:client/features/detail_movie/movie_credits/data/entity/crew/crew
 
 extension CrewMapper on CrewDTO {
   CrewEntity toEntity() => CrewEntity(
-        image: image != '' && image != MovieQuery.baseImageHttp
-            ? '${MovieQuery.baseImageHttp}$image'
-            : MovieQuery.avatarPlaceHolder,
+        image: image != MovieQuery.avatarPlaceHolder
+            ? image != '' && image != MovieQuery.baseImageHttp
+                ? '${MovieQuery.baseImageHttp}$image'
+                : MovieQuery.avatarPlaceHolder
+            : image,
         id: id,
         knownForDepartment: knownForDepartment,
         name: name,

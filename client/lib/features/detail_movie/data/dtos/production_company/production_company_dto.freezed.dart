@@ -20,12 +20,16 @@ ProductionCompanyDTO _$ProductionCompanyDTOFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ProductionCompanyDTO {
+  @HiveField(1)
   @JsonKey(name: 'id', defaultValue: 0)
   int get id => throw _privateConstructorUsedError;
+  @HiveField(2)
   @JsonKey(name: 'name', defaultValue: '')
   String get name => throw _privateConstructorUsedError;
+  @HiveField(3)
   @JsonKey(name: 'origin_country', defaultValue: '')
   String get country => throw _privateConstructorUsedError;
+  @HiveField(4)
   @JsonKey(name: 'logo_path', defaultValue: '')
   String get logoImage => throw _privateConstructorUsedError;
 
@@ -42,10 +46,14 @@ abstract class $ProductionCompanyDTOCopyWith<$Res> {
       _$ProductionCompanyDTOCopyWithImpl<$Res, ProductionCompanyDTO>;
   @useResult
   $Res call(
-      {@JsonKey(name: 'id', defaultValue: 0) int id,
-      @JsonKey(name: 'name', defaultValue: '') String name,
-      @JsonKey(name: 'origin_country', defaultValue: '') String country,
-      @JsonKey(name: 'logo_path', defaultValue: '') String logoImage});
+      {@HiveField(1) @JsonKey(name: 'id', defaultValue: 0) int id,
+      @HiveField(2) @JsonKey(name: 'name', defaultValue: '') String name,
+      @HiveField(3)
+      @JsonKey(name: 'origin_country', defaultValue: '')
+      String country,
+      @HiveField(4)
+      @JsonKey(name: 'logo_path', defaultValue: '')
+      String logoImage});
 }
 
 /// @nodoc
@@ -97,10 +105,14 @@ abstract class _$$ProductionCompanyDTOImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: 'id', defaultValue: 0) int id,
-      @JsonKey(name: 'name', defaultValue: '') String name,
-      @JsonKey(name: 'origin_country', defaultValue: '') String country,
-      @JsonKey(name: 'logo_path', defaultValue: '') String logoImage});
+      {@HiveField(1) @JsonKey(name: 'id', defaultValue: 0) int id,
+      @HiveField(2) @JsonKey(name: 'name', defaultValue: '') String name,
+      @HiveField(3)
+      @JsonKey(name: 'origin_country', defaultValue: '')
+      String country,
+      @HiveField(4)
+      @JsonKey(name: 'logo_path', defaultValue: '')
+      String logoImage});
 }
 
 /// @nodoc
@@ -144,25 +156,33 @@ class __$$ProductionCompanyDTOImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$ProductionCompanyDTOImpl extends _ProductionCompanyDTO {
   _$ProductionCompanyDTOImpl(
-      {@JsonKey(name: 'id', defaultValue: 0) required this.id,
-      @JsonKey(name: 'name', defaultValue: '') required this.name,
-      @JsonKey(name: 'origin_country', defaultValue: '') required this.country,
-      @JsonKey(name: 'logo_path', defaultValue: '') required this.logoImage})
+      {@HiveField(1) @JsonKey(name: 'id', defaultValue: 0) required this.id,
+      @HiveField(2) @JsonKey(name: 'name', defaultValue: '') required this.name,
+      @HiveField(3)
+      @JsonKey(name: 'origin_country', defaultValue: '')
+      required this.country,
+      @HiveField(4)
+      @JsonKey(name: 'logo_path', defaultValue: '')
+      required this.logoImage})
       : super._();
 
   factory _$ProductionCompanyDTOImpl.fromJson(Map<String, dynamic> json) =>
       _$$ProductionCompanyDTOImplFromJson(json);
 
   @override
+  @HiveField(1)
   @JsonKey(name: 'id', defaultValue: 0)
   final int id;
   @override
+  @HiveField(2)
   @JsonKey(name: 'name', defaultValue: '')
   final String name;
   @override
+  @HiveField(3)
   @JsonKey(name: 'origin_country', defaultValue: '')
   final String country;
   @override
+  @HiveField(4)
   @JsonKey(name: 'logo_path', defaultValue: '')
   final String logoImage;
 
@@ -205,10 +225,16 @@ class _$ProductionCompanyDTOImpl extends _ProductionCompanyDTO {
 
 abstract class _ProductionCompanyDTO extends ProductionCompanyDTO {
   factory _ProductionCompanyDTO(
-      {@JsonKey(name: 'id', defaultValue: 0) required final int id,
-      @JsonKey(name: 'name', defaultValue: '') required final String name,
+      {@HiveField(1)
+      @JsonKey(name: 'id', defaultValue: 0)
+      required final int id,
+      @HiveField(2)
+      @JsonKey(name: 'name', defaultValue: '')
+      required final String name,
+      @HiveField(3)
       @JsonKey(name: 'origin_country', defaultValue: '')
       required final String country,
+      @HiveField(4)
       @JsonKey(name: 'logo_path', defaultValue: '')
       required final String logoImage}) = _$ProductionCompanyDTOImpl;
   _ProductionCompanyDTO._() : super._();
@@ -217,15 +243,19 @@ abstract class _ProductionCompanyDTO extends ProductionCompanyDTO {
       _$ProductionCompanyDTOImpl.fromJson;
 
   @override
+  @HiveField(1)
   @JsonKey(name: 'id', defaultValue: 0)
   int get id;
   @override
+  @HiveField(2)
   @JsonKey(name: 'name', defaultValue: '')
   String get name;
   @override
+  @HiveField(3)
   @JsonKey(name: 'origin_country', defaultValue: '')
   String get country;
   @override
+  @HiveField(4)
   @JsonKey(name: 'logo_path', defaultValue: '')
   String get logoImage;
   @override

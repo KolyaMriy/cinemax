@@ -8,7 +8,7 @@ part of 'cast_dto.dart';
 
 class CastDTOAdapter extends TypeAdapter<CastDTO> {
   @override
-  final int typeId = 10;
+  final int typeId = 7;
 
   @override
   CastDTO read(BinaryReader reader) {

@@ -1,18 +1,37 @@
+import 'package:client/core/constant/hive_constant.dart';
 import 'package:client/core/di/dependency_provider.dart';
 import 'package:client/features/detail_movie/cubit/detail_movie_cubit.dart';
-import 'package:client/features/detail_movie/data/repository/detail_movie_repository.dart';
+import 'package:client/features/detail_movie/data/data_sources/local/movie_detail_local_data_source_impl.dart';
+import 'package:client/features/detail_movie/data/data_sources/remote/movie_detail_remote_data_source_impl.dart';
+import 'package:client/features/detail_movie/data/dtos/movie_detail/movie_detail_dto.dart';
+import 'package:client/features/detail_movie/data/repository/detail_movie_repository_impl.dart';
 
 import 'package:dio/dio.dart';
+import 'package:hive/hive.dart';
 
 class MovieDetailDependencyResolver {
-  static void register() {
+  static Future<void> register() async {
+    final boxMovieDetail =
+        await Hive.openBox<MovieDetailDTO>(HiveConstantBoxName.boxMovieDetails);
     DependencyProvider.registerFactory<DetailMovieCubit>(
       () => DetailMovieCubit(
-        repository: DependencyProvider.get<DetailMovieRepository>(),
+        repository: DependencyProvider.get<DetailMovieRepositoryImpl>(),
       ),
     );
-    DependencyProvider.registerLazySingleton<DetailMovieRepository>(
-      () => DetailMovieRepository(dio: DependencyProvider.get<Dio>()),
+    DependencyProvider.registerLazySingleton<DetailMovieRepositoryImpl>(
+      () => DetailMovieRepositoryImpl(
+        remoteDataSource:
+            DependencyProvider.get<DetailMovieRemoteDataSourceImpl>(),
+        localDataSource:
+            DependencyProvider.get<DetailMovieLocalDataSourceImpl>(),
+      ),
+    );
+
+    DependencyProvider.registerLazySingleton<DetailMovieRemoteDataSourceImpl>(
+      () => DetailMovieRemoteDataSourceImpl(dio: DependencyProvider.get<Dio>()),
+    );
+    DependencyProvider.registerLazySingleton<DetailMovieLocalDataSourceImpl>(
+      () => DetailMovieLocalDataSourceImpl(box: boxMovieDetail),
     );
   }
 }

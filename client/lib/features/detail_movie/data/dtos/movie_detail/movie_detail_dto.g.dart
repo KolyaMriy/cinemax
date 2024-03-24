@@ -3,6 +3,92 @@
 part of 'movie_detail_dto.dart';
 
 // **************************************************************************
+// TypeAdapterGenerator
+// **************************************************************************
+
+class MovieDetailDTOAdapter extends TypeAdapter<MovieDetailDTO> {
+  @override
+  final int typeId = 10;
+
+  @override
+  MovieDetailDTO read(BinaryReader reader) {
+    final numOfFields = reader.readByte();
+    final fields = <int, dynamic>{
+      for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
+    };
+    return MovieDetailDTO(
+      id: fields[1] as int,
+      title: fields[2] as String,
+      productionCompanies: (fields[3] as List).cast<ProductionCompanyDTO>(),
+      genres: (fields[4] as List).cast<GenreDTO>(),
+      originalLanguage: fields[5] as String,
+      originalTitle: fields[6] as String,
+      description: fields[8] as String,
+      popularity: fields[9] as double,
+      posterPicture: fields[10] as String,
+      backdropPicture: fields[11] as String,
+      voteAverage: fields[12] as double,
+      voteCount: fields[13] as double,
+      runtime: fields[14] as int,
+      revenue: fields[15] as double,
+      status: fields[16] as String,
+      tagline: fields[17] as String,
+      releaseDate: fields[18] as String,
+    );
+  }
+
+  @override
+  void write(BinaryWriter writer, MovieDetailDTO obj) {
+    writer
+      ..writeByte(17)
+      ..writeByte(1)
+      ..write(obj.id)
+      ..writeByte(2)
+      ..write(obj.title)
+      ..writeByte(3)
+      ..write(obj.productionCompanies)
+      ..writeByte(4)
+      ..write(obj.genres)
+      ..writeByte(5)
+      ..write(obj.originalLanguage)
+      ..writeByte(6)
+      ..write(obj.originalTitle)
+      ..writeByte(8)
+      ..write(obj.description)
+      ..writeByte(9)
+      ..write(obj.popularity)
+      ..writeByte(10)
+      ..write(obj.posterPicture)
+      ..writeByte(11)
+      ..write(obj.backdropPicture)
+      ..writeByte(12)
+      ..write(obj.voteAverage)
+      ..writeByte(13)
+      ..write(obj.voteCount)
+      ..writeByte(14)
+      ..write(obj.runtime)
+      ..writeByte(15)
+      ..write(obj.revenue)
+      ..writeByte(16)
+      ..write(obj.status)
+      ..writeByte(17)
+      ..write(obj.tagline)
+      ..writeByte(18)
+      ..write(obj.releaseDate);
+  }
+
+  @override
+  int get hashCode => typeId.hashCode;
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MovieDetailDTOAdapter &&
+          runtimeType == other.runtimeType &&
+          typeId == other.typeId;
+}
+
+// **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 

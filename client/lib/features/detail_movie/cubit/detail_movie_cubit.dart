@@ -1,6 +1,6 @@
 import 'package:client/core/failure/failure.dart';
 import 'package:client/features/detail_movie/data/entity/movie_detail_entity.dart';
-import 'package:client/features/detail_movie/data/repository/detail_movie_repository.dart';
+import 'package:client/features/detail_movie/data/repository/detail_movie_repository_impl.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -8,8 +8,8 @@ part 'detail_movie_state.dart';
 part 'detail_movie_cubit.freezed.dart';
 
 class DetailMovieCubit extends Cubit<DetailMovieState> {
-  final DetailMovieRepository _repository;
-  DetailMovieCubit({required DetailMovieRepository repository})
+  final DetailMovieRepositoryImpl _repository;
+  DetailMovieCubit({required DetailMovieRepositoryImpl repository})
       : _repository = repository,
         super(DetailMovieState());
 
@@ -17,7 +17,7 @@ class DetailMovieCubit extends Cubit<DetailMovieState> {
     if (state.loading != true) {
       emit(state.copyWith(loading: true));
     }
-    final listNewMovie = await _repository.getMovieDetail(id: idMovie);
+    final listNewMovie = await _repository.getMovieDetail(idMovie: idMovie);
     listNewMovie.fold(
       (failure) => emit(
         state.copyWith(

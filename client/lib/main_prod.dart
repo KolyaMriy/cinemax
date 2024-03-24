@@ -2,6 +2,8 @@ import 'dart:io';
 import 'package:client/cinemax_app.dart';
 import 'package:client/core/flavor/export.dart';
 import 'package:client/features/detail_actor/data/dtos/detail_actor/detail_actor_dto.dart';
+import 'package:client/features/detail_movie/data/dtos/movie_detail/movie_detail_dto.dart';
+import 'package:client/features/detail_movie/data/dtos/production_company/production_company_dto.dart';
 import 'package:client/features/detail_movie/movie_backdrops/data/dtos/backdrops_movie_dto.dart';
 import 'package:client/features/detail_movie/movie_credits/data/dtos/cast/cast_dto.dart';
 import 'package:client/features/detail_movie/movie_credits/data/dtos/credits_dto.dart';
@@ -26,6 +28,8 @@ Future<void> main() async {
     ..registerAdapter(BackdropMoviesDTOAdapter())
     ..registerAdapter(CrewDTOAdapter())
     ..registerAdapter(CastDTOAdapter())
+    ..registerAdapter(ProductionCompanyDTOAdapter())
+    ..registerAdapter(MovieDetailDTOAdapter())
     ..registerAdapter(CreditsDTOAdapter());
 
   if (Platform.isAndroid) {

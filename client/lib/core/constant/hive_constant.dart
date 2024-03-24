@@ -1,13 +1,14 @@
 abstract class HiveConstantBoxName {
-  static const String boxNamePopularMovie = '11';
-  static const String boxMovieRecommendation = '12';
-  static const String boxNewMovie = '13';
-  static const String boxDetailActor = '14';
-  static const String boxBackdrops = '15';
-  static const String boxNameGenre = '16';
-  static const String boxMovieCast = '17';
-  static const String boxMovieCrew = '18';
-  static const String boxMovieCredits = '19';
+  static const String boxNamePopularMovie = '21';
+  static const String boxMovieRecommendation = '22';
+  static const String boxNewMovie = '23';
+  static const String boxDetailActor = '24';
+  static const String boxBackdrops = '25';
+  static const String boxNameGenre = '26';
+  static const String boxMovieCast = '27';
+  static const String boxMovieCrew = '28';
+  static const String boxMovieCredits = '29';
+  static const String boxMovieDetails = '30';
 }
 
 abstract class HiveTypeId {
