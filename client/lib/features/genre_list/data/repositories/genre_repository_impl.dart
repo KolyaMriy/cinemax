@@ -4,6 +4,7 @@ import 'package:client/features/genre_list/data/data_source/remote/genre_remote_
 import 'package:client/features/genre_list/data/entity/genre_entity.dart';
 import 'package:client/features/genre_list/data/repositories/genre_repository.dart';
 import 'package:dartz/dartz.dart';
+import 'package:flutter/material.dart';
 
 class GenreRepositoryImpl implements GenreRepository {
   final GenreRemoteDataSourceImpl _remoteDataSource;
@@ -26,8 +27,19 @@ class GenreRepositoryImpl implements GenreRepository {
   @override
   Future<Either<Failure, List<GenreEntity>>> getGenreList() async {
     try {
-      final genres = await _remoteDataSource.getGenreList();
-      return right(genres);
+      late final List<GenreEntity> result;
+      final savedGenresListByids = await getSavedGenreList();
+      await savedGenresListByids.fold(
+        (failure) async {
+          debugPrint('load remote Api genres');
+          result = await _remoteDataSource.getGenreList();
+        },
+        (savedGenres) {
+          debugPrint('load local genres');
+          result = savedGenres;
+        },
+      );
+      return right(result);
     } catch (e) {
       return left(const Failure.serverError());
     }
@@ -38,20 +50,19 @@ class GenreRepositoryImpl implements GenreRepository {
     List<int> idsGenre,
   ) async {
     try {
-      final genres = await _remoteDataSource.getGenreListByIds(idsGenre);
-      return right(genres);
+      late final List<GenreEntity> result;
+      final savedGenresListByids = getSavedGenreListByIds(idsGenre);
+      await savedGenresListByids.fold(
+        (failure) async {
+          result = await _remoteDataSource.getGenreListByIds(idsGenre);
+        },
+        (savedGenres) {
+          result = savedGenres;
+        },
+      );
+      return right(result);
     } catch (e) {
       return left(const Failure.serverError());
-    }
-  }
-
-  @override
-  bool isSavedGenreList() {
-    try {
-      final result = _localDataSource.isSavedGenres();
-      return result;
-    } catch (e) {
-      throw Exception();
     }
   }
 

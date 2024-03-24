@@ -30,25 +30,15 @@ class MovieRecommendationRemoteDataSourceImpl
       final response =
           await _dio.get(url, queryParameters: MovieQuery.queryParametersBase);
       final responseData = response.data;
-
       if (responseData is Map<String, dynamic>) {
         final movieRecommendationDTO = ListMovieDTO.fromJson(responseData);
         final listMovieWithGenre =
             movieRecommendationDTO.movies?.map((movieDto) async {
-          final isSavedGenre = _repository.isSavedGenreList();
-          if (isSavedGenre) {
-            final result = await _repository.getGenreListByIds(movieDto.genres);
-            return result.fold(
-              (l) => movieDto.toEntity(),
-              (genres) => movieDto.toEntity(listGenre: genres),
-            );
-          } else {
-            final result = await _repository.getGenreListByIds(movieDto.genres);
-            return result.fold(
-              (l) => movieDto.toEntity(),
-              (genres) => movieDto.toEntity(listGenre: genres),
-            );
-          }
+          final result = await _repository.getGenreListByIds(movieDto.genres);
+          return result.fold(
+            (empty) => movieDto.toEntity(),
+            (genres) => movieDto.toEntity(listGenre: genres),
+          );
         }).toList();
         final movies = await Future.wait(listMovieWithGenre!);
         listMoviesEntity.movies.addAll(movies);

@@ -20,50 +20,24 @@ class GenreListCubit extends Cubit<GenreListState> {
     if (state.loading != true) {
       emit(state.copyWith(loading: true));
     }
-    final isGenresSaved = _repository.isSavedGenreList();
-    if (isGenresSaved) {
-      debugPrint('load genres by localDB');
-      final listGenre = await _repository.getSavedGenreList();
-      listGenre.fold(
-        (failure) => emit(
+    final listGenre = await _repository.getGenreList();
+    listGenre.fold(
+      (failure) => emit(
+        state.copyWith(
+          loading: false,
+          listGenre: [],
+          failure: failure,
+        ),
+      ),
+      (success) {
+        emit(
           state.copyWith(
             loading: false,
-            listGenre: [],
-            failure: failure,
+            listGenre: success.toList()..insert(0, GenreEntity.allGenre()),
+            failure: null,
           ),
-        ),
-        (success) {
-          emit(
-            state.copyWith(
-              loading: false,
-              listGenre: success.toList()..insert(0, GenreEntity.allGenre()),
-              failure: null,
-            ),
-          );
-        },
-      );
-    } else {
-      debugPrint('load genres by remoteApi');
-      final listGenre = await _repository.getGenreList();
-      listGenre.fold(
-        (failure) => emit(
-          state.copyWith(
-            loading: false,
-            listGenre: [],
-            failure: failure,
-          ),
-        ),
-        (success) {
-          emit(
-            state.copyWith(
-              loading: false,
-              listGenre: success.toList()..insert(0, GenreEntity.allGenre()),
-              failure: null,
-            ),
-          );
-          _repository.saveGenreList(genres: success);
-        },
-      );
-    }
+        );
+      },
+    );
   }
 }

@@ -16,6 +16,4 @@ abstract interface class GenreRepository {
     required List<GenreEntity> genres,
   });
   Future<Either<Failure, void>> clearGenreList();
-
-  bool isSavedGenreList();
 }
