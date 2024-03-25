@@ -19,8 +19,12 @@ class GenreLocalDataSourceImpl implements GenreLocalDataSource {
   @override
   List<GenreEntity> getSavedListGenres() {
     final genres = _box.values.toList();
-    final listGenres = genres.map((e) => e.toEntity()).toList();
-    return listGenres;
+    if (genres.isNotEmpty) {
+      final listGenres = genres.map((e) => e.toEntity()).toList();
+      return listGenres;
+    } else {
+      throw Exception('local genres is empty');
+    }
   }
 
   @override
@@ -33,8 +37,8 @@ class GenreLocalDataSourceImpl implements GenreLocalDataSource {
   Future<void> saveGenres({
     required List<GenreEntity> genres,
   }) async {
-    final movies = {for (final genre in genres) genre.id: genre.toDTO()};
-    await _box.putAll(movies);
+    final listGenre = {for (final genre in genres) genre.id: genre.toDTO()};
+    await _box.putAll(listGenre);
   }
 
   @override

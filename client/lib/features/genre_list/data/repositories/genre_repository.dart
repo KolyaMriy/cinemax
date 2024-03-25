@@ -8,7 +8,7 @@ abstract interface class GenreRepository {
     List<int> idsGenre,
   );
 
-  Future<Either<Failure, List<GenreEntity>>> getSavedGenreList();
+  Either<Failure, List<GenreEntity>> getSavedGenreList();
   Either<Failure, List<GenreEntity>> getSavedGenreListByIds(
     List<int> idsGenre,
   );

@@ -28,11 +28,12 @@ class GenreRepositoryImpl implements GenreRepository {
   Future<Either<Failure, List<GenreEntity>>> getGenreList() async {
     try {
       late final List<GenreEntity> result;
-      final savedGenresListByids = await getSavedGenreList();
-      await savedGenresListByids.fold(
+      final savedGenresList = getSavedGenreList();
+      await savedGenresList.fold(
         (failure) async {
           debugPrint('load remote Api genres');
           result = await _remoteDataSource.getGenreList();
+          await saveGenreList(genres: result);
         },
         (savedGenres) {
           debugPrint('load local genres');
@@ -79,11 +80,12 @@ class GenreRepositoryImpl implements GenreRepository {
   }
 
   @override
-  Future<Either<Failure, List<GenreEntity>>> getSavedGenreList() async {
+  Either<Failure, List<GenreEntity>> getSavedGenreList() {
     try {
       final result = _localDataSource.getSavedListGenres();
       return right(result);
     } catch (e) {
+      debugPrint(e.toString());
       return const Left(Failure.serverError());
     }
   }
