@@ -1,7 +1,7 @@
 import 'package:client/core/api/api_config.dart';
-import 'package:client/features/genre_list/data/entity/genre_entity.dart';
+import 'package:client/features/genre_list/domain/entity/genre_entity.dart';
 import 'package:client/features/movie/data/dtos/movie/movie_dto.dart';
-import 'package:client/features/movie/data/entity/movie.dart';
+import 'package:client/features/movie/domain/entity/movie.dart';
 
 extension MovieToEntity on MovieDTO {
   MovieEntity toEntity({

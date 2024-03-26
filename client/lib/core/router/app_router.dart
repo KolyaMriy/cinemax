@@ -1,9 +1,9 @@
 import 'package:client/core/di/dependency_provider.dart';
 import 'package:client/core/router/app_router_name.dart';
 import 'package:client/features/auth/bloc/auth_bloc.dart';
-import 'package:client/features/detail_actor/detail_actor_screen.dart';
-import 'package:client/features/detail_movie/detail_movie.dart';
-import 'package:client/features/movie_trailer/movie_trailer.dart';
+import 'package:client/features/detail_actor/presentation/detail_actor_screen.dart';
+import 'package:client/features/detail_movie/presentation/detail_movie.dart';
+import 'package:client/features/movie_trailer/presentation/movie_trailer.dart';
 import 'package:client/screens/auth/log_in/log_in_screen.dart';
 import 'package:client/screens/auth/reset_password/reset_password_screen.dart';
 import 'package:client/screens/auth/sign_up/sing_up_screen.dart';
@@ -16,6 +16,7 @@ import 'package:client/screens/tab_pages/pages/search/search_screen.dart';
 import 'package:client/screens/tab_pages/tab_page.dart';
 import 'package:client/screens/welcome/welcome_screen.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 class AppRoutes {
@@ -47,7 +48,7 @@ class AppRoutes {
       GoRoute(
         path: AppRoutes._splashPath,
         name: AppRouterName.splashName,
-        pageBuilder: (_, state) => CupertinoPage<void>(
+        pageBuilder: (_, state) => MaterialPage<void>(
           child: SplashScreen(
             bloc: DependencyProvider.get<AuthBloc>(),
           ),
@@ -97,7 +98,7 @@ class AppRoutes {
         name: AppRouterName.detailMovieName,
         pageBuilder: (_, state) {
           final id = state.extra! as int;
-          return CupertinoPage(
+          return MaterialPage(
             child: DetailMovieScreen(idMovie: id),
           );
         },
@@ -107,7 +108,7 @@ class AppRoutes {
             name: AppRouterName.trailerMovieName,
             pageBuilder: (_, state) {
               final movieId = state.extra! as int;
-              return CupertinoPage(
+              return MaterialPage(
                 child: MovieTrailerScreen(
                   movieId: movieId,
                 ),
@@ -119,7 +120,7 @@ class AppRoutes {
             name: AppRouterName.detailActorName,
             pageBuilder: (_, state) {
               final actorId = state.extra! as int;
-              return CupertinoPage(
+              return MaterialPage(
                 child: DetailActorScreen(
                   actorID: actorId,
                 ),
@@ -131,21 +132,21 @@ class AppRoutes {
       GoRoute(
         path: AppRoutes._welcomePath,
         name: AppRouterName.welcomeName,
-        pageBuilder: (_, state) => const CupertinoPage<void>(
+        pageBuilder: (_, state) => const MaterialPage<void>(
           child: WelcomeScreen(),
         ),
         routes: [
           GoRoute(
             path: AppRoutes._logInPath,
             name: AppRouterName.logInName,
-            pageBuilder: (_, state) => const CupertinoPage<void>(
+            pageBuilder: (_, state) => const MaterialPage<void>(
               child: LoginScreen(),
             ),
             routes: [
               GoRoute(
                   path: AppRoutes._resetPasswordPath,
                   name: AppRouterName.resetPasswordName,
-                  pageBuilder: (_, state) => const CupertinoPage<void>(
+                  pageBuilder: (_, state) => const MaterialPage<void>(
                         child: ResetPasswordScreen(),
                       ),
                   routes: [
@@ -154,7 +155,7 @@ class AppRoutes {
                         name: AppRouterName.verificationEmailName,
                         pageBuilder: (_, state) {
                           final emailAddress = state.extra! as String;
-                          return CupertinoPage<void>(
+                          return MaterialPage<void>(
                             child: VerificationEmailScreen(
                               emailAddress: emailAddress,
                             ),
@@ -166,7 +167,7 @@ class AppRoutes {
           GoRoute(
             path: AppRoutes._singUpPath,
             name: AppRouterName.singUpName,
-            pageBuilder: (_, state) => const CupertinoPage<void>(
+            pageBuilder: (_, state) => const MaterialPage<void>(
               child: SignUpScreen(),
             ),
           ),

@@ -1,4 +1,4 @@
-import 'package:client/features/movie/data/entity/movie.dart';
+import 'package:client/features/movie/domain/entity/movie.dart';
 import 'package:ui_kit/component/search_card/search_card.dart';
 
 extension SearchMovieCardMapper on MovieEntity {

@@ -1,10 +1,10 @@
 import 'package:client/core/constant/hive_constant.dart';
 import 'package:client/core/di/dependency_provider.dart';
-import 'package:client/features/detail_movie/movie_credits/cubit/movie_credits_cubit.dart';
+import 'package:client/features/detail_movie/movie_credits/presentation/cubit/movie_credits_cubit.dart';
 import 'package:client/features/detail_movie/movie_credits/data/data_sources/local/movie_credits_local_data_source_impl.dart';
 import 'package:client/features/detail_movie/movie_credits/data/data_sources/remote/movie_credits_remote_data_source_impl.dart';
 import 'package:client/features/detail_movie/movie_credits/data/dtos/credits_dto.dart';
-import 'package:client/features/detail_movie/movie_credits/repository/credits_repository_impl.dart';
+import 'package:client/features/detail_movie/movie_credits/domain/repository/credits_repository_impl.dart';
 
 import 'package:dio/dio.dart';
 import 'package:hive/hive.dart';

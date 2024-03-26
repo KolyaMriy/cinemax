@@ -1,6 +1,6 @@
 import 'package:client/core/api/api_config.dart';
 import 'package:client/features/detail_movie/movie_credits/data/dtos/crew/crew_dto.dart';
-import 'package:client/features/detail_movie/movie_credits/data/entity/crew/crew_entity.dart';
+import 'package:client/features/detail_movie/movie_credits/domain/entity/crew/crew_entity.dart';
 
 extension CrewMapper on CrewDTO {
   CrewEntity toEntity() => CrewEntity(

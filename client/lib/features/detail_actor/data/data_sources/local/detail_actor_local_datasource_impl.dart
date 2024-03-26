@@ -1,6 +1,6 @@
 import 'package:client/features/detail_actor/data/data_sources/local/detail_actor_local_datasource.dart';
 import 'package:client/features/detail_actor/data/dtos/detail_actor/detail_actor_dto.dart';
-import 'package:client/features/detail_actor/data/entity/detail_actor_entity.dart';
+import 'package:client/features/detail_actor/domain/entity/detail_actor_entity.dart';
 import 'package:client/features/detail_actor/data/mappers/detail_actor_mapper.dart';
 import 'package:client/features/movie/data/mappers/movie_mapper.dart';
 import 'package:hive/hive.dart';

@@ -3,7 +3,7 @@
 import 'package:client/core/api/api_config.dart';
 import 'package:client/features/detail_movie/data/data_sources/remote/movie_detail_remote_data_source.dart';
 import 'package:client/features/detail_movie/data/dtos/movie_detail/movie_detail_dto.dart';
-import 'package:client/features/detail_movie/data/entity/movie_detail_entity.dart';
+import 'package:client/features/detail_movie/domain/entity/movie_detail_entity.dart';
 import 'package:client/features/detail_movie/data/mappers/detail_movie_mapper.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';

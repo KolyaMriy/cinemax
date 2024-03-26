@@ -1,7 +1,7 @@
 import 'package:client/core/api/api_config.dart';
 import 'package:client/features/detail_movie/movie_credits/data/dtos/cast/cast_dto.dart';
 
-import 'package:client/features/detail_movie/movie_credits/data/entity/cast/cast_entity.dart';
+import 'package:client/features/detail_movie/movie_credits/domain/entity/cast/cast_entity.dart';
 
 extension CastToEntity on CastDTO {
   CastEntity toEntity() => CastEntity(

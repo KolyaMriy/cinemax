@@ -2,10 +2,10 @@
 import 'package:client/core/api/api_config.dart';
 import 'package:client/features/detail_actor/data/data_sources/remote/detail_actor_remote_datasource.dart';
 import 'package:client/features/detail_actor/data/dtos/detail_actor/detail_actor_dto.dart';
-import 'package:client/features/detail_actor/data/entity/detail_actor_entity.dart';
+import 'package:client/features/detail_actor/domain/entity/detail_actor_entity.dart';
 import 'package:client/features/detail_actor/data/mappers/detail_actor_mapper.dart';
 import 'package:client/features/movie/data/dtos/movie/movie_dto.dart';
-import 'package:client/features/movie/data/entity/movie.dart';
+import 'package:client/features/movie/domain/entity/movie.dart';
 import 'package:client/features/movie/data/mappers/movie_mapper.dart';
 
 import 'package:dio/dio.dart';

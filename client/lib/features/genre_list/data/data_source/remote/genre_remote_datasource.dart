@@ -1,4 +1,4 @@
-import 'package:client/features/genre_list/data/entity/genre_entity.dart';
+import 'package:client/features/genre_list/domain/entity/genre_entity.dart';
 
 abstract interface class GenreRemoteDataSource {
   Future<List<GenreEntity>> getGenreList();

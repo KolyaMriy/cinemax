@@ -1,6 +1,6 @@
 import 'package:client/features/detail_movie/movie_backdrops/data/data_sources/local/backdrops_local_data_source.dart';
 import 'package:client/features/detail_movie/movie_backdrops/data/dtos/backdrops_movie_dto.dart';
-import 'package:client/features/detail_movie/movie_backdrops/data/entity/backdrops_movie_entity.dart';
+import 'package:client/features/detail_movie/movie_backdrops/domain/entity/backdrops_movie_entity.dart';
 import 'package:client/features/detail_movie/movie_backdrops/data/mappers/backdrops_movie_mapper.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
@@ -12,12 +12,15 @@ class BackDropsLocalDataSourceImpl implements BackDropsLocalDataSource {
   }) : _box = box;
 
   @override
-  List<BackdropMoviesEntity> getBackDropsMovie({required int idMovie}) {
+  List<BackdropMoviesEntity> getSavedBackDropsMovie({
+    required int idMovie,
+  }) {
     final backdrops = _box.get(idMovie);
     if (backdrops != null) {
-      return backdrops.map((e) => e.toEntity()).toList();
+      final result = backdrops.map((e) => e.toEntity()).toList();
+      return result;
     } else {
-      throw Exception('null backdrops');
+      return <BackdropMoviesEntity>[];
     }
   }
 
@@ -31,9 +34,10 @@ class BackDropsLocalDataSourceImpl implements BackDropsLocalDataSource {
     required int idMovie,
     required List<BackdropMoviesEntity> backdrops,
   }) async {
+    final backdropsDTO = backdrops.map((e) => e.toDTO()).toList();
     await _box.put(
       idMovie,
-      backdrops.map((e) => e.toDTO()).toList(),
+      backdropsDTO,
     );
   }
 }

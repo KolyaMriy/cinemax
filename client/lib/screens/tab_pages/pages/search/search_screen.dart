@@ -1,5 +1,5 @@
-import 'package:client/features/search_movie/cubit/search_movie_cubit.dart';
-import 'package:client/features/search_movie/search_movie.dart';
+import 'package:client/features/search_movie/presentation/cubit/search_movie_cubit.dart';
+import 'package:client/features/search_movie/presentation/search_movie.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ui_kit/assets/icons/cinemax_icons.dart';

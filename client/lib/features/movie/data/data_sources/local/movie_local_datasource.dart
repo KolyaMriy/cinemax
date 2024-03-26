@@ -1,4 +1,4 @@
-import 'package:client/features/movie/data/entity/list_movie.dart';
+import 'package:client/features/movie/domain/entity/list_movie.dart';
 
 abstract interface class MovieLocalDataSource {
   void saveMovie({

@@ -1,8 +1,8 @@
 import 'package:client/core/extension/font_weight_extension.dart';
 import 'package:client/features/auth/bloc/auth_bloc.dart';
-import 'package:client/features/genre_list/genre_list.dart';
-import 'package:client/features/movie/new_movie_list/new_movie_list.dart';
-import 'package:client/features/movie/popular_movie_genre/popular_movie_genre.dart';
+import 'package:client/features/genre_list/presentation/genre_list.dart';
+import 'package:client/features/movie/new_movie_list/presentation/new_movie_list.dart';
+import 'package:client/features/movie/popular_movie_genre/presentation/popular_movie_genre.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ui_kit/component/app_bar/cinemax_app_bar.dart';

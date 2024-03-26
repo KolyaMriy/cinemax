@@ -1,12 +1,12 @@
 import 'package:client/core/constant/hive_constant.dart';
 import 'package:client/core/di/dependency_provider.dart';
 import 'package:client/core/network/connection_checker.dart';
-import 'package:client/features/genre_list/data/repositories/genre_repository_impl.dart';
+import 'package:client/features/genre_list/domain/repositories/genre_repository_impl.dart';
 import 'package:client/features/movie/data/data_sources/local/movie_local_datasource_impl.dart';
 import 'package:client/features/movie/data/data_sources/remote/popular_movie_genre/popular_movie_genre_remote_data_source_impl.dart';
 import 'package:client/features/movie/data/dtos/list_movie/list_new_movie_dto.dart';
-import 'package:client/features/movie/data/repository/popular_movie_genre/popular_movie_genre_repository_impl.dart';
-import 'package:client/features/movie/popular_movie_genre/cubit/popular_movies_genre_cubit.dart';
+import 'package:client/features/movie/domain/repository/popular_movie_genre/popular_movie_genre_repository_impl.dart';
+import 'package:client/features/movie/popular_movie_genre/presentation/cubit/popular_movies_genre_cubit.dart';
 
 import 'package:dio/dio.dart';
 import 'package:hive/hive.dart';

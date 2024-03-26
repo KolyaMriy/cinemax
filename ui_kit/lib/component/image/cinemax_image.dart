@@ -3,7 +3,7 @@ import 'package:ui_kit/component/image/network_image.dart';
 import 'package:ui_kit/theme/color_scheme.dart';
 
 class _Constants {
-  static const int duration = 500;
+  static const int duration = 1000;
 }
 
 class CinemaxImage extends StatefulWidget {

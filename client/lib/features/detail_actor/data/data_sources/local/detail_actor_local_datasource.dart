@@ -1,4 +1,4 @@
-import 'package:client/features/detail_actor/data/entity/detail_actor_entity.dart';
+import 'package:client/features/detail_actor/domain/entity/detail_actor_entity.dart';
 
 abstract interface class DetailActorLocalDataSource {
   void saveDetailActor({

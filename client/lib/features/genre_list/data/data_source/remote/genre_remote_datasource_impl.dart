@@ -2,7 +2,7 @@
 import 'package:client/core/api/api_config.dart';
 import 'package:client/features/genre_list/data/data_source/remote/genre_remote_datasource.dart';
 import 'package:client/features/genre_list/data/dtos/genre_dto.dart';
-import 'package:client/features/genre_list/data/entity/genre_entity.dart';
+import 'package:client/features/genre_list/domain/entity/genre_entity.dart';
 import 'package:client/features/genre_list/data/mappers/genre_mappers.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';

@@ -1,4 +1,4 @@
-import 'package:client/features/detail_movie/movie_credits/data/entity/credits_entity.dart';
+import 'package:client/features/detail_movie/movie_credits/domain/entity/credits_entity.dart';
 
 abstract interface class CreditsMovieLocalDataSource {
   Future<void> saveCredits({
