@@ -1,9 +1,9 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:client/core/di/dependency_provider.dart';
 import 'package:client/core/extension/font_weight_extension.dart';
-import 'package:client/features/detail_movie/presentation/cubit/detail_movie_cubit.dart';
 import 'package:client/features/detail_movie/movie_backdrops/presentation/movie_backdrops.dart';
 import 'package:client/features/detail_movie/movie_credits/presentation/cast_list.dart';
+import 'package:client/features/detail_movie/presentation/cubit/detail_movie_cubit.dart';
 import 'package:client/features/detail_movie/presentation/widgets/add_info_movie.dart';
 import 'package:client/features/detail_movie/presentation/widgets/list_genres_movie.dart';
 import 'package:client/features/movie/movie_recommendations/presentation/movie_recommendations.dart';

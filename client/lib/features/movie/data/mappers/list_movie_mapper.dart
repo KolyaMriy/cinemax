@@ -1,6 +1,6 @@
 import 'package:client/features/movie/data/dtos/list_movie/list_new_movie_dto.dart';
-import 'package:client/features/movie/domain/entity/list_movie.dart';
 import 'package:client/features/movie/data/mappers/movie_mapper.dart';
+import 'package:client/features/movie/domain/entity/list_movie.dart';
 
 extension ListNewMovieMapperToDomain on ListMovieDTO {
   ListMovieEntity toEntity() => ListMovieEntity(

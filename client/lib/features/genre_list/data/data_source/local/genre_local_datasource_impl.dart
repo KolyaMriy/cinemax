@@ -1,7 +1,7 @@
 import 'package:client/features/genre_list/data/data_source/local/genre_local_datasource.dart';
 import 'package:client/features/genre_list/data/dtos/genre_dto.dart';
-import 'package:client/features/genre_list/domain/entity/genre_entity.dart';
 import 'package:client/features/genre_list/data/mappers/genre_mappers.dart';
+import 'package:client/features/genre_list/domain/entity/genre_entity.dart';
 import 'package:hive/hive.dart';
 
 class GenreLocalDataSourceImpl implements GenreLocalDataSource {

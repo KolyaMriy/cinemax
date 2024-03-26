@@ -1,10 +1,10 @@
 // ignore_for_file: inference_failure_on_function_invocation
 import 'package:client/core/api/api_config.dart';
 import 'package:client/core/failure/failure.dart';
-import 'package:client/features/movie_trailer/domain/repository/movie_trailer_repository.dart';
 import 'package:client/features/movie_trailer/data/dtos/youtube_trailer/youtube_trailer_dto.dart';
 import 'package:client/features/movie_trailer/data/mappers/youtube_trailer_mapper.dart';
 import 'package:client/features/movie_trailer/domain/entity/youtube_trailer_entity.dart';
+import 'package:client/features/movie_trailer/domain/repository/movie_trailer_repository.dart';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';

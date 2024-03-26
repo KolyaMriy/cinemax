@@ -16,7 +16,6 @@ class HomePage extends StatelessWidget {
         leading: Avatar(
           photoUrl: '',
         ),
-        centerTitle: false,
         titleText: 'Hello, kolyamriy16@gmail.com',
         subTitle: 'Let’s stream your favorite movie',
       ),

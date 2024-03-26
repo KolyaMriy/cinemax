@@ -1,8 +1,8 @@
 import 'package:client/core/failure/failure.dart';
 import 'package:client/features/detail_actor/data/data_sources/local/detail_actor_local_datasource.dart';
 import 'package:client/features/detail_actor/data/data_sources/remote/detail_actor_remote_datasource.dart';
-import 'package:client/features/detail_actor/domain/repository/detail_actor_repository.dart';
 import 'package:client/features/detail_actor/domain/entity/detail_actor_entity.dart';
+import 'package:client/features/detail_actor/domain/repository/detail_actor_repository.dart';
 import 'package:dartz/dartz.dart';
 
 class DetailActorRepositoryImpl implements DetailActorRepository {

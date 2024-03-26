@@ -2,8 +2,8 @@
 import 'package:client/core/api/api_config.dart';
 import 'package:client/features/detail_movie/movie_backdrops/data/data_sources/remote/backdrops_remote_data_source.dart';
 import 'package:client/features/detail_movie/movie_backdrops/data/dtos/backdrops_movie_dto.dart';
-import 'package:client/features/detail_movie/movie_backdrops/domain/entity/backdrops_movie_entity.dart';
 import 'package:client/features/detail_movie/movie_backdrops/data/mappers/backdrops_movie_mapper.dart';
+import 'package:client/features/detail_movie/movie_backdrops/domain/entity/backdrops_movie_entity.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 

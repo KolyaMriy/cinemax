@@ -4,8 +4,8 @@ import 'package:client/features/genre_list/domain/repositories/genre_repository_
 import 'package:client/features/movie/data/data_sources/remote/popular_movie_genre/popular_movie_genre_remote_data_source.dart';
 import 'package:client/features/movie/data/dtos/list_movie/list_new_movie_dto.dart';
 import 'package:client/features/movie/data/dtos/movie/movie_dto.dart';
-import 'package:client/features/movie/domain/entity/list_movie.dart';
 import 'package:client/features/movie/data/mappers/movie_mapper.dart';
+import 'package:client/features/movie/domain/entity/list_movie.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 

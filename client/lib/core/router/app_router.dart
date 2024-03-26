@@ -15,7 +15,6 @@ import 'package:client/screens/tab_pages/pages/profile/profile_screen.dart';
 import 'package:client/screens/tab_pages/pages/search/search_screen.dart';
 import 'package:client/screens/tab_pages/tab_page.dart';
 import 'package:client/screens/welcome/welcome_screen.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 

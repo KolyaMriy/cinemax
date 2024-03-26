@@ -36,7 +36,7 @@ class AppDependencyResolver {
     await NewMovieDependencyResolver.register();
     await GenreDependencyResolver.register();
     await PopularMovieGenreDependencyResolver.register();
-    MovieDetailDependencyResolver.register();
+    await MovieDetailDependencyResolver.register();
     MovieTrailerDependencyResolver.register();
     await MovieRecommendationDependencyResolver.register();
     SearchMovieDependencyResolver.register();

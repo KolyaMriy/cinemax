@@ -1,7 +1,7 @@
 import 'package:client/features/detail_movie/movie_credits/data/data_sources/local/movie_credits_local_data_source.dart';
 import 'package:client/features/detail_movie/movie_credits/data/dtos/credits_dto.dart';
-import 'package:client/features/detail_movie/movie_credits/domain/entity/credits_entity.dart';
 import 'package:client/features/detail_movie/movie_credits/data/mappers/credits_mapper.dart';
+import 'package:client/features/detail_movie/movie_credits/domain/entity/credits_entity.dart';
 import 'package:hive/hive.dart';
 
 class CreditsMovieLocalDataSourceImpl implements CreditsMovieLocalDataSource {

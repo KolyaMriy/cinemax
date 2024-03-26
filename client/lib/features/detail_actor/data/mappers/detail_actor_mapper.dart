@@ -1,8 +1,8 @@
 import 'package:client/core/api/api_config.dart';
 import 'package:client/features/detail_actor/data/dtos/detail_actor/detail_actor_dto.dart';
 import 'package:client/features/detail_actor/domain/entity/detail_actor_entity.dart';
-import 'package:client/features/movie/domain/entity/movie.dart';
 import 'package:client/features/movie/data/mappers/movie_mapper.dart';
+import 'package:client/features/movie/domain/entity/movie.dart';
 
 extension DetailActorToDTO on DetailActorDTO {
   DetailActorEntity toEntity({

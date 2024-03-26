@@ -1,11 +1,10 @@
 import 'package:client/core/constant/hive_constant.dart';
 import 'package:client/core/di/dependency_provider.dart';
-import 'package:client/features/detail_movie/movie_backdrops/presentation/cubit/movie_backdrops_cubit.dart';
 import 'package:client/features/detail_movie/movie_backdrops/data/data_sources/local/backdrops_local_data_source_impl.dart';
 import 'package:client/features/detail_movie/movie_backdrops/data/data_sources/remote/backdrops_remote_data_source_impl.dart';
 import 'package:client/features/detail_movie/movie_backdrops/data/dtos/backdrops_movie_dto.dart';
 import 'package:client/features/detail_movie/movie_backdrops/domain/repository/movie_backdrops_repository_impl.dart';
-
+import 'package:client/features/detail_movie/movie_backdrops/presentation/cubit/movie_backdrops_cubit.dart';
 import 'package:dio/dio.dart';
 import 'package:hive/hive.dart';
 

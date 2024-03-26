@@ -1,7 +1,7 @@
 import 'package:client/features/movie/data/data_sources/local/movie_local_datasource.dart';
 import 'package:client/features/movie/data/dtos/list_movie/list_new_movie_dto.dart';
-import 'package:client/features/movie/domain/entity/list_movie.dart';
 import 'package:client/features/movie/data/mappers/list_movie_mapper.dart';
+import 'package:client/features/movie/domain/entity/list_movie.dart';
 import 'package:hive/hive.dart';
 
 class MovieLocalDataSourceImpl implements MovieLocalDataSource {

@@ -3,8 +3,8 @@
 import 'package:client/core/api/api_config.dart';
 import 'package:client/features/movie/data/data_sources/remote/new_movie/new_movie_remote_datasource.dart';
 import 'package:client/features/movie/data/dtos/list_movie/list_new_movie_dto.dart';
-import 'package:client/features/movie/domain/entity/list_movie.dart';
 import 'package:client/features/movie/data/mappers/list_movie_mapper.dart';
+import 'package:client/features/movie/domain/entity/list_movie.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 

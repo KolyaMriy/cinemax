@@ -1,7 +1,7 @@
 import 'package:client/features/detail_movie/movie_credits/data/dtos/credits_dto.dart';
-import 'package:client/features/detail_movie/movie_credits/domain/entity/credits_entity.dart';
 import 'package:client/features/detail_movie/movie_credits/data/mappers/cast_mapper.dart';
 import 'package:client/features/detail_movie/movie_credits/data/mappers/crew_mapper.dart';
+import 'package:client/features/detail_movie/movie_credits/domain/entity/credits_entity.dart';
 
 extension CreditsToEntity on CreditsDTO {
   CreditsEntity toEntity() => CreditsEntity(
