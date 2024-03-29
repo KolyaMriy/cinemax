@@ -1,6 +1,6 @@
 import 'package:client/core/validator/auth_failure/auth_failure.dart';
 import 'package:client/core/validator/email/email.dart';
-import 'package:client/features/auth/reset_password/repositories/reset_password_repository.dart';
+import 'package:client/features/auth/reset_password/repositories/reset_password_repository_impl.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -9,9 +9,10 @@ part 'reset_password_state.dart';
 part 'reset_password_cubit.freezed.dart';
 
 class ResetPasswordCubit extends Cubit<ResetPasswordState> {
-  final ResetPasswordRepository _repository;
-  ResetPasswordCubit({required ResetPasswordRepository repository})
-      : _repository = repository,
+  final ResetPasswordRepositoryImpl _repository;
+  ResetPasswordCubit({
+    required ResetPasswordRepositoryImpl repository,
+  })  : _repository = repository,
         super(ResetPasswordState.initial());
 
   void emailChanged(String email) {

@@ -18,7 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$DetailMovieState {
   MovieDetailEntity? get movieDetail => throw _privateConstructorUsedError;
   bool get loading => throw _privateConstructorUsedError;
-  bool get showTrailer => throw _privateConstructorUsedError;
+  bool get isFavorite => throw _privateConstructorUsedError;
   Failure? get failure => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -35,7 +35,7 @@ abstract class $DetailMovieStateCopyWith<$Res> {
   $Res call(
       {MovieDetailEntity? movieDetail,
       bool loading,
-      bool showTrailer,
+      bool isFavorite,
       Failure? failure});
 
   $FailureCopyWith<$Res>? get failure;
@@ -56,7 +56,7 @@ class _$DetailMovieStateCopyWithImpl<$Res, $Val extends DetailMovieState>
   $Res call({
     Object? movieDetail = freezed,
     Object? loading = null,
-    Object? showTrailer = null,
+    Object? isFavorite = null,
     Object? failure = freezed,
   }) {
     return _then(_value.copyWith(
@@ -68,9 +68,9 @@ class _$DetailMovieStateCopyWithImpl<$Res, $Val extends DetailMovieState>
           ? _value.loading
           : loading // ignore: cast_nullable_to_non_nullable
               as bool,
-      showTrailer: null == showTrailer
-          ? _value.showTrailer
-          : showTrailer // ignore: cast_nullable_to_non_nullable
+      isFavorite: null == isFavorite
+          ? _value.isFavorite
+          : isFavorite // ignore: cast_nullable_to_non_nullable
               as bool,
       failure: freezed == failure
           ? _value.failure
@@ -103,7 +103,7 @@ abstract class _$$DetailMovieStateImplCopyWith<$Res>
   $Res call(
       {MovieDetailEntity? movieDetail,
       bool loading,
-      bool showTrailer,
+      bool isFavorite,
       Failure? failure});
 
   @override
@@ -123,7 +123,7 @@ class __$$DetailMovieStateImplCopyWithImpl<$Res>
   $Res call({
     Object? movieDetail = freezed,
     Object? loading = null,
-    Object? showTrailer = null,
+    Object? isFavorite = null,
     Object? failure = freezed,
   }) {
     return _then(_$DetailMovieStateImpl(
@@ -135,9 +135,9 @@ class __$$DetailMovieStateImplCopyWithImpl<$Res>
           ? _value.loading
           : loading // ignore: cast_nullable_to_non_nullable
               as bool,
-      showTrailer: null == showTrailer
-          ? _value.showTrailer
-          : showTrailer // ignore: cast_nullable_to_non_nullable
+      isFavorite: null == isFavorite
+          ? _value.isFavorite
+          : isFavorite // ignore: cast_nullable_to_non_nullable
               as bool,
       failure: freezed == failure
           ? _value.failure
@@ -153,7 +153,7 @@ class _$DetailMovieStateImpl implements _DetailMovieState {
   _$DetailMovieStateImpl(
       {this.movieDetail,
       this.loading = false,
-      this.showTrailer = false,
+      this.isFavorite = false,
       this.failure});
 
   @override
@@ -163,13 +163,13 @@ class _$DetailMovieStateImpl implements _DetailMovieState {
   final bool loading;
   @override
   @JsonKey()
-  final bool showTrailer;
+  final bool isFavorite;
   @override
   final Failure? failure;
 
   @override
   String toString() {
-    return 'DetailMovieState(movieDetail: $movieDetail, loading: $loading, showTrailer: $showTrailer, failure: $failure)';
+    return 'DetailMovieState(movieDetail: $movieDetail, loading: $loading, isFavorite: $isFavorite, failure: $failure)';
   }
 
   @override
@@ -180,14 +180,14 @@ class _$DetailMovieStateImpl implements _DetailMovieState {
             (identical(other.movieDetail, movieDetail) ||
                 other.movieDetail == movieDetail) &&
             (identical(other.loading, loading) || other.loading == loading) &&
-            (identical(other.showTrailer, showTrailer) ||
-                other.showTrailer == showTrailer) &&
+            (identical(other.isFavorite, isFavorite) ||
+                other.isFavorite == isFavorite) &&
             (identical(other.failure, failure) || other.failure == failure));
   }
 
   @override
   int get hashCode =>
-      Object.hash(runtimeType, movieDetail, loading, showTrailer, failure);
+      Object.hash(runtimeType, movieDetail, loading, isFavorite, failure);
 
   @JsonKey(ignore: true)
   @override
@@ -201,7 +201,7 @@ abstract class _DetailMovieState implements DetailMovieState {
   factory _DetailMovieState(
       {final MovieDetailEntity? movieDetail,
       final bool loading,
-      final bool showTrailer,
+      final bool isFavorite,
       final Failure? failure}) = _$DetailMovieStateImpl;
 
   @override
@@ -209,7 +209,7 @@ abstract class _DetailMovieState implements DetailMovieState {
   @override
   bool get loading;
   @override
-  bool get showTrailer;
+  bool get isFavorite;
   @override
   Failure? get failure;
   @override

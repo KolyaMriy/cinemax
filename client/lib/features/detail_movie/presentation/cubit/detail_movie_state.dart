@@ -5,7 +5,7 @@ class DetailMovieState with _$DetailMovieState {
   factory DetailMovieState({
     MovieDetailEntity? movieDetail,
     @Default(false) bool loading,
-    @Default(false) bool showTrailer,
+    @Default(false) bool isFavorite,
     Failure? failure,
   }) = _DetailMovieState;
 }

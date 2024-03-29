@@ -2,7 +2,7 @@ import 'package:client/core/validator/auth_failure/auth_failure.dart';
 import 'package:client/core/validator/email/email.dart';
 import 'package:client/core/validator/name/name.dart';
 import 'package:client/core/validator/password/password.dart';
-import 'package:client/features/auth/sign_up/repositories/sign_up_repository.dart';
+import 'package:client/features/auth/sign_up/repositories/sign_up_repository_impl.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -12,8 +12,8 @@ part 'sign_up_form_cubit.freezed.dart';
 part 'sign_up_form_state.dart';
 
 class SignUpFormCubit extends Cubit<SignUpFormState> {
-  final SignUpRepository _repository;
-  SignUpFormCubit({required SignUpRepository repository})
+  final SignUpRepositoryImpl _repository;
+  SignUpFormCubit({required SignUpRepositoryImpl repository})
       : _repository = repository,
         super(SignUpFormState.initial());
 

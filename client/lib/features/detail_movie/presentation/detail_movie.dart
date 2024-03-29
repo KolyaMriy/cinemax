@@ -72,8 +72,14 @@ class DetailMovieScreen extends StatelessWidget {
                     ),
                     actionIcon: CinemaxIcon(
                       icon: CinemaxIcons.heart,
-                      iconColor: SecondaryColor.red,
-                      onTap: () {},
+                      iconColor: state.isFavorite
+                          ? SecondaryColor.red
+                          : SecondaryColor.darkGrey,
+                      onTap: () {
+                        context
+                            .read<DetailMovieCubit>()
+                            .changeIsFavoriteMovie();
+                      },
                     ),
                     titleText: movie.title,
                   ),

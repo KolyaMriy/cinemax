@@ -1,3 +1,4 @@
+import 'package:client/core/api/api_config.dart';
 import 'package:client/core/validator/auth_failure/auth_failure.dart';
 import 'package:client/features/auth/data/entity/user_entity.dart';
 import 'package:dartz/dartz.dart';
@@ -71,8 +72,8 @@ extension on firebase_auth.User {
   UserEntity get toUser {
     return UserEntity(
         id: uid,
-        name: displayName ?? 'N/A',
+        name: displayName ?? email,
         email: email,
-        photoUrl: photoURL ?? '');
+        photoUrl: photoURL ?? MovieQuery.avatarPlaceHolder);
   }
 }

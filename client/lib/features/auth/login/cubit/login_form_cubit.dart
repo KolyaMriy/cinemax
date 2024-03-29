@@ -1,7 +1,7 @@
 import 'package:client/core/validator/auth_failure/auth_failure.dart';
 import 'package:client/core/validator/email/email.dart';
 import 'package:client/core/validator/password/password.dart';
-import 'package:client/features/auth/login/repositories/login_repository.dart';
+import 'package:client/features/auth/login/repositories/login_repository_impl.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -9,8 +9,8 @@ part 'login_form_state.dart';
 part 'login_form_cubit.freezed.dart';
 
 class LoginFormCubit extends Cubit<LoginFormState> {
-  final LoginRepository _repository;
-  LoginFormCubit({required LoginRepository repository})
+  final LoginRepositoryImpl _repository;
+  LoginFormCubit({required LoginRepositoryImpl repository})
       : _repository = repository,
         super(LoginFormState.initial());
 
