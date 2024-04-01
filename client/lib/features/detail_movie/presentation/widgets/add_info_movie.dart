@@ -12,8 +12,8 @@ class AddInfoMovie extends StatelessWidget {
     required this.rating,
   });
 
-  final String releaseDate;
-  final String runtime;
+  final int releaseDate;
+  final int runtime;
   final double rating;
 
   @override
@@ -27,7 +27,7 @@ class AddInfoMovie extends StatelessWidget {
           children: [
             Icon(Icons.calendar_month, color: TextColor.grey),
             Text(
-              releaseDate,
+              releaseDate.toString(),
               style: context.textStyle.h4.copyWith(
                 color: TextColor.grey,
                 fontWeight: FontWeightStyle.medium.fontWeight,

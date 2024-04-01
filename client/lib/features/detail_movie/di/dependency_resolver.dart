@@ -5,6 +5,7 @@ import 'package:client/features/detail_movie/data/data_sources/remote/movie_deta
 import 'package:client/features/detail_movie/data/dtos/movie_detail/movie_detail_dto.dart';
 import 'package:client/features/detail_movie/domain/repository/detail_movie_repository_impl.dart';
 import 'package:client/features/detail_movie/presentation/cubit/detail_movie_cubit.dart';
+import 'package:client/features/favorite_movie/domain/repositories/favorite_repository_impl.dart';
 import 'package:dio/dio.dart';
 import 'package:hive/hive.dart';
 
@@ -15,6 +16,7 @@ class MovieDetailDependencyResolver {
     DependencyProvider.registerFactory<DetailMovieCubit>(
       () => DetailMovieCubit(
         repository: DependencyProvider.get<DetailMovieRepositoryImpl>(),
+        favoriteRepository: DependencyProvider.get<FavoriteRepositoryImpl>(),
       ),
     );
     DependencyProvider.registerLazySingleton<DetailMovieRepositoryImpl>(

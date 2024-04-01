@@ -32,7 +32,8 @@ class PopularMovieGenre extends StatelessWidget {
                         .toList();
                   return MovieCard(
                     cardModel: card,
-                    onTap: () => context.pushNamed(AppRouterName.detailMovieName,
+                    onTap: () => context.pushNamed(
+                        AppRouterName.detailMovieName,
                         extra: state.listPopularGenreMovie.movies[index].id),
                   );
                 }),

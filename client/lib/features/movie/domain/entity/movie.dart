@@ -28,6 +28,8 @@ class MovieEntity extends Equatable {
     this.voteAverage,
   });
 
+  factory MovieEntity.empty() => const MovieEntity(id: 0, title: 'title');
+
   @override
   List<Object?> get props {
     return [

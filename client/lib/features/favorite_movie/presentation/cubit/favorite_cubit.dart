@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:client/core/failure/failure.dart';
+import 'package:client/features/favorite_movie/domain/entity/favorite_movie_entity.dart';
 import 'package:client/features/favorite_movie/domain/repositories/favorite_repository_impl.dart';
-import 'package:client/features/movie/domain/entity/movie.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'favorite_state.dart';
@@ -11,9 +11,7 @@ class FavoriteCubit extends Cubit<FavoriteState> {
   final FavoriteRepositoryImpl _repository;
   FavoriteCubit({required FavoriteRepositoryImpl repository})
       : _repository = repository,
-        super(FavoriteState(
-          listFavoriteMovie: [],
-        ));
+        super(FavoriteState());
 
   void loadFavoriteMovie() {
     if (!state.isLoading) {
@@ -26,19 +24,12 @@ class FavoriteCubit extends Cubit<FavoriteState> {
               isLoading: false,
             ),
           ),
-          (listFavoriteMovie) => emit(
+          (movies) => emit(
             state.copyWith(
-              listFavoriteMovie: listFavoriteMovie,
+              movies: movies,
               isLoading: false,
             ),
           ),
         );
-  }
-
-  Future<void> addOrRemoveFavorite({
-    required int idMovie,
-    required MovieEntity movie,
-  }) async {
-    await _repository.addOrRemoveFavoriteMovie(idMovie: idMovie, movie: movie);
   }
 }

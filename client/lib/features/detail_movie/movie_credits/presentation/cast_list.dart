@@ -49,6 +49,7 @@ class CastList extends StatelessWidget {
                         child: Column(
                           children: [
                             CircleAvatar(
+                              backgroundColor: PrimaryColor.soft,
                               radius: 50,
                               foregroundImage: CachedNetworkImageProvider(
                                 actors.image,

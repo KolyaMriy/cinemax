@@ -9,6 +9,7 @@ abstract class HiveConstantBoxName {
   static const String boxMovieCrew = '38';
   static const String boxMovieCredits = '39';
   static const String boxMovieDetails = '40';
+  static const String favoriteMovie = '42';
 }
 
 abstract class HiveTypeId {

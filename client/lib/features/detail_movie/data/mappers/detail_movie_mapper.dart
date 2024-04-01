@@ -3,6 +3,7 @@ import 'package:client/features/detail_movie/data/dtos/movie_detail/movie_detail
 import 'package:client/features/detail_movie/data/mappers/production_company_mapper.dart';
 import 'package:client/features/detail_movie/domain/entity/movie_detail_entity.dart';
 import 'package:client/features/genre_list/data/mappers/genre_mappers.dart';
+import 'package:client/features/movie/domain/entity/movie.dart';
 
 extension MovieDetailToEntity on MovieDetailDTO {
   MovieDetailEntity toEntity() => MovieDetailEntity(
@@ -47,5 +48,21 @@ extension MovieDetailToDTO on MovieDetailEntity {
         tagline: tagline,
         voteAverage: voteAverage,
         voteCount: voteCount,
+      );
+}
+
+extension MovieDetailToMovie on MovieDetailEntity {
+  MovieEntity toMovie() => MovieEntity(
+        id: id,
+        title: title,
+        backdropPath: backdropPicture,
+        posterPath: posterPicture,
+        genres: genres,
+        originalLanguage: originalLanguage,
+        originalTitle: originalTitle,
+        description: description,
+        popularity: popularity,
+        releaseDate: releaseDate,
+        voteAverage: voteAverage,
       );
 }

@@ -8,6 +8,7 @@ import 'package:client/features/detail_movie/movie_backdrops/data/dtos/backdrops
 import 'package:client/features/detail_movie/movie_credits/data/dtos/cast/cast_dto.dart';
 import 'package:client/features/detail_movie/movie_credits/data/dtos/credits_dto.dart';
 import 'package:client/features/detail_movie/movie_credits/data/dtos/crew/crew_dto.dart';
+import 'package:client/features/favorite_movie/data/dtos/favorite_movie_dto.dart';
 import 'package:client/features/genre_list/data/dtos/genre_dto.dart';
 import 'package:client/features/movie/data/dtos/list_movie/list_new_movie_dto.dart';
 import 'package:client/features/movie/data/dtos/movie/movie_dto.dart';
@@ -30,7 +31,8 @@ Future<void> main() async {
     ..registerAdapter(CastDTOAdapter())
     ..registerAdapter(ProductionCompanyDTOAdapter())
     ..registerAdapter(MovieDetailDTOAdapter())
-    ..registerAdapter(CreditsDTOAdapter());
+    ..registerAdapter(CreditsDTOAdapter())
+    ..registerAdapter(FavoriteMovieDTOAdapter());
 
   if (Platform.isAndroid) {
     await initializeFireBase(

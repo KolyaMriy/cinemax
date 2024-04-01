@@ -7,5 +7,6 @@ extension MovieCardMapper on MovieEntity {
         title: title,
         posterPicture: '${MovieQuery.baseImageHttp}$posterPath',
         averageRating: voteAverage!,
+        genres: genres != null ? genres!.map((e) => e.name).toList() : [],
       );
 }

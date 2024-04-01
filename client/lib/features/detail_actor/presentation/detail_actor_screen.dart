@@ -75,7 +75,7 @@ class DetailActorScreen extends StatelessWidget {
                         itemCount: state.actor.alsoKnownAs!.length,
                         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                           childAspectRatio: MediaQuery.of(context).size.width /
-                              (MediaQuery.of(context).size.height / 1.2),
+                              (MediaQuery.of(context).size.height / 1.12),
                           crossAxisCount: 3,
                         ),
                         itemBuilder: (context, index) {

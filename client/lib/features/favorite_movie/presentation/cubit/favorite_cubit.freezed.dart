@@ -16,7 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$FavoriteState {
-  List<MovieEntity> get listFavoriteMovie => throw _privateConstructorUsedError;
+  List<FavoriteMovieEntity> get movies => throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
   Failure? get failure => throw _privateConstructorUsedError;
 
@@ -32,7 +32,7 @@ abstract class $FavoriteStateCopyWith<$Res> {
       _$FavoriteStateCopyWithImpl<$Res, FavoriteState>;
   @useResult
   $Res call(
-      {List<MovieEntity> listFavoriteMovie, bool isLoading, Failure? failure});
+      {List<FavoriteMovieEntity> movies, bool isLoading, Failure? failure});
 
   $FailureCopyWith<$Res>? get failure;
 }
@@ -50,15 +50,15 @@ class _$FavoriteStateCopyWithImpl<$Res, $Val extends FavoriteState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? listFavoriteMovie = null,
+    Object? movies = null,
     Object? isLoading = null,
     Object? failure = freezed,
   }) {
     return _then(_value.copyWith(
-      listFavoriteMovie: null == listFavoriteMovie
-          ? _value.listFavoriteMovie
-          : listFavoriteMovie // ignore: cast_nullable_to_non_nullable
-              as List<MovieEntity>,
+      movies: null == movies
+          ? _value.movies
+          : movies // ignore: cast_nullable_to_non_nullable
+              as List<FavoriteMovieEntity>,
       isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
@@ -92,7 +92,7 @@ abstract class _$$FavoriteStateImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {List<MovieEntity> listFavoriteMovie, bool isLoading, Failure? failure});
+      {List<FavoriteMovieEntity> movies, bool isLoading, Failure? failure});
 
   @override
   $FailureCopyWith<$Res>? get failure;
@@ -109,15 +109,15 @@ class __$$FavoriteStateImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? listFavoriteMovie = null,
+    Object? movies = null,
     Object? isLoading = null,
     Object? failure = freezed,
   }) {
     return _then(_$FavoriteStateImpl(
-      listFavoriteMovie: null == listFavoriteMovie
-          ? _value._listFavoriteMovie
-          : listFavoriteMovie // ignore: cast_nullable_to_non_nullable
-              as List<MovieEntity>,
+      movies: null == movies
+          ? _value._movies
+          : movies // ignore: cast_nullable_to_non_nullable
+              as List<FavoriteMovieEntity>,
       isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
@@ -134,18 +134,18 @@ class __$$FavoriteStateImplCopyWithImpl<$Res>
 
 class _$FavoriteStateImpl implements _FavoriteState {
   _$FavoriteStateImpl(
-      {required final List<MovieEntity> listFavoriteMovie,
+      {final List<FavoriteMovieEntity> movies = const [],
       this.isLoading = false,
       this.failure})
-      : _listFavoriteMovie = listFavoriteMovie;
+      : _movies = movies;
 
-  final List<MovieEntity> _listFavoriteMovie;
+  final List<FavoriteMovieEntity> _movies;
   @override
-  List<MovieEntity> get listFavoriteMovie {
-    if (_listFavoriteMovie is EqualUnmodifiableListView)
-      return _listFavoriteMovie;
+  @JsonKey()
+  List<FavoriteMovieEntity> get movies {
+    if (_movies is EqualUnmodifiableListView) return _movies;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_listFavoriteMovie);
+    return EqualUnmodifiableListView(_movies);
   }
 
   @override
@@ -156,7 +156,7 @@ class _$FavoriteStateImpl implements _FavoriteState {
 
   @override
   String toString() {
-    return 'FavoriteState(listFavoriteMovie: $listFavoriteMovie, isLoading: $isLoading, failure: $failure)';
+    return 'FavoriteState(movies: $movies, isLoading: $isLoading, failure: $failure)';
   }
 
   @override
@@ -164,19 +164,15 @@ class _$FavoriteStateImpl implements _FavoriteState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FavoriteStateImpl &&
-            const DeepCollectionEquality()
-                .equals(other._listFavoriteMovie, _listFavoriteMovie) &&
+            const DeepCollectionEquality().equals(other._movies, _movies) &&
             (identical(other.isLoading, isLoading) ||
                 other.isLoading == isLoading) &&
             (identical(other.failure, failure) || other.failure == failure));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(_listFavoriteMovie),
-      isLoading,
-      failure);
+  int get hashCode => Object.hash(runtimeType,
+      const DeepCollectionEquality().hash(_movies), isLoading, failure);
 
   @JsonKey(ignore: true)
   @override
@@ -187,12 +183,12 @@ class _$FavoriteStateImpl implements _FavoriteState {
 
 abstract class _FavoriteState implements FavoriteState {
   factory _FavoriteState(
-      {required final List<MovieEntity> listFavoriteMovie,
+      {final List<FavoriteMovieEntity> movies,
       final bool isLoading,
       final Failure? failure}) = _$FavoriteStateImpl;
 
   @override
-  List<MovieEntity> get listFavoriteMovie;
+  List<FavoriteMovieEntity> get movies;
   @override
   bool get isLoading;
   @override

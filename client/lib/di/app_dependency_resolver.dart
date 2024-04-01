@@ -9,6 +9,7 @@ import 'package:client/features/detail_actor/di/dependency_resolver.dart';
 import 'package:client/features/detail_movie/di/dependency_resolver.dart';
 import 'package:client/features/detail_movie/movie_backdrops/di/dependency_resolver.dart';
 import 'package:client/features/detail_movie/movie_credits/di/dependency_resolver.dart';
+import 'package:client/features/favorite_movie/di/dependency_resolver.dart';
 import 'package:client/features/genre_list/di/dependency_resolver.dart';
 import 'package:client/features/movie/movie_recommendations/di/dependency_resolver.dart';
 import 'package:client/features/movie/new_movie_list/di/dependency_resolver.dart';
@@ -43,5 +44,6 @@ class AppDependencyResolver {
     await DetailActorDependencyResolver.register();
     await MovieDetailBackdropsDependencyResolver.register();
     await MovieCreditsDependencyResolver.register();
+    await FavoriteMovieDependencyResolver.register();
   }
 }
