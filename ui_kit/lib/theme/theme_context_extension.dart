@@ -5,6 +5,7 @@ import 'package:ui_kit/component_style/button_style/filled_button_style.dart';
 import 'package:ui_kit/component_style/button_style/outlined_button_style.dart';
 import 'package:ui_kit/component_style/button_style/text_button_style.dart';
 import 'package:ui_kit/component_style/check_box_style/check_box_style.dart';
+import 'package:ui_kit/component_style/genre_container/genre_container_style.dart';
 import 'package:ui_kit/component_style/icon_style/icon_style.dart';
 import 'package:ui_kit/component_style/input_field_style/input_field_style.dart';
 import 'package:ui_kit/component_style/logo_style/cinemax_logo_style.dart';
@@ -36,4 +37,6 @@ extension ThemeContextExtension on BuildContext {
   PosterMovieStyle get posterMovieStyle =>
       Theme.of(this).extension<PosterMovieStyle>()!;
   SpacerStyle get spacerStyle => Theme.of(this).extension<SpacerStyle>()!;
+  GenreContainerStyle get genreContainerStyle =>
+      Theme.of(this).extension<GenreContainerStyle>()!;
 }

@@ -39,7 +39,7 @@ class _GenreListState extends State<GenreList> {
                   duration: const Duration(milliseconds: 300),
                   decoration: BoxDecoration(
                     color: currentGenre == index
-                        ? PrimaryColor.soft.withOpacity(0.7)
+                        ? PrimaryColor.softDark.withOpacity(0.7)
                         : Colors.transparent,
                     borderRadius: const BorderRadius.all(
                       Radius.circular(20),

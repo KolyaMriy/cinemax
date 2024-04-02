@@ -5,6 +5,7 @@ import 'package:ui_kit/component_style/button_style/filled_button_style.dart';
 import 'package:ui_kit/component_style/button_style/outlined_button_style.dart';
 import 'package:ui_kit/component_style/button_style/text_button_style.dart';
 import 'package:ui_kit/component_style/check_box_style/check_box_style.dart';
+import 'package:ui_kit/component_style/genre_container/genre_container_style.dart';
 import 'package:ui_kit/component_style/icon_style/icon_style.dart';
 import 'package:ui_kit/component_style/input_field_style/input_field_style.dart';
 import 'package:ui_kit/component_style/logo_style/cinemax_logo_style.dart';
@@ -18,9 +19,9 @@ import 'package:ui_kit/theme/color_scheme.dart';
 
 final ThemeData lightTheme = ThemeData(
   primaryColor: PrimaryColor.dark,
-  scaffoldBackgroundColor: PrimaryColor.light,
+  scaffoldBackgroundColor: PrimaryColor.lightBlue,
   progressIndicatorTheme: ProgressIndicatorThemeData(
-    circularTrackColor: PrimaryColor.dark,
+    circularTrackColor: TextColor.white,
     color: PrimaryColor.blueAccent,
   ),
   useMaterial3: true,
@@ -40,5 +41,6 @@ final ThemeData lightTheme = ThemeData(
     AvatarStyle.light(),
     PosterMovieStyle.light(),
     SpacerStyle(),
+    GenreContainerStyle.light()
   ],
 );
