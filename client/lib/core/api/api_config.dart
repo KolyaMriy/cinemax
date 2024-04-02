@@ -1,3 +1,5 @@
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+
 abstract class MovieQuery {
   static const String baseUrl = 'https://api.themoviedb.org/3/movie/';
   static const String baseImageHttp = 'https://image.tmdb.org/t/p/w500/';
@@ -11,9 +13,8 @@ abstract class MovieQuery {
 
   static const String genreUrl =
       'https://api.themoviedb.org/3/genre/movie/list?';
-  static const String _apikey = 'c539e23e4012f8d6e348b90f577dd3cf';
   static Map<String, dynamic> queryParametersBase = <String, dynamic>{
-    'api_key': MovieQuery._apikey
+    'api_key': dotenv.env['API_KEY']
   };
 
   static const String avatarPlaceHolder =

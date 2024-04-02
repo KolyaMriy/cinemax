@@ -1,5 +1,5 @@
+import 'package:client/config/router/app_router.dart';
 import 'package:client/core/di/dependency_provider.dart';
-import 'package:client/core/router/app_router.dart';
 import 'package:client/di/app_dependency_resolver.dart';
 import 'package:client/features/auth/bloc/auth_bloc.dart';
 import 'package:client/features/favorite_list/presentation/cubit/favorite_cubit.dart';
