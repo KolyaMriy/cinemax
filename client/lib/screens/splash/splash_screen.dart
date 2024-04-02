@@ -1,5 +1,5 @@
-import 'package:client/core/extension/font_weight_extension.dart';
 import 'package:client/config/router/app_router_name.dart';
+import 'package:client/core/extension/font_weight_extension.dart';
 import 'package:client/features/auth/bloc/auth_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -42,10 +42,12 @@ class _SplashScreenState extends State<SplashScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const CinemaxLogo(),
-            Text('CINEMAX',
-                style: textStyle.h1.copyWith(
-                  fontWeight: FontWeightStyle.semiBold.fontWeight,
-                )),
+            Text(
+              'CINEMAX',
+              style: textStyle.h1.copyWith(
+                fontWeight: FontWeightStyle.semiBold.fontWeight,
+              ),
+            ),
           ],
         ),
       ),

@@ -16,11 +16,14 @@ import 'package:client/features/movie/new_movie_list/di/dependency_resolver.dart
 import 'package:client/features/movie/popular_movie_genre/di/dependency_resolver.dart';
 import 'package:client/features/movie_trailer/di/dependency_resolver.dart';
 import 'package:client/features/search_movie/di/dependency_resolver.dart';
+import 'package:client/features/theme_switcher/di/dependency_resolver.dart';
+import 'package:client/screens/tab_pages/pages/profile/di/dependency_resolver.dart';
 import 'package:dio/dio.dart';
 import 'package:internet_connection_checker_plus/internet_connection_checker_plus.dart';
 
 class AppDependencyResolver {
   static Future<void> register() async {
+    ThemeSwitcherDependencyResolver.register();
     DependencyProvider.registerLazySingleton<Dio>(
       () => Dio(),
     );
@@ -45,5 +48,6 @@ class AppDependencyResolver {
     await MovieDetailBackdropsDependencyResolver.register();
     await MovieCreditsDependencyResolver.register();
     await FavoriteMovieDependencyResolver.register();
+    ProfileDependencyResolver.register();
   }
 }

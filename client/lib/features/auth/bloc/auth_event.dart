@@ -7,7 +7,7 @@ class AuthEvent extends Equatable {
 
 class AuthLogoutRequested extends AuthEvent {
   @override
-  List<Object?> get props => throw UnimplementedError();
+  List<Object?> get props => [];
 }
 
 class AuthUserChanged extends AuthEvent {
