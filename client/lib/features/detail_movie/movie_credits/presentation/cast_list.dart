@@ -1,6 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:client/core/di/dependency_provider.dart';
-import 'package:client/core/router/app_router_name.dart';
+import 'package:client/config/router/app_router_name.dart';
 import 'package:client/features/detail_movie/movie_credits/presentation/cubit/movie_credits_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

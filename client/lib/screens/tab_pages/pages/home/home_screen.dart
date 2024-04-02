@@ -1,5 +1,5 @@
 import 'package:client/core/extension/font_weight_extension.dart';
-import 'package:client/core/router/app_router_name.dart';
+import 'package:client/config/router/app_router_name.dart';
 import 'package:client/features/auth/bloc/auth_bloc.dart';
 import 'package:client/features/genre_list/presentation/genre_list.dart';
 import 'package:client/features/movie/new_movie_list/presentation/new_movie_list.dart';

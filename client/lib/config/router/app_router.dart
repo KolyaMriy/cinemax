@@ -1,5 +1,5 @@
+import 'package:client/config/router/app_router_name.dart';
 import 'package:client/core/di/dependency_provider.dart';
-import 'package:client/core/router/app_router_name.dart';
 import 'package:client/features/auth/bloc/auth_bloc.dart';
 import 'package:client/features/detail_actor/presentation/detail_actor_screen.dart';
 import 'package:client/features/detail_movie/presentation/detail_movie.dart';

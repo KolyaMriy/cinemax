@@ -1,4 +1,4 @@
-import 'package:client/core/router/app_router_name.dart';
+import 'package:client/config/router/app_router_name.dart';
 import 'package:client/features/movie/data/mappers/search_movie_card_mapper.dart';
 import 'package:client/features/search_movie/presentation/cubit/search_movie_cubit.dart';
 import 'package:flutter/material.dart';

@@ -1,7 +1,9 @@
 import 'package:client/core/di/dependency_provider.dart';
+import 'package:client/config/router/app_router_name.dart';
 import 'package:client/features/auth/bloc/auth_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:ui_kit/component/avatar/avatar.dart';
 import 'package:ui_kit/component/component.dart';
 import 'package:ui_kit/theme/color_scheme.dart';
@@ -97,6 +99,8 @@ class ProfileScreen extends StatelessWidget {
                           color: SecondaryColor.red,
                           label: 'Logout',
                           onPressed: () {
+                            context
+                                .pushReplacementNamed(AppRouterName.logInName);
                             DependencyProvider.get<AuthBloc>()
                                 .add(AuthLogoutRequested());
                           },

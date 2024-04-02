@@ -1,4 +1,4 @@
-import 'package:client/core/router/app_router_name.dart';
+import 'package:client/config/router/app_router_name.dart';
 import 'package:client/features/favorite_list/domain/entity/favorite_movie_entity.dart';
 import 'package:client/features/favorite_list/presentation/cubit/favorite_cubit.dart';
 import 'package:client/features/movie/data/mappers/movie_card_mapper.dart';
