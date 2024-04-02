@@ -1,7 +1,7 @@
 import 'package:client/core/failure/failure.dart';
 import 'package:client/features/detail_movie/domain/entity/movie_detail_entity.dart';
 import 'package:client/features/detail_movie/domain/repository/detail_movie_repository_impl.dart';
-import 'package:client/features/favorite_movie/domain/repositories/favorite_repository_impl.dart';
+import 'package:client/features/favorite_list/domain/repositories/favorite_repository_impl.dart';
 import 'package:client/features/movie/domain/entity/movie.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -19,10 +19,6 @@ class DetailMovieCubit extends Cubit<DetailMovieState> {
   })  : _repository = repository,
         _favoriteRepository = favoriteRepository,
         super(DetailMovieState());
-
-  void changeIsFavoriteMovie() {
-    emit(state.copyWith(isFavorite: !state.isFavorite));
-  }
 
   Future<void> loadDetailMovie({required int idMovie}) async {
     if (state.loading != true) {

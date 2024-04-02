@@ -7,7 +7,7 @@ import 'package:client/features/detail_movie/movie_credits/presentation/cast_lis
 import 'package:client/features/detail_movie/presentation/cubit/detail_movie_cubit.dart';
 import 'package:client/features/detail_movie/presentation/widgets/add_info_movie.dart';
 import 'package:client/features/detail_movie/presentation/widgets/list_genres_movie.dart';
-import 'package:client/features/favorite_movie/presentation/cubit/favorite_cubit.dart';
+import 'package:client/features/favorite_list/presentation/cubit/favorite_cubit.dart';
 import 'package:client/features/movie/movie_recommendations/presentation/movie_recommendations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

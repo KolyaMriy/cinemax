@@ -2,7 +2,7 @@ import 'package:client/core/di/dependency_provider.dart';
 import 'package:client/core/router/app_router.dart';
 import 'package:client/di/app_dependency_resolver.dart';
 import 'package:client/features/auth/bloc/auth_bloc.dart';
-import 'package:client/features/favorite_movie/presentation/cubit/favorite_cubit.dart';
+import 'package:client/features/favorite_list/presentation/cubit/favorite_cubit.dart';
 import 'package:client/features/genre_list/presentation/cubit/genre_list_cubit.dart';
 import 'package:client/features/movie/popular_movie_genre/presentation/cubit/popular_movies_genre_cubit.dart';
 import 'package:client/features/search_movie/presentation/cubit/search_movie_cubit.dart';

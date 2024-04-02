@@ -25,14 +25,12 @@ class BackdropsMovieRepositoryImpl implements BackdropsMovieRepository {
       final saveBackdrops = getSavedBackdropsMovie(idMovie: idMovie);
       await saveBackdrops.fold(
         (failure) async {
-          debugPrint('load remote backdrops');
           final backdrops =
               await _remoteDataSource.getBackDropsMovie(idMovie: idMovie);
           result = backdrops;
           await saveBackdropsMovie(idMovie: idMovie, backdrops: backdrops);
         },
         (savedBackdrops) {
-          debugPrint('load savedBackdrops');
           result = savedBackdrops;
         },
       );
@@ -53,11 +51,11 @@ class BackdropsMovieRepositoryImpl implements BackdropsMovieRepository {
       if (savedBackdrops.isNotEmpty) {
         return right(savedBackdrops);
       } else {
-        debugPrint('saved backdrops empty');
+        debugPrint('local backdrops empty');
         return left(const Failure.parseError());
       }
     } catch (e) {
-      debugPrint(e.toString());
+      debugPrint('local backdrops empty');
       return left(const Failure.parseError());
     }
   }

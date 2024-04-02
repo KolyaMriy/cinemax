@@ -14,9 +14,11 @@ extension MovieToEntity on MovieDTO {
         originalTitle: originalTitle,
         description: description,
         popularity: popularity,
-        posterPath: posterPath != '' ? '${MovieQuery.baseImageHttp}$posterPath' : null,
-        backdropPath:
-            backdropPath != '' ? '${MovieQuery.baseImageHttp}$backdropPath' : null,
+        posterPath:
+            posterPath != '' ? '${MovieQuery.baseImageHttp}$posterPath' : null,
+        backdropPath: backdropPath != ''
+            ? '${MovieQuery.baseImageHttp}$backdropPath'
+            : null,
         voteAverage: voteAverage,
         releaseDate: DateTime.tryParse(releaseDate),
         genres: listGenre,

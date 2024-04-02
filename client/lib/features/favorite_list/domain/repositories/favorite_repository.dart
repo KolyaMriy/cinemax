@@ -1,5 +1,5 @@
 import 'package:client/core/failure/failure.dart';
-import 'package:client/features/favorite_movie/domain/entity/favorite_movie_entity.dart';
+import 'package:client/features/favorite_list/domain/entity/favorite_movie_entity.dart';
 import 'package:client/features/movie/domain/entity/movie.dart';
 import 'package:dartz/dartz.dart';
 

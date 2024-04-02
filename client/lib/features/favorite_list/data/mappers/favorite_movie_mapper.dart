@@ -1,5 +1,5 @@
-import 'package:client/features/favorite_movie/data/dtos/favorite_movie_dto.dart';
-import 'package:client/features/favorite_movie/domain/entity/favorite_movie_entity.dart';
+import 'package:client/features/favorite_list/data/dtos/favorite_movie_dto.dart';
+import 'package:client/features/favorite_list/domain/entity/favorite_movie_entity.dart';
 import 'package:client/features/movie/data/mappers/movie_mapper.dart';
 import 'package:client/features/movie/domain/entity/movie.dart';
 

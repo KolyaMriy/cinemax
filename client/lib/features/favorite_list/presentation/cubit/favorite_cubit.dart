@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:client/core/failure/failure.dart';
-import 'package:client/features/favorite_movie/domain/entity/favorite_movie_entity.dart';
-import 'package:client/features/favorite_movie/domain/repositories/favorite_repository_impl.dart';
+import 'package:client/features/favorite_list/domain/entity/favorite_movie_entity.dart';
+import 'package:client/features/favorite_list/domain/repositories/favorite_repository_impl.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'favorite_state.dart';
@@ -31,5 +31,19 @@ class FavoriteCubit extends Cubit<FavoriteState> {
             ),
           ),
         );
+  }
+
+  Future<void> clear() async {
+    await _repository.clear();
+    loadFavoriteMovie();
+  }
+
+  Future<void> removeMovie({required int idMovie}) async {
+    await _repository.removeMovie(idMovie: idMovie);
+    loadFavoriteMovie();
+  }
+
+  void toggleEditList() {
+    emit(state.copyWith(isEditList: !state.isEditList));
   }
 }

@@ -4,9 +4,16 @@ import 'package:ui_kit/assets/images/images_assets.dart';
 import 'package:ui_kit/theme/theme_context_extension.dart';
 
 class Avatar extends StatelessWidget {
-  const Avatar({super.key, this.photoUrl});
+  const Avatar({
+    super.key,
+    this.photoUrl,
+    this.radius,
+    this.borderColor,
+  });
 
   final String? photoUrl;
+  final double? radius;
+  final Color? borderColor;
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +22,7 @@ class Avatar extends StatelessWidget {
       radius: style.borderRadius,
       backgroundColor: style.borderColor,
       child: CircleAvatar(
-        radius: style.avatarRadius,
+        radius: radius ?? style.avatarRadius,
         backgroundImage: const AssetImage(
           ImageAssets.avatarPlaceholder,
           package: 'ui_kit',

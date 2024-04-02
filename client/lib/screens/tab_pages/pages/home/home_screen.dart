@@ -1,10 +1,12 @@
 import 'package:client/core/extension/font_weight_extension.dart';
+import 'package:client/core/router/app_router_name.dart';
 import 'package:client/features/auth/bloc/auth_bloc.dart';
 import 'package:client/features/genre_list/presentation/genre_list.dart';
 import 'package:client/features/movie/new_movie_list/presentation/new_movie_list.dart';
 import 'package:client/features/movie/popular_movie_genre/presentation/popular_movie_genre.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:ui_kit/component/app_bar/cinemax_app_bar.dart';
 import 'package:ui_kit/component/avatar/avatar.dart';
 import 'package:ui_kit/theme/theme_context_extension.dart';
@@ -19,8 +21,11 @@ class HomeScreen extends StatelessWidget {
         if (state.user.isNotEmpty) {
           return Scaffold(
             appBar: CinemaxAppBar(
-              leading: Avatar(
-                photoUrl: state.user.photoUrl,
+              leading: GestureDetector(
+                onTap: () => context.goNamed(AppRouterName.profileName),
+                child: Avatar(
+                  photoUrl: state.user.photoUrl,
+                ),
               ),
               titleText: 'Hello, ${state.user.email}',
               subTitle: 'Let’s stream your favorite movie',

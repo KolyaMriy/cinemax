@@ -7,11 +7,15 @@ class CinemaxOutlinedButton extends StatefulWidget {
     required this.label,
     this.onPressed,
     this.icon,
+    this.color,
+    this.textColor,
   });
 
   final String label;
   final VoidCallback? onPressed;
   final IconData? icon;
+  final Color? color;
+  final Color? textColor;
 
   @override
   State<CinemaxOutlinedButton> createState() => _CinemaxOutlinedButtonState();
@@ -120,7 +124,9 @@ class _CinemaxOutlinedButtonState extends State<CinemaxOutlinedButton>
             color: Colors.transparent,
             border: Border.all(
               strokeAlign: BorderSide.strokeAlignOutside,
-              color: enabled ? style.borderColor : style.disabledTextColor,
+              color: enabled
+                  ? widget.color ?? style.borderColor
+                  : style.disabledTextColor,
               width: 2,
             ),
           ),
@@ -145,7 +151,7 @@ class _CinemaxOutlinedButtonState extends State<CinemaxOutlinedButton>
                     overflow: TextOverflow.ellipsis,
                     textAlign: TextAlign.center,
                     style: enabled
-                        ? style.textStyle
+                        ? style.textStyle.copyWith(color: widget.textColor)
                         : style.textStyle
                             .copyWith(color: style.disabledTextColor),
                   ),
