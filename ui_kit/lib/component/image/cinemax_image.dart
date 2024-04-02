@@ -50,7 +50,7 @@ class CinemaxImageState extends State<CinemaxImage>
       width: widget.imageSize,
       height: widget.imageSize,
       decoration: BoxDecoration(
-        color: PrimaryColor.soft,
+        color: PrimaryColor.softDark,
         borderRadius: BorderRadius.circular(20),
       ),
       child: ClipRRect(

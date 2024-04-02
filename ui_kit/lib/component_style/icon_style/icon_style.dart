@@ -15,12 +15,12 @@ class IconStyle extends ThemeExtension<IconStyle> {
 
   factory IconStyle.dark() => IconStyle(
         iconColor: PrimaryColor.light,
-        backgroundColor: PrimaryColor.soft,
+        backgroundColor: PrimaryColor.softDark,
         borderRadius: BorderRadius.circular(10),
       );
 
   factory IconStyle.light() => IconStyle(
-        iconColor: PrimaryColor.soft,
+        iconColor: PrimaryColor.softDark,
         backgroundColor: PrimaryColor.light,
         borderRadius: BorderRadius.circular(10),
       );

@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 
 abstract class _Constant {
@@ -18,9 +20,20 @@ class SpacerStyle extends ThemeExtension<SpacerStyle> {
   });
 
   @override
-  ThemeExtension<SpacerStyle> lerp(
-      covariant ThemeExtension<SpacerStyle>? other, double t) {
-    throw UnimplementedError();
+  SpacerStyle lerp(
+    covariant ThemeExtension<SpacerStyle>? other,
+    double t,
+  ) {
+    if (other == null || other.runtimeType != SpacerStyle) {
+      return this;
+    }
+
+    final typedOther = other as SpacerStyle;
+    return SpacerStyle(
+      height: lerpDouble(height, typedOther.height, t)!,
+      width: lerpDouble(width, typedOther.width, t)!,
+      widthOnText: lerpDouble(widthOnText, typedOther.widthOnText, t)!,
+    );
   }
 
   @override

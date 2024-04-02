@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:pinput/pinput.dart';
 import 'package:ui_kit/theme/color_scheme.dart';
@@ -33,7 +35,7 @@ class PinputStyle extends ThemeExtension<PinputStyle> {
             color: TextColor.white,
           ),
           decoration: BoxDecoration(
-            color: PrimaryColor.soft,
+            color: PrimaryColor.softDark,
             borderRadius: BorderRadius.circular(_Constant.borderRadius),
             border: Border.all(
               color: PrimaryColor.blueAccent,
@@ -48,7 +50,7 @@ class PinputStyle extends ThemeExtension<PinputStyle> {
             color: TextColor.white,
           ),
           decoration: BoxDecoration(
-            color: PrimaryColor.soft,
+            color: PrimaryColor.softDark,
             borderRadius: BorderRadius.circular(_Constant.borderRadius),
             border: Border.all(
               color: PrimaryColor.blueAccent,
@@ -63,7 +65,7 @@ class PinputStyle extends ThemeExtension<PinputStyle> {
             color: TextColor.white,
           ),
           decoration: BoxDecoration(
-            color: PrimaryColor.soft,
+            color: PrimaryColor.softDark,
             borderRadius: BorderRadius.circular(_Constant.borderRadius),
           ),
         ),
@@ -75,7 +77,7 @@ class PinputStyle extends ThemeExtension<PinputStyle> {
             color: SecondaryColor.red,
           ),
           decoration: BoxDecoration(
-            color: PrimaryColor.soft,
+            color: PrimaryColor.softDark,
             borderRadius: BorderRadius.circular(12),
             border: Border.all(
               color: SecondaryColor.red,
@@ -108,7 +110,7 @@ class PinputStyle extends ThemeExtension<PinputStyle> {
             color: TextColor.black,
           ),
           decoration: BoxDecoration(
-            color: PrimaryColor.soft,
+            color: PrimaryColor.softDark,
             borderRadius: BorderRadius.circular(_Constant.borderRadius),
             border: Border.all(
               color: PrimaryColor.blueAccent,
@@ -121,7 +123,7 @@ class PinputStyle extends ThemeExtension<PinputStyle> {
             color: TextColor.black,
           ),
           decoration: BoxDecoration(
-            color: PrimaryColor.soft,
+            color: PrimaryColor.softDark,
             borderRadius: BorderRadius.circular(_Constant.borderRadius),
           ),
         ),
@@ -131,7 +133,7 @@ class PinputStyle extends ThemeExtension<PinputStyle> {
             color: SecondaryColor.red,
           ),
           decoration: BoxDecoration(
-            color: PrimaryColor.soft,
+            color: PrimaryColor.softDark,
             borderRadius: BorderRadius.circular(12),
             border: Border.all(
               color: SecondaryColor.red,
@@ -161,8 +163,34 @@ class PinputStyle extends ThemeExtension<PinputStyle> {
   }
 
   @override
-  ThemeExtension<PinputStyle> lerp(
-      covariant ThemeExtension<PinputStyle>? other, double t) {
-    throw UnimplementedError();
+  PinputStyle lerp(covariant ThemeExtension<PinputStyle>? other, double t) {
+    if (other == null || other.runtimeType != PinputStyle) {
+      return this;
+    }
+
+    final typedOther = other as PinputStyle;
+    return PinputStyle(
+      submittedPinTheme:
+          _lerpPinTheme(submittedPinTheme, typedOther.submittedPinTheme, t),
+      focusedPinTheme:
+          _lerpPinTheme(focusedPinTheme, typedOther.focusedPinTheme, t),
+      defaultPinTheme:
+          _lerpPinTheme(defaultPinTheme, typedOther.defaultPinTheme, t),
+      errorPinTheme: _lerpPinTheme(errorPinTheme, typedOther.errorPinTheme, t),
+      errorTextStyle:
+          TextStyle.lerp(errorTextStyle, typedOther.errorTextStyle, t)!,
+    );
+  }
+
+  PinTheme _lerpPinTheme(PinTheme? a, PinTheme? b, double t) {
+    if (a == null) return b!;
+    if (b == null) return a;
+
+    return PinTheme(
+      width: lerpDouble(a.width, b.width, t),
+      height: lerpDouble(a.height, b.height, t),
+      textStyle: TextStyle.lerp(a.textStyle, b.textStyle, t),
+      decoration: BoxDecoration.lerp(a.decoration, b.decoration, t),
+    );
   }
 }

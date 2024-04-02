@@ -25,7 +25,7 @@ class SocialIcon extends StatelessWidget {
       child: Icon(
         icon,
         size: 40,
-        color: PrimaryColor.soft,
+        color: PrimaryColor.softDark,
       ),
     );
   }

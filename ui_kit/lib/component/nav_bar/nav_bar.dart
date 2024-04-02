@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:ui_kit/component/nav_bar/bar_item_model.dart';
-import 'package:ui_kit/theme/color_scheme.dart';
 import 'package:ui_kit/theme/theme_context_extension.dart';
 
 class NavBar extends StatelessWidget {
@@ -31,7 +30,7 @@ class NavBar extends StatelessWidget {
           tabs.length,
           (index) => GButton(
                 iconColor: style.iconColor,
-                backgroundColor: PrimaryColor.soft,
+                backgroundColor: style.backgroundColor,
                 iconActiveColor: style.iconActiveColor,
                 text: tabs[index].label,
                 icon: tabs[index].icon,

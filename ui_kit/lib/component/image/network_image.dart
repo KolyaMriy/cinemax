@@ -26,7 +26,7 @@ class ImageNetwork extends StatelessWidget {
         return FadeTransition(
           opacity: fadeAnimation,
           child: ColoredBox(
-            color: PrimaryColor.soft,
+            color: PrimaryColor.softDark,
           ),
         );
       },
@@ -41,7 +41,7 @@ class ImageNetwork extends StatelessWidget {
         return FadeTransition(
           opacity: fadeAnimation,
           child: ColoredBox(
-            color: PrimaryColor.soft,
+            color: PrimaryColor.softDark,
           ),
         );
       },

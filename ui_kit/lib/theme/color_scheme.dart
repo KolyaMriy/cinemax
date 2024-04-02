@@ -3,8 +3,10 @@ import 'dart:ui';
 abstract class PrimaryColor {
   static Color light = const Color(0xffe0e2d4);
   static Color dark = const Color(0xff1F1D2B);
-  static Color soft = const Color(0xff252836);
-  static Color blueAccent = const Color(0xff12CDD9);
+  static Color softDark = const Color(0xff252836);
+  static Color lightBlue = const Color(0xffd1fcfc);
+  static Color blueBackground = const Color(0xff2ddbe3);
+  static Color blueAccent = const Color(0xff1199a9);
 }
 
 abstract class SecondaryColor {
@@ -15,6 +17,7 @@ abstract class SecondaryColor {
 }
 
 abstract class TextColor {
+  static Color darkBlue = const Color(0xff0b3741);
   static Color black = const Color(0xff171725);
   static Color darkGrey = const Color(0xff696974);
   static Color whiteGrey = const Color(0xffF1F1F5);

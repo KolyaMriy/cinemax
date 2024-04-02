@@ -9,7 +9,6 @@ class CinemaxSwitch extends StatelessWidget {
   });
 
   final bool value;
-  // ignore: avoid_positional_boolean_parameters
   final void Function(bool value)? onChanged;
 
   @override

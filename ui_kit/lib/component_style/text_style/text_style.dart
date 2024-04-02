@@ -31,13 +31,13 @@ class TextStyles extends ThemeExtension<TextStyles> {
         h7: CinemaxTypography.h7().copyWith(color: TextColor.white),
       );
   factory TextStyles.light() => TextStyles(
-        h1: CinemaxTypography.h1().copyWith(color: TextColor.black),
-        h2: CinemaxTypography.h2().copyWith(color: TextColor.black),
-        h3: CinemaxTypography.h3().copyWith(color: TextColor.black),
-        h4: CinemaxTypography.h4().copyWith(color: TextColor.black),
-        h5: CinemaxTypography.h5().copyWith(color: TextColor.black),
-        h6: CinemaxTypography.h6().copyWith(color: TextColor.black),
-        h7: CinemaxTypography.h7().copyWith(color: TextColor.black),
+        h1: CinemaxTypography.h1().copyWith(color: TextColor.darkBlue),
+        h2: CinemaxTypography.h2().copyWith(color: TextColor.darkBlue),
+        h3: CinemaxTypography.h3().copyWith(color: TextColor.darkBlue),
+        h4: CinemaxTypography.h4().copyWith(color: TextColor.darkBlue),
+        h5: CinemaxTypography.h5().copyWith(color: TextColor.darkBlue),
+        h6: CinemaxTypography.h6().copyWith(color: TextColor.darkBlue),
+        h7: CinemaxTypography.h7().copyWith(color: TextColor.darkBlue),
       );
 
   @override
@@ -62,8 +62,23 @@ class TextStyles extends ThemeExtension<TextStyles> {
   }
 
   @override
-  ThemeExtension<TextStyles> lerp(
-      covariant ThemeExtension<TextStyles>? other, double t) {
-    throw UnimplementedError();
+  TextStyles lerp(
+    covariant ThemeExtension<TextStyles>? other,
+    double t,
+  ) {
+    if (other == null || other.runtimeType != TextStyles) {
+      return this;
+    }
+
+    final typedOther = other as TextStyles;
+    return TextStyles(
+      h1: TextStyle.lerp(h1, typedOther.h1, t)!,
+      h2: TextStyle.lerp(h2, typedOther.h2, t)!,
+      h3: TextStyle.lerp(h3, typedOther.h3, t)!,
+      h4: TextStyle.lerp(h4, typedOther.h4, t)!,
+      h5: TextStyle.lerp(h5, typedOther.h5, t)!,
+      h6: TextStyle.lerp(h6, typedOther.h6, t)!,
+      h7: TextStyle.lerp(h7, typedOther.h7, t)!,
+    );
   }
 }

@@ -1,9 +1,8 @@
 import 'package:client/core/di/dependency_provider.dart';
-import 'package:client/config/router/app_router_name.dart';
 import 'package:client/features/auth/bloc/auth_bloc.dart';
+import 'package:client/features/theme_switcher/presentation/theme_switcher.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
 import 'package:ui_kit/component/avatar/avatar.dart';
 import 'package:ui_kit/component/component.dart';
 import 'package:ui_kit/theme/color_scheme.dart';
@@ -14,18 +13,15 @@ class ProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<AuthBloc, AuthState>(
-      builder: (context, state) {
-        return Scaffold(
-          backgroundColor: PrimaryColor.dark,
-          body: Column(
+    return Scaffold(
+      body: BlocConsumer<AuthBloc, AuthState>(
+        builder: (context, state) {
+          return Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Expanded(
                 child: DecoratedBox(
-                  decoration: BoxDecoration(
-                    color: PrimaryColor.dark,
-                  ),
+                  decoration: const BoxDecoration(),
                   child: Padding(
                     padding: const EdgeInsets.all(10),
                     child: Align(
@@ -49,58 +45,23 @@ class ProfileScreen extends StatelessWidget {
                 flex: 5,
                 child: DecoratedBox(
                   decoration: BoxDecoration(
-                      color: TextColor.black,
-                      borderRadius: const BorderRadius.only(
-                        topLeft: Radius.circular(30),
-                        topRight: Radius.circular(30),
-                      )),
+                    borderRadius: const BorderRadius.only(
+                      topLeft: Radius.circular(30),
+                      topRight: Radius.circular(30),
+                    ),
+                  ),
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 20),
                     child: Wrap(
                       crossAxisAlignment: WrapCrossAlignment.center,
                       runAlignment: WrapAlignment.center,
                       children: [
-                        Column(
-                          children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Row(
-                                  children: [
-                                    Icon(
-                                      Icons.contrast,
-                                      color: PrimaryColor.blueAccent,
-                                    ),
-                                    SizedBox(width: context.spacerStyle.width),
-                                    Text(
-                                      'Dark Mode',
-                                      style: context.textStyle.h4.copyWith(
-                                          fontWeight: FontWeight.w600),
-                                    ),
-                                  ],
-                                ),
-                                CinemaxSwitch(
-                                  value: true,
-                                  onChanged: (value) {},
-                                ),
-                              ],
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.all(10),
-                              child: Divider(
-                                color: PrimaryColor.dark,
-                                thickness: 2,
-                              ),
-                            )
-                          ],
-                        ),
+                        const ThemeSwitcher(),
                         CinemaxOutlinedButton(
                           textColor: SecondaryColor.red,
                           color: SecondaryColor.red,
                           label: 'Logout',
                           onPressed: () {
-                            context
-                                .pushReplacementNamed(AppRouterName.logInName);
                             DependencyProvider.get<AuthBloc>()
                                 .add(AuthLogoutRequested());
                           },
@@ -111,9 +72,10 @@ class ProfileScreen extends StatelessWidget {
                 ),
               ),
             ],
-          ),
-        );
-      },
+          );
+        },
+        listener: (context, state) {},
+      ),
     );
   }
 }

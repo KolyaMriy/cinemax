@@ -1,5 +1,5 @@
-import 'package:client/core/extension/font_weight_extension.dart';
 import 'package:client/config/router/app_router_name.dart';
+import 'package:client/core/extension/font_weight_extension.dart';
 import 'package:client/features/auth/bloc/auth_bloc.dart';
 import 'package:client/features/genre_list/presentation/genre_list.dart';
 import 'package:client/features/movie/new_movie_list/presentation/new_movie_list.dart';
@@ -16,7 +16,7 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<AuthBloc, AuthState>(
+    return BlocConsumer<AuthBloc, AuthState>(
       builder: (context, state) {
         if (state.user.isNotEmpty) {
           return Scaffold(
@@ -74,7 +74,9 @@ class HomeScreen extends StatelessWidget {
           );
         }
         return const SizedBox();
-      },
+      }, listener: (context, state) { 
+        
+       },
     );
   }
 }

@@ -44,7 +44,7 @@ class InputFieldStyle extends ThemeExtension<InputFieldStyle> {
         contentPadding: const EdgeInsets.symmetric(
             vertical: _Constants.contentPaddingV,
             horizontal: _Constants.contentPaddingH),
-        fillColor: PrimaryColor.soft,
+        fillColor: PrimaryColor.softDark,
         focusBorder: OutlineInputBorder(
           borderSide: BorderSide(color: PrimaryColor.blueAccent),
           borderRadius: const BorderRadius.all(
