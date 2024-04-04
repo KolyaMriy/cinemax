@@ -51,7 +51,7 @@ class BackdropsMovie extends StatelessWidget {
                           ? Center(
                               child: CinemaxIcon(
                                 icon: Icons.play_arrow,
-                                iconColor: PrimaryColor.blueAccent,
+                                iconColor: PrimaryColor.blue500,
                                 onTap: () => context.pushNamed(
                                   AppRouterName.trailerMovieName,
                                   extra: idMovie,

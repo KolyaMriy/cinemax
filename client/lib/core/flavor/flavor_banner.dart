@@ -30,7 +30,7 @@ class FlavorBannerState extends State<FlavorBanner> {
     return Directionality(
       textDirection: TextDirection.ltr,
       child: Banner(
-        color: widget.color ?? PrimaryColor.blueAccent,
+        color: widget.color ?? PrimaryColor.blue500,
         message: 'dev',
         location: widget.bannerLocation ?? BannerLocation.bottomEnd,
         child: widget.child,

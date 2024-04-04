@@ -31,13 +31,13 @@ class TextStyles extends ThemeExtension<TextStyles> {
         h7: CinemaxTypography.h7().copyWith(color: TextColor.white),
       );
   factory TextStyles.light() => TextStyles(
-        h1: CinemaxTypography.h1().copyWith(color: TextColor.darkBlue),
-        h2: CinemaxTypography.h2().copyWith(color: TextColor.darkBlue),
-        h3: CinemaxTypography.h3().copyWith(color: TextColor.darkBlue),
-        h4: CinemaxTypography.h4().copyWith(color: TextColor.darkBlue),
-        h5: CinemaxTypography.h5().copyWith(color: TextColor.darkBlue),
-        h6: CinemaxTypography.h6().copyWith(color: TextColor.darkBlue),
-        h7: CinemaxTypography.h7().copyWith(color: TextColor.darkBlue),
+        h1: CinemaxTypography.h1().copyWith(color: PrimaryColor.blue950),
+        h2: CinemaxTypography.h2().copyWith(color: PrimaryColor.blue950),
+        h3: CinemaxTypography.h3().copyWith(color: PrimaryColor.blue950),
+        h4: CinemaxTypography.h4().copyWith(color: PrimaryColor.blue950),
+        h5: CinemaxTypography.h5().copyWith(color: PrimaryColor.blue950),
+        h6: CinemaxTypography.h6().copyWith(color: PrimaryColor.blue950),
+        h7: CinemaxTypography.h7().copyWith(color: PrimaryColor.blue950),
       );
 
   @override

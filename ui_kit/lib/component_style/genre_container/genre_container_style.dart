@@ -26,16 +26,16 @@ class GenreContainerStyle extends ThemeExtension<GenreContainerStyle> {
   factory GenreContainerStyle.dark() => GenreContainerStyle(
         activeColor: PrimaryColor.softDark.withOpacity(0.7),
         textActiveColor: TextColor.white,
-        textColor: PrimaryColor.blueAccent,
+        textColor: PrimaryColor.blue500,
         borderRadius: BorderRadius.circular(_Constants.borderRadius),
         contentPadding: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
         padding: const EdgeInsets.all(8),
       );
 
   factory GenreContainerStyle.light() => GenreContainerStyle(
-        activeColor: PrimaryColor.blueBackground,
-        textActiveColor: PrimaryColor.lightBlue,
-        textColor: TextColor.darkBlue,
+        activeColor: PrimaryColor.blue400,
+        textActiveColor: PrimaryColor.blue50,
+        textColor: PrimaryColor.blue950,
         borderRadius: BorderRadius.circular(_Constants.borderRadius),
         contentPadding: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
         padding: const EdgeInsets.all(8),

@@ -21,7 +21,7 @@ class ThemeSwitcher extends StatelessWidget {
                   children: [
                     Icon(
                       Icons.contrast,
-                      color: PrimaryColor.blueAccent,
+                      color: PrimaryColor.blue500,
                     ),
                     SizedBox(width: context.spacerStyle.width),
                     Text(

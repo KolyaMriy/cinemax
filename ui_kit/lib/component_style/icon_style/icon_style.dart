@@ -21,7 +21,7 @@ class IconStyle extends ThemeExtension<IconStyle> {
 
   factory IconStyle.light() => IconStyle(
         iconColor: PrimaryColor.softDark,
-        backgroundColor: PrimaryColor.light,
+        backgroundColor: PrimaryColor.blue50,
         borderRadius: BorderRadius.circular(10),
       );
 

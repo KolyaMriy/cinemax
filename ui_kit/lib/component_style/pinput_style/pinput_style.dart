@@ -38,7 +38,7 @@ class PinputStyle extends ThemeExtension<PinputStyle> {
             color: PrimaryColor.softDark,
             borderRadius: BorderRadius.circular(_Constant.borderRadius),
             border: Border.all(
-              color: PrimaryColor.blueAccent,
+              color: PrimaryColor.blue500,
             ),
           ),
         ),
@@ -53,7 +53,7 @@ class PinputStyle extends ThemeExtension<PinputStyle> {
             color: PrimaryColor.softDark,
             borderRadius: BorderRadius.circular(_Constant.borderRadius),
             border: Border.all(
-              color: PrimaryColor.blueAccent,
+              color: PrimaryColor.blue500,
             ),
           ),
         ),
@@ -100,7 +100,7 @@ class PinputStyle extends ThemeExtension<PinputStyle> {
             color: TextColor.darkGrey,
             borderRadius: BorderRadius.circular(_Constant.borderRadius),
             border: Border.all(
-              color: PrimaryColor.blueAccent,
+              color: PrimaryColor.blue500,
             ),
           ),
         ),
@@ -113,7 +113,7 @@ class PinputStyle extends ThemeExtension<PinputStyle> {
             color: PrimaryColor.softDark,
             borderRadius: BorderRadius.circular(_Constant.borderRadius),
             border: Border.all(
-              color: PrimaryColor.blueAccent,
+              color: PrimaryColor.blue500,
             ),
           ),
         ),

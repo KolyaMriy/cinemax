@@ -16,10 +16,12 @@ class CinemaxAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.textAlign = TextAlign.start,
     this.backgroundColor,
     this.centerTitle = false,
+    this.titleColor,
   }) : super(key: key);
 
   final CinemaxIcon? actionIcon;
   final CinemaxIcon? leadingIcon;
+  final Color? titleColor;
   final String? titleText;
   final String? subTitle;
   final Widget? leading;
@@ -44,6 +46,7 @@ class CinemaxAppBar extends StatelessWidget implements PreferredSizeWidget {
           title: title,
           titleText: titleText,
           subTitle: subTitle,
+          textColor: titleColor,
         ),
         leadingWidth: 40,
         toolbarHeight: 40,

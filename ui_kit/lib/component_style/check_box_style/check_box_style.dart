@@ -28,17 +28,17 @@ class CheckboxStyle extends ThemeExtension<CheckboxStyle> {
   });
 
   factory CheckboxStyle.dark() => CheckboxStyle(
-        activeColor: PrimaryColor.blueAccent,
+        activeColor: PrimaryColor.blue500,
         checkColor: PrimaryColor.light,
-        borderColor: PrimaryColor.blueAccent,
+        borderColor: PrimaryColor.blue500,
         borderRadius: BorderRadius.circular(_Constants.borderRadius),
         contentPadding: const EdgeInsets.all(_Constants.padding),
       );
 
   factory CheckboxStyle.light() => CheckboxStyle(
-        activeColor: PrimaryColor.blueAccent,
+        activeColor: PrimaryColor.blue500,
         checkColor: PrimaryColor.dark,
-        borderColor: PrimaryColor.blueAccent,
+        borderColor: PrimaryColor.blue500,
         borderRadius: BorderRadius.circular(_Constants.borderRadius),
         contentPadding: const EdgeInsets.all(_Constants.padding),
       );

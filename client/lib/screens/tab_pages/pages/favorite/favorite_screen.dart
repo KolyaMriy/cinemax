@@ -21,7 +21,7 @@ class FavoriteScreen extends StatelessWidget {
               child: Text(
                 state.isEditList ? 'Ok' : 'Change',
                 style: context.textStyle.h4.copyWith(
-                  color: PrimaryColor.blueAccent,
+                  color: PrimaryColor.blue500,
                 ),
               ),
             ),

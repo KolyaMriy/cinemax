@@ -29,7 +29,7 @@ class TextButtonStyle extends ThemeExtension<TextButtonStyle> {
         ),
         textStyle: CinemaxTypography.h4().copyWith(
           fontWeight: FontWeight.w500,
-          color: PrimaryColor.blueAccent,
+          color: PrimaryColor.blue500,
         ),
         disabledTextColor: TextColor.grey,
         hoveredTextColor: TextColor.whiteGrey,
@@ -42,7 +42,7 @@ class TextButtonStyle extends ThemeExtension<TextButtonStyle> {
         ),
         textStyle: CinemaxTypography.h4().copyWith(
           fontWeight: FontWeight.w500,
-          color: PrimaryColor.blueAccent,
+          color: PrimaryColor.blue500,
         ),
         disabledTextColor: TextColor.grey,
         hoveredTextColor: TextColor.whiteGrey,

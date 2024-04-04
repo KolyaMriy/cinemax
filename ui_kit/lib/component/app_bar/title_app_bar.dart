@@ -8,10 +8,12 @@ class TitleAppBar extends StatelessWidget {
     this.titleText,
     this.subTitle,
     required this.textAlign,
+    this.textColor,
   });
 
   final Widget? title;
   final String? titleText;
+  final Color? textColor;
   final String? subTitle;
   final TextAlign textAlign;
 
@@ -29,6 +31,7 @@ class TitleAppBar extends StatelessWidget {
               text: titleText,
               style: context.appBarStyle.titleTextStyle.copyWith(
                 overflow: TextOverflow.ellipsis,
+                color: textColor,
               ),
             ),
             if (subTitle != null)

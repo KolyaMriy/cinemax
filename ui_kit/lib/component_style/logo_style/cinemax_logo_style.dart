@@ -6,7 +6,7 @@ class LogoStyle extends ThemeExtension<LogoStyle> {
 
   LogoStyle({required this.primaryColor});
 
-  factory LogoStyle.dark() => LogoStyle(primaryColor: PrimaryColor.blueAccent);
+  factory LogoStyle.dark() => LogoStyle(primaryColor: PrimaryColor.blue500);
 
   factory LogoStyle.light() => LogoStyle(primaryColor: PrimaryColor.dark);
 

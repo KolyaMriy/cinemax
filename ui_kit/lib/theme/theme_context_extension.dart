@@ -9,9 +9,11 @@ import 'package:ui_kit/component_style/genre_container/genre_container_style.dar
 import 'package:ui_kit/component_style/icon_style/icon_style.dart';
 import 'package:ui_kit/component_style/input_field_style/input_field_style.dart';
 import 'package:ui_kit/component_style/logo_style/cinemax_logo_style.dart';
+import 'package:ui_kit/component_style/movie_card_style/movie_card_style.dart';
 import 'package:ui_kit/component_style/nav_bar_style/nav_bar_style.dart';
 import 'package:ui_kit/component_style/pinput_style/pinput_style.dart';
-import 'package:ui_kit/component_style/poster_movie_style/poster_movie.dart';
+import 'package:ui_kit/component_style/poster_movie_style/poster_movie_style.dart';
+import 'package:ui_kit/component_style/search_card_style/search_card_style.dart';
 import 'package:ui_kit/component_style/spacer_style/spacer_style.dart';
 import 'package:ui_kit/component_style/switch_style/switch_style.dart';
 import 'package:ui_kit/component_style/text_style/text_style.dart';
@@ -39,4 +41,8 @@ extension ThemeContextExtension on BuildContext {
   SpacerStyle get spacerStyle => Theme.of(this).extension<SpacerStyle>()!;
   GenreContainerStyle get genreContainerStyle =>
       Theme.of(this).extension<GenreContainerStyle>()!;
+  MovieCardStyle get movieCardStyle =>
+      Theme.of(this).extension<MovieCardStyle>()!;
+  SearchMovieCardStyle get searchMovieCardStyle =>
+      Theme.of(this).extension<SearchMovieCardStyle>()!;
 }

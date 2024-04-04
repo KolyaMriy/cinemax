@@ -15,11 +15,11 @@ class AvatarStyle extends ThemeExtension<AvatarStyle> {
   });
 
   factory AvatarStyle.dark() => AvatarStyle(
-        borderColor: PrimaryColor.blueAccent,
+        borderColor: PrimaryColor.blue500,
       );
 
   factory AvatarStyle.light() => AvatarStyle(
-        borderColor: PrimaryColor.blueAccent,
+        borderColor: PrimaryColor.blue500,
       );
 
   @override

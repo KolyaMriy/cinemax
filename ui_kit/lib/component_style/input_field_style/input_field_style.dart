@@ -46,7 +46,7 @@ class InputFieldStyle extends ThemeExtension<InputFieldStyle> {
             horizontal: _Constants.contentPaddingH),
         fillColor: PrimaryColor.softDark,
         focusBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: PrimaryColor.blueAccent),
+          borderSide: BorderSide(color: PrimaryColor.blue500),
           borderRadius: const BorderRadius.all(
               Radius.circular(_Constants.amountBorderRadius)),
         ),
@@ -75,7 +75,7 @@ class InputFieldStyle extends ThemeExtension<InputFieldStyle> {
             vertical: _Constants.contentPaddingV,
             horizontal: _Constants.contentPaddingH),
         focusBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: PrimaryColor.blueAccent),
+          borderSide: BorderSide(color: PrimaryColor.blue500),
           borderRadius: const BorderRadius.all(
               Radius.circular(_Constants.amountBorderRadius)),
         ),
@@ -87,7 +87,7 @@ class InputFieldStyle extends ThemeExtension<InputFieldStyle> {
           borderRadius: BorderRadius.circular(_Constants.amountBorderRadius),
           borderSide: BorderSide(color: SecondaryColor.red.withOpacity(0.8)),
         ),
-        fillColor: PrimaryColor.light,
+        fillColor: PrimaryColor.blue200,
         amountIconPadding: const EdgeInsets.only(left: _Constants.iconPadding),
         errorTextStyle: CinemaxTypography.h6()
             .copyWith(fontWeight: FontWeight.w400, color: SecondaryColor.red),

@@ -34,7 +34,7 @@ class FilledButtonStyle extends ThemeExtension<FilledButtonStyle> {
   });
 
   factory FilledButtonStyle.light() => FilledButtonStyle(
-        buttonColor: PrimaryColor.blueAccent,
+        buttonColor: PrimaryColor.blue500,
         contentPadding: const EdgeInsets.symmetric(
           vertical: _Constants.paddingV,
           horizontal: _Constants.paddingH,
@@ -55,7 +55,7 @@ class FilledButtonStyle extends ThemeExtension<FilledButtonStyle> {
       );
 
   factory FilledButtonStyle.dark() => FilledButtonStyle(
-        buttonColor: PrimaryColor.blueAccent,
+        buttonColor: PrimaryColor.blue500,
         contentPadding: const EdgeInsets.symmetric(
           vertical: _Constants.paddingV,
           horizontal: _Constants.paddingH,

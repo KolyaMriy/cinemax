@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:ui_kit/theme/color_scheme.dart';
 import 'package:ui_kit/theme/typography.dart';
@@ -14,8 +16,10 @@ class PosterMovieStyle extends ThemeExtension<PosterMovieStyle> {
   final TextStyle releaseStyle;
   final EdgeInsets contentPadding;
   final BorderRadius borderRadius;
+  final Color backgroundColor;
 
   PosterMovieStyle({
+    required this.backgroundColor,
     required this.borderRadius,
     this.width = 300,
     this.height = 150,
@@ -31,15 +35,17 @@ class PosterMovieStyle extends ThemeExtension<PosterMovieStyle> {
         releaseStyle: CinemaxTypography.h6()
             .copyWith(fontWeight: FontWeight.w500, color: TextColor.white),
         contentPadding: const EdgeInsets.all(_Constants.amountPadding),
+        backgroundColor: Colors.black45,
       );
 
   factory PosterMovieStyle.light() => PosterMovieStyle(
         borderRadius: BorderRadius.circular(_Constants.amountBorderRadius),
         titleStyle: CinemaxTypography.h4()
-            .copyWith(fontWeight: FontWeight.w600, color: TextColor.black),
+            .copyWith(fontWeight: FontWeight.w600, color: TextColor.white),
         releaseStyle: CinemaxTypography.h6()
-            .copyWith(fontWeight: FontWeight.w500, color: TextColor.black),
+            .copyWith(fontWeight: FontWeight.w500, color: TextColor.white),
         contentPadding: const EdgeInsets.all(_Constants.amountPadding),
+        backgroundColor: Colors.black45,
       );
 
   @override
@@ -47,7 +53,17 @@ class PosterMovieStyle extends ThemeExtension<PosterMovieStyle> {
     covariant PosterMovieStyle? other,
     double t,
   ) {
-    return this;
+    if (other == null) return this;
+
+    return PosterMovieStyle(
+      width: lerpDouble(width, other.width, t) ?? width,
+      height: lerpDouble(height, other.height, t) ?? height,
+      titleStyle: TextStyle.lerp(titleStyle, other.titleStyle, t)!,
+      releaseStyle: TextStyle.lerp(releaseStyle, other.releaseStyle, t)!,
+      contentPadding: EdgeInsets.lerp(contentPadding, other.contentPadding, t)!,
+      borderRadius: BorderRadius.lerp(borderRadius, other.borderRadius, t)!,
+      backgroundColor: Color.lerp(backgroundColor, other.backgroundColor, t)!,
+    );
   }
 
   @override
@@ -58,6 +74,7 @@ class PosterMovieStyle extends ThemeExtension<PosterMovieStyle> {
     TextStyle? releaseStyle,
     EdgeInsets? contentPadding,
     BorderRadius? borderRadius,
+    Color? backgroundColor,
   }) {
     return PosterMovieStyle(
       width: width ?? this.width,
@@ -66,6 +83,7 @@ class PosterMovieStyle extends ThemeExtension<PosterMovieStyle> {
       releaseStyle: releaseStyle ?? this.releaseStyle,
       contentPadding: contentPadding ?? this.contentPadding,
       borderRadius: borderRadius ?? this.borderRadius,
+      backgroundColor: backgroundColor ?? this.backgroundColor,
     );
   }
 }

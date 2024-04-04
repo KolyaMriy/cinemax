@@ -36,7 +36,7 @@ class PosterMovie extends StatelessWidget {
               children: [
                 DecoratedBox(
                   decoration: BoxDecoration(
-                    color: Colors.black45,
+                    color: style.backgroundColor,
                     borderRadius: style.borderRadius,
                   ),
                   child: IntrinsicWidth(

@@ -23,8 +23,8 @@ class NavBarStyle extends ThemeExtension<NavBarStyle> {
 
   factory NavBarStyle.dark() => NavBarStyle(
         textStyle: CinemaxTypography.h4().copyWith(
-            color: PrimaryColor.blueAccent, fontWeight: FontWeight.w500),
-        iconActiveColor: PrimaryColor.blueAccent,
+            color: PrimaryColor.blue500, fontWeight: FontWeight.w500),
+        iconActiveColor: PrimaryColor.blue500,
         iconColor: TextColor.grey,
         tabMargin: const EdgeInsets.only(bottom: 20, top: 20),
         padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
@@ -38,7 +38,7 @@ class NavBarStyle extends ThemeExtension<NavBarStyle> {
         iconColor: TextColor.darkGrey,
         tabMargin: const EdgeInsets.only(bottom: 20, top: 20),
         padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
-        backgroundColor: PrimaryColor.blueBackground,
+        backgroundColor: PrimaryColor.blue400,
       );
 
   @override

@@ -4,9 +4,12 @@ abstract class PrimaryColor {
   static Color light = const Color(0xffe0e2d4);
   static Color dark = const Color(0xff1F1D2B);
   static Color softDark = const Color(0xff252836);
-  static Color lightBlue = const Color(0xffd1fcfc);
-  static Color blueBackground = const Color(0xff2ddbe3);
-  static Color blueAccent = const Color(0xff1199a9);
+  static Color blue50 = const Color(0xffedfefd);
+  static Color blue100 = const Color(0xffd1fcfc);
+  static Color blue200 = const Color(0xffaaf6f7);
+  static Color blue400 = const Color(0xff2ddbe3);
+  static Color blue500 = const Color(0xff1199a9);
+  static Color blue950 = const Color(0xff0b3741);
 }
 
 abstract class SecondaryColor {
@@ -17,7 +20,6 @@ abstract class SecondaryColor {
 }
 
 abstract class TextColor {
-  static Color darkBlue = const Color(0xff0b3741);
   static Color black = const Color(0xff171725);
   static Color darkGrey = const Color(0xff696974);
   static Color whiteGrey = const Color(0xffF1F1F5);

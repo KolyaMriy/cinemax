@@ -66,7 +66,7 @@ class DetailMovieScreen extends StatelessWidget {
                 Scaffold(
                   backgroundColor: Colors.transparent,
                   appBar: CinemaxAppBar(
-                    textAlign: TextAlign.center,
+                    centerTitle: true,
                     backgroundColor: Colors.transparent,
                     leading: CinemaxIcon(
                       icon: CinemaxIcons.arrowBack,

@@ -14,13 +14,13 @@ class SwitchStyle extends ThemeExtension<SwitchStyle> {
 
   factory SwitchStyle.dark() => SwitchStyle(
         thumbColor: PrimaryColor.light,
-        activeColor: PrimaryColor.blueAccent,
+        activeColor: PrimaryColor.blue500,
         trackColor: TextColor.grey,
       );
 
   factory SwitchStyle.light() => SwitchStyle(
         thumbColor: PrimaryColor.light,
-        activeColor: PrimaryColor.blueAccent,
+        activeColor: PrimaryColor.blue500,
         trackColor: TextColor.grey,
       );
 

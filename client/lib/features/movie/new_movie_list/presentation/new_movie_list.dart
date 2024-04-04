@@ -1,6 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:client/core/di/dependency_provider.dart';
 import 'package:client/config/router/app_router_name.dart';
+import 'package:client/core/di/dependency_provider.dart';
 import 'package:client/features/movie/data/mappers/poster_movie_mapper.dart';
 import 'package:client/features/movie/new_movie_list/presentation/cubit/new_movie_list_cubit.dart';
 import 'package:flutter/material.dart';

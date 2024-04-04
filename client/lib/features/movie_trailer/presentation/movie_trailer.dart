@@ -68,8 +68,8 @@ class MovieTrailerScreenState extends State<MovieTrailerScreen> {
                     ProgressBar(
                       isExpanded: true,
                       colors: ProgressBarColors(
-                        handleColor: PrimaryColor.blueAccent,
-                        playedColor: PrimaryColor.blueAccent,
+                        handleColor: PrimaryColor.blue500,
+                        playedColor: PrimaryColor.blue500,
                         bufferedColor: Colors.white,
                       ),
                     ),
@@ -78,7 +78,7 @@ class MovieTrailerScreenState extends State<MovieTrailerScreen> {
                         IconButton(
                           icon: Icon(
                             _muted ? Icons.volume_off : Icons.volume_up,
-                            color: PrimaryColor.blueAccent,
+                            color: PrimaryColor.blue500,
                           ),
                           onPressed: () {
                             _muted = !_muted;
@@ -88,7 +88,7 @@ class MovieTrailerScreenState extends State<MovieTrailerScreen> {
                         IconButton(
                           icon: Icon(
                             CinemaxIcons.fullscreen,
-                            color: PrimaryColor.blueAccent,
+                            color: PrimaryColor.blue500,
                           ),
                           onPressed: () => _controller.toggleFullScreenMode(),
                         ),

@@ -30,7 +30,7 @@ class AppBarStyle extends ThemeExtension<AppBarStyle> {
       );
 
   factory AppBarStyle.light() => AppBarStyle(
-        backgroundColor: PrimaryColor.lightBlue,
+        backgroundColor: PrimaryColor.blue50,
         titleTextStyle: CinemaxTypography.h4().copyWith(
             fontWeight: FontWeight.w600,
             color: TextColor.black,

@@ -45,8 +45,8 @@ class OutlinedButtonStyle extends ThemeExtension<OutlinedButtonStyle> {
           Radius.circular(_Constants.borderR),
         ),
         hoveredTextColor: TextColor.whiteGrey,
-        borderColor: PrimaryColor.blueAccent,
-        iconColor: PrimaryColor.blueAccent,
+        borderColor: PrimaryColor.blue500,
+        iconColor: PrimaryColor.blue500,
         iconPadding:
             const EdgeInsets.symmetric(horizontal: _Constants.iconPaddingH),
       );
@@ -65,8 +65,8 @@ class OutlinedButtonStyle extends ThemeExtension<OutlinedButtonStyle> {
           Radius.circular(_Constants.borderR),
         ),
         hoveredTextColor: TextColor.whiteGrey,
-        borderColor: PrimaryColor.blueAccent,
-        iconColor: PrimaryColor.blueAccent,
+        borderColor: PrimaryColor.blue500,
+        iconColor: PrimaryColor.blue500,
         iconPadding:
             const EdgeInsets.symmetric(horizontal: _Constants.iconPaddingH),
       );

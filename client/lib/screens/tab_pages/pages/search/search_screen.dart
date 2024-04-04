@@ -17,7 +17,6 @@ class SearchScreen extends StatelessWidget {
           child: Column(
             children: [
               Expanded(
-                flex: 0,
                 child: InputField(
                   prefixIcon: CinemaxIcons.search,
                   placeHolder: 'Type title,categories,year,etc',
@@ -26,6 +25,7 @@ class SearchScreen extends StatelessWidget {
                 ),
               ),
               const Expanded(
+                flex: 10,
                 child: SearchMovie(),
               ),
             ],

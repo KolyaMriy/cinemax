@@ -2,7 +2,6 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:ui_kit/component/movie_card/movie_card_model.dart';
 import 'package:ui_kit/component/movie_card/movie_rating.dart';
-import 'package:ui_kit/theme/color_scheme.dart';
 import 'package:ui_kit/theme/theme_context_extension.dart';
 
 class MovieCard extends StatelessWidget {
@@ -17,26 +16,24 @@ class MovieCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final style = context.movieCardStyle;
     return GestureDetector(
       onTap: onTap,
       child: Padding(
-        padding: const EdgeInsets.all(10),
+        padding: style.padding,
         child: Container(
           height: 30,
           decoration: BoxDecoration(
-            color: PrimaryColor.softDark.withOpacity(0.5),
-            borderRadius: const BorderRadius.only(
-              topLeft: Radius.circular(20),
-              topRight: Radius.circular(20),
-              bottomLeft: Radius.circular(20),
-            ),
+            color: style.backgroundColor,
+            borderRadius: style.borderRadius,
           ),
           child: SizedBox(
             width: 150,
             child: Column(
               children: [
-                Container(
-                    height: 180,
+                Expanded(
+                  flex: 3,
+                  child: DecoratedBox(
                     decoration: BoxDecoration(
                       borderRadius: const BorderRadius.only(
                         topLeft: Radius.circular(20),
@@ -51,36 +48,35 @@ class MovieCard extends StatelessWidget {
                     ),
                     child: MovieRating(
                       averageRating: cardModel.averageRating,
-                    )),
-                ListTile(
-                  title: Text(
-                    cardModel.title,
-                    style: context.textStyle.h5.copyWith(
-                      fontWeight: FontWeight.w600,
                     ),
                   ),
-                  subtitle: cardModel.genres != null
-                      ? SizedBox(
-                          width: double.infinity,
-                          height: 20,
-                          child: ListView.separated(
-                            scrollDirection: Axis.horizontal,
-                            itemBuilder: (context, index) {
-                              return Text(
-                                cardModel.genres![index].toString(),
-                                style: context.textStyle.h5.copyWith(
-                                  color: TextColor.grey,
-                                  overflow: TextOverflow.ellipsis,
-                                ),
-                              );
-                            },
-                            separatorBuilder: (context, index) {
-                              return const Text(' | ');
-                            },
-                            itemCount: cardModel.genres!.length,
-                          ),
-                        )
-                      : null,
+                ),
+                Expanded(
+                  child: ListTile(
+                    title: Text(
+                      cardModel.title,
+                      style: style.titleStyle,
+                    ),
+                    subtitle: cardModel.genres != null
+                        ? SizedBox(
+                            width: double.infinity,
+                            height: 20,
+                            child: ListView.separated(
+                              scrollDirection: Axis.horizontal,
+                              itemBuilder: (context, index) {
+                                return Text(
+                                  cardModel.genres![index].toString(),
+                                  style: style.genreStyle,
+                                );
+                              },
+                              separatorBuilder: (context, index) {
+                                return const Text(' | ');
+                              },
+                              itemCount: cardModel.genres!.length,
+                            ),
+                          )
+                        : null,
+                  ),
                 ),
               ],
             ),

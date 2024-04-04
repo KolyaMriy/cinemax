@@ -58,7 +58,7 @@ class _GenreListState extends State<GenreList> {
                           textAlign: TextAlign.center,
                           style: context.textStyle.h5.copyWith(
                             color: currentGenre == index
-                                ? PrimaryColor.blueAccent
+                                ? PrimaryColor.blue500
                                 : TextColor.white,
                             fontWeight: FontWeight.w500,
                           ),

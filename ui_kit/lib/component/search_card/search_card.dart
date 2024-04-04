@@ -1,5 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:ui_kit/assets/icons/cinemax_icons.dart';
 import 'package:ui_kit/theme/color_scheme.dart';
 import 'package:ui_kit/theme/theme_context_extension.dart';
@@ -34,126 +36,131 @@ class SearchMovieCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final style = context.searchMovieCardStyle;
     return GestureDetector(
       onTap: onTap,
       child: Padding(
-        padding: const EdgeInsets.all(10),
+        padding: style.padding,
         child: SizedBox(
-          height: 200,
+          height: style.height,
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Container(
-                height: 200,
-                width: 150,
-                decoration: BoxDecoration(
-                  borderRadius: const BorderRadius.all(Radius.circular(20)),
-                  image: DecorationImage(
-                    fit: BoxFit.cover,
-                    image: CachedNetworkImageProvider(
-                      listSearchMovie.posterPath,
+              Expanded(
+                child: Container(
+                  height: style.height,
+                  decoration: BoxDecoration(
+                    borderRadius: const BorderRadius.all(Radius.circular(20)),
+                    image: DecorationImage(
+                      fit: BoxFit.cover,
+                      image: CachedNetworkImageProvider(
+                        listSearchMovie.posterPath,
+                      ),
                     ),
                   ),
                 ),
               ),
               SizedBox(width: context.spacerStyle.width),
-              SizedBox(
-                width: 200,
-                child:
-                    Wrap(crossAxisAlignment: WrapCrossAlignment.end, children: [
-                  Text(
-                    listSearchMovie.title,
-                    style: context.textStyle.h4
-                        .copyWith(fontWeight: FontWeight.w600),
-                  ),
-                  if (listSearchMovie.releaseDate != null)
-                    Row(
+              Expanded(
+                child: SizedBox(
+                  width: style.width,
+                  child: Wrap(
+                      crossAxisAlignment: WrapCrossAlignment.end,
                       children: [
-                        const Text(
-                          '',
-                          overflow: TextOverflow.ellipsis,
-                          style: TextStyle(),
-                        ),
-                        Icon(
-                          CinemaxIcons.calendar,
-                          color: TextColor.grey,
-                          size: 18,
-                        ),
-                        SizedBox(width: context.spacerStyle.widthOnText),
                         Text(
-                          listSearchMovie.releaseDate!.year.toString(),
+                          listSearchMovie.title,
+                          style: context.textStyle.h4
+                              .copyWith(fontWeight: FontWeight.w600),
+                        ),
+                        if (listSearchMovie.releaseDate != null)
+                          Row(
+                            children: [
+                              const Text(
+                                '',
+                                overflow: TextOverflow.ellipsis,
+                                style: TextStyle(),
+                              ),
+                              Icon(
+                                CinemaxIcons.calendar,
+                                color: TextColor.grey,
+                                size: 18,
+                              ),
+                              SizedBox(width: context.spacerStyle.widthOnText),
+                              Text(
+                                listSearchMovie.releaseDate!.year.toString(),
+                                style: context.textStyle.h4.copyWith(
+                                  color: TextColor.grey,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                            ],
+                          ),
+                        Row(
+                          children: [
+                            Icon(
+                              Icons.language,
+                              color: TextColor.grey,
+                              size: 18,
+                            ),
+                            SizedBox(width: context.spacerStyle.widthOnText),
+                            Text(
+                              listSearchMovie.originalLanguage.toString(),
+                              style: context.textStyle.h4.copyWith(
+                                color: TextColor.grey,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                          ],
+                        ),
+                        Row(
+                          children: [
+                            Icon(
+                              CinemaxIcons.star,
+                              color: SecondaryColor.orange,
+                              size: 18,
+                            ),
+                            SizedBox(width: context.spacerStyle.widthOnText),
+                            Text(
+                              listSearchMovie.voteAverage!.toStringAsFixed(2),
+                              style: context.textStyle.h4.copyWith(
+                                color: TextColor.grey,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                          ],
+                        ),
+                        Text(
+                          'Movie',
                           style: context.textStyle.h4.copyWith(
-                            color: TextColor.grey,
+                            color: TextColor.darkGrey,
                             fontWeight: FontWeight.w500,
                           ),
                         ),
-                      ],
-                    ),
-                  Row(
-                    children: [
-                      Icon(
-                        Icons.language,
-                        color: TextColor.grey,
-                        size: 18,
-                      ),
-                      SizedBox(width: context.spacerStyle.widthOnText),
-                      Text(
-                        listSearchMovie.originalLanguage.toString(),
-                        style: context.textStyle.h4.copyWith(
-                          color: TextColor.grey,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                    ],
-                  ),
-                  Row(
-                    children: [
-                      Icon(
-                        CinemaxIcons.star,
-                        color: SecondaryColor.orange,
-                        size: 18,
-                      ),
-                      SizedBox(width: context.spacerStyle.widthOnText),
-                      Text(
-                        listSearchMovie.voteAverage!.toStringAsFixed(2),
-                        style: context.textStyle.h4.copyWith(
-                          color: TextColor.grey,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                    ],
-                  ),
-                  Text(
-                    'Movie',
-                    style: context.textStyle.h4.copyWith(
-                      color: TextColor.white,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                  if (listSearchMovie.genres != null)
-                    SizedBox(
-                      height: 40,
-                      width: double.infinity,
-                      child: ListView.separated(
-                        scrollDirection: Axis.horizontal,
-                        itemBuilder: (context, genreIndex) {
-                          return Text(
-                            listSearchMovie.genres![genreIndex],
-                            style: context.textStyle.h4.copyWith(
-                              color: TextColor.grey,
-                              fontWeight: FontWeight.w500,
-                              overflow: TextOverflow.fade,
+                        if (listSearchMovie.genres != null)
+                          SizedBox(
+                            height: 40,
+                            width: double.infinity,
+                            child: ListView.separated(
+                              scrollDirection: Axis.horizontal,
+                              itemBuilder: (context, genreIndex) {
+                                return Text(
+                                  listSearchMovie.genres![genreIndex],
+                                  style: context.textStyle.h4.copyWith(
+                                    color: TextColor.grey,
+                                    fontWeight: FontWeight.w500,
+                                    overflow: TextOverflow.fade,
+                                  ),
+                                );
+                              },
+                              separatorBuilder: (context, index) => Text(
+                                ' | ',
+                                style: context.textStyle.h4,
+                              ),
+                              itemCount: listSearchMovie.genres!.length,
                             ),
-                          );
-                        },
-                        separatorBuilder: (context, index) => Text(
-                          ' | ',
-                          style: context.textStyle.h4,
-                        ),
-                        itemCount: listSearchMovie.genres!.length,
-                      ),
-                    )
-                ]),
+                          )
+                      ]),
+                ),
               )
             ],
           ),
