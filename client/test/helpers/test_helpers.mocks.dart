@@ -6,6 +6,10 @@
 import 'dart:async' as _i4;
 
 import 'package:client/core/failure/failure.dart' as _i5;
+import 'package:client/features/detail_actor/domain/entity/detail_actor_entity.dart'
+    as _i10;
+import 'package:client/features/detail_actor/domain/repository/detail_actor_repository_impl.dart'
+    as _i9;
 import 'package:client/features/genre_list/data/data_source/local/genre_local_datasource_impl.dart'
     as _i7;
 import 'package:client/features/genre_list/data/data_source/remote/genre_remote_datasource_impl.dart'
@@ -246,4 +250,105 @@ class MockGenreRemoteDataSourceImpl extends _i1.Mock
         returnValue:
             _i4.Future<List<_i6.GenreEntity>>.value(<_i6.GenreEntity>[]),
       ) as _i4.Future<List<_i6.GenreEntity>>);
+}
+
+/// A class which mocks [DetailActorRepositoryImpl].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockDetailActorRepositoryImpl extends _i1.Mock
+    implements _i9.DetailActorRepositoryImpl {
+  MockDetailActorRepositoryImpl() {
+    _i1.throwOnMissingStub(this);
+  }
+
+  @override
+  _i4.Future<_i2.Either<_i5.Failure, void>> deleteDetailActor(
+          {required int? actorID}) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #deleteDetailActor,
+          [],
+          {#actorID: actorID},
+        ),
+        returnValue: _i4.Future<_i2.Either<_i5.Failure, void>>.value(
+            _FakeEither_0<_i5.Failure, void>(
+          this,
+          Invocation.method(
+            #deleteDetailActor,
+            [],
+            {#actorID: actorID},
+          ),
+        )),
+      ) as _i4.Future<_i2.Either<_i5.Failure, void>>);
+
+  @override
+  _i4.Future<_i2.Either<_i5.Failure, _i10.DetailActorEntity>>
+      getLocalDetailActor({required int? actorID}) => (super.noSuchMethod(
+            Invocation.method(
+              #getLocalDetailActor,
+              [],
+              {#actorID: actorID},
+            ),
+            returnValue: _i4
+                .Future<_i2.Either<_i5.Failure, _i10.DetailActorEntity>>.value(
+                _FakeEither_0<_i5.Failure, _i10.DetailActorEntity>(
+              this,
+              Invocation.method(
+                #getLocalDetailActor,
+                [],
+                {#actorID: actorID},
+              ),
+            )),
+          ) as _i4.Future<_i2.Either<_i5.Failure, _i10.DetailActorEntity>>);
+
+  @override
+  _i4.Future<_i2.Either<_i5.Failure, _i10.DetailActorEntity>>
+      getRemoteDetailActor({required int? actorID}) => (super.noSuchMethod(
+            Invocation.method(
+              #getRemoteDetailActor,
+              [],
+              {#actorID: actorID},
+            ),
+            returnValue: _i4
+                .Future<_i2.Either<_i5.Failure, _i10.DetailActorEntity>>.value(
+                _FakeEither_0<_i5.Failure, _i10.DetailActorEntity>(
+              this,
+              Invocation.method(
+                #getRemoteDetailActor,
+                [],
+                {#actorID: actorID},
+              ),
+            )),
+          ) as _i4.Future<_i2.Either<_i5.Failure, _i10.DetailActorEntity>>);
+
+  @override
+  _i4.Future<bool> isSavedDetailActor({required int? actorID}) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #isSavedDetailActor,
+          [],
+          {#actorID: actorID},
+        ),
+        returnValue: _i4.Future<bool>.value(false),
+      ) as _i4.Future<bool>);
+
+  @override
+  _i4.Future<_i2.Either<_i5.Failure, void>> saveDetailActor(
+          {required _i10.DetailActorEntity? detailActor}) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #saveDetailActor,
+          [],
+          {#detailActor: detailActor},
+        ),
+        returnValue: _i4.Future<_i2.Either<_i5.Failure, void>>.value(
+            _FakeEither_0<_i5.Failure, void>(
+          this,
+          Invocation.method(
+            #saveDetailActor,
+            [],
+            {#detailActor: detailActor},
+          ),
+        )),
+      ) as _i4.Future<_i2.Either<_i5.Failure, void>>);
 }
