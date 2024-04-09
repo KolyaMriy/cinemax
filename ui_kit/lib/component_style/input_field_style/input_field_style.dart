@@ -87,7 +87,7 @@ class InputFieldStyle extends ThemeExtension<InputFieldStyle> {
           borderRadius: BorderRadius.circular(_Constants.amountBorderRadius),
           borderSide: BorderSide(color: SecondaryColor.red.withOpacity(0.8)),
         ),
-        fillColor: PrimaryColor.blue200,
+        fillColor: PrimaryColor.blue100,
         amountIconPadding: const EdgeInsets.only(left: _Constants.iconPadding),
         errorTextStyle: CinemaxTypography.h6()
             .copyWith(fontWeight: FontWeight.w400, color: SecondaryColor.red),

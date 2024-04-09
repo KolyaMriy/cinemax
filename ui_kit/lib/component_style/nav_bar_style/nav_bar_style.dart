@@ -8,12 +8,14 @@ class NavBarStyle extends ThemeExtension<NavBarStyle> {
   final TextStyle textStyle;
   final Color iconActiveColor;
   final Color iconColor;
-  final Color backgroundColor;
+  final Color buttonBackgroundColor;
   final EdgeInsets tabMargin;
   final EdgeInsets padding;
+  final Color backgroundColor;
 
   NavBarStyle({
     required this.backgroundColor,
+    required this.buttonBackgroundColor,
     required this.textStyle,
     required this.iconActiveColor,
     required this.iconColor,
@@ -23,22 +25,28 @@ class NavBarStyle extends ThemeExtension<NavBarStyle> {
 
   factory NavBarStyle.dark() => NavBarStyle(
         textStyle: CinemaxTypography.h4().copyWith(
-            color: PrimaryColor.blue500, fontWeight: FontWeight.w500),
+          color: PrimaryColor.blue400,
+          fontWeight: FontWeight.w500,
+        ),
         iconActiveColor: PrimaryColor.blue500,
         iconColor: TextColor.grey,
         tabMargin: const EdgeInsets.only(bottom: 20, top: 20),
         padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
-        backgroundColor: PrimaryColor.softDark,
+        buttonBackgroundColor: PrimaryColor.softDark,
+        backgroundColor: TextColor.black,
       );
 
   factory NavBarStyle.light() => NavBarStyle(
-        textStyle: CinemaxTypography.h4()
-            .copyWith(color: TextColor.white, fontWeight: FontWeight.w500),
+        textStyle: CinemaxTypography.h4().copyWith(
+          color: PrimaryColor.blue50,
+          fontWeight: FontWeight.w500,
+        ),
         iconActiveColor: TextColor.whiteGrey,
         iconColor: TextColor.darkGrey,
         tabMargin: const EdgeInsets.only(bottom: 20, top: 20),
         padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
-        backgroundColor: PrimaryColor.blue400,
+        buttonBackgroundColor: PrimaryColor.blue600,
+        backgroundColor: PrimaryColor.light,
       );
 
   @override
@@ -48,6 +56,7 @@ class NavBarStyle extends ThemeExtension<NavBarStyle> {
     Color? iconColor,
     EdgeInsets? tabMargin,
     EdgeInsets? padding,
+    Color? buttonBackgroundColor,
     Color? backgroundColor,
   }) {
     return NavBarStyle(
@@ -57,6 +66,8 @@ class NavBarStyle extends ThemeExtension<NavBarStyle> {
       tabMargin: tabMargin ?? this.tabMargin,
       padding: padding ?? this.padding,
       backgroundColor: backgroundColor ?? this.backgroundColor,
+      buttonBackgroundColor:
+          buttonBackgroundColor ?? this.buttonBackgroundColor,
     );
   }
 
@@ -85,6 +96,8 @@ class NavBarStyle extends ThemeExtension<NavBarStyle> {
           lerpDouble(padding.top, padding.top, t)!,
           lerpDouble(padding.right, padding.right, t)!,
           lerpDouble(padding.bottom, padding.bottom, t)!),
+      buttonBackgroundColor:
+          Color.lerp(buttonBackgroundColor, other.buttonBackgroundColor, t)!,
       backgroundColor: Color.lerp(backgroundColor, other.backgroundColor, t)!,
     );
   }

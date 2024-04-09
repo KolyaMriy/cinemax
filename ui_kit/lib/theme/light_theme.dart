@@ -21,7 +21,7 @@ import 'package:ui_kit/theme/color_scheme.dart';
 
 final ThemeData lightTheme = ThemeData(
   primaryColor: PrimaryColor.dark,
-  scaffoldBackgroundColor: PrimaryColor.blue50,
+  scaffoldBackgroundColor: PrimaryColor.light,
   progressIndicatorTheme: ProgressIndicatorThemeData(
     circularTrackColor: TextColor.white,
     color: PrimaryColor.blue500,

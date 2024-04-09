@@ -19,6 +19,7 @@ class NavBar extends StatelessWidget {
   Widget build(BuildContext context) {
     final style = context.navBarStyle;
     return GNav(
+      backgroundColor: style.backgroundColor,
       onTabChange: onTabChange,
       selectedIndex: selectedIndex,
       gap: 2,
@@ -30,7 +31,7 @@ class NavBar extends StatelessWidget {
           tabs.length,
           (index) => GButton(
                 iconColor: style.iconColor,
-                backgroundColor: style.backgroundColor,
+                backgroundColor: style.buttonBackgroundColor,
                 iconActiveColor: style.iconActiveColor,
                 text: tabs[index].label,
                 icon: tabs[index].icon,

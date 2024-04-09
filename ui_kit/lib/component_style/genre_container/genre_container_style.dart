@@ -24,7 +24,7 @@ class GenreContainerStyle extends ThemeExtension<GenreContainerStyle> {
   });
 
   factory GenreContainerStyle.dark() => GenreContainerStyle(
-        activeColor: PrimaryColor.softDark.withOpacity(0.7),
+        activeColor: PrimaryColor.softDark.withOpacity(0.8),
         textActiveColor: TextColor.white,
         textColor: PrimaryColor.blue500,
         borderRadius: BorderRadius.circular(_Constants.borderRadius),
@@ -33,7 +33,7 @@ class GenreContainerStyle extends ThemeExtension<GenreContainerStyle> {
       );
 
   factory GenreContainerStyle.light() => GenreContainerStyle(
-        activeColor: PrimaryColor.blue400,
+        activeColor: PrimaryColor.blue600,
         textActiveColor: PrimaryColor.blue50,
         textColor: PrimaryColor.blue950,
         borderRadius: BorderRadius.circular(_Constants.borderRadius),

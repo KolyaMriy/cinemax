@@ -55,7 +55,7 @@ class SearchMovieCardStyle extends ThemeExtension<SearchMovieCardStyle> {
       genreStyle: CinemaxTypography.h6()
           .copyWith(fontWeight: FontWeight.w500, color: TextColor.darkGrey),
       padding: const EdgeInsets.all(_Constants.amountPadding),
-      backgroundColor: PrimaryColor.blue200);
+      backgroundColor: PrimaryColor.blue600);
 
   @override
   SearchMovieCardStyle lerp(

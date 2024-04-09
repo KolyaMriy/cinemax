@@ -52,7 +52,7 @@ class MovieCardStyle extends ThemeExtension<MovieCardStyle> {
       genreStyle: CinemaxTypography.h6()
           .copyWith(fontWeight: FontWeight.w500, color: TextColor.darkGrey),
       padding: const EdgeInsets.all(_Constants.amountPadding),
-      backgroundColor: PrimaryColor.blue200);
+      backgroundColor: PrimaryColor.blue100);
 
   @override
   MovieCardStyle lerp(
