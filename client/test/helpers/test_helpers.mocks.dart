@@ -3,21 +3,26 @@
 // Do not manually edit this file.
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'dart:async' as _i4;
+import 'dart:async' as _i5;
 
-import 'package:client/core/failure/failure.dart' as _i5;
-import 'package:client/features/detail_actor/domain/entity/detail_actor_entity.dart'
+import 'package:client/core/failure/failure.dart' as _i6;
+import 'package:client/features/detail_actor/data/data_sources/local/detail_actor_local_datasource_impl.dart'
+    as _i12;
+import 'package:client/features/detail_actor/data/data_sources/remote/detail_actor_remote_datasource_impl.dart'
     as _i10;
-import 'package:client/features/detail_actor/domain/repository/detail_actor_repository_impl.dart'
-    as _i9;
-import 'package:client/features/genre_list/data/data_source/local/genre_local_datasource_impl.dart'
-    as _i7;
-import 'package:client/features/genre_list/data/data_source/remote/genre_remote_datasource_impl.dart'
-    as _i8;
-import 'package:client/features/genre_list/domain/entity/genre_entity.dart'
-    as _i6;
-import 'package:client/features/genre_list/domain/repositories/genre_repository_impl.dart'
+import 'package:client/features/detail_actor/domain/entity/detail_actor_entity.dart'
     as _i3;
+import 'package:client/features/detail_actor/domain/repository/detail_actor_repository_impl.dart'
+    as _i13;
+import 'package:client/features/genre_list/data/data_source/local/genre_local_datasource_impl.dart'
+    as _i8;
+import 'package:client/features/genre_list/data/data_source/remote/genre_remote_datasource_impl.dart'
+    as _i9;
+import 'package:client/features/genre_list/domain/entity/genre_entity.dart'
+    as _i7;
+import 'package:client/features/genre_list/domain/repositories/genre_repository_impl.dart'
+    as _i4;
+import 'package:client/features/movie/domain/entity/movie.dart' as _i11;
 import 'package:dartz/dartz.dart' as _i2;
 import 'package:mockito/mockito.dart' as _i1;
 
@@ -44,52 +49,63 @@ class _FakeEither_0<L, R> extends _i1.SmartFake implements _i2.Either<L, R> {
         );
 }
 
+class _FakeDetailActorEntity_1 extends _i1.SmartFake
+    implements _i3.DetailActorEntity {
+  _FakeDetailActorEntity_1(
+    Object parent,
+    Invocation parentInvocation,
+  ) : super(
+          parent,
+          parentInvocation,
+        );
+}
+
 /// A class which mocks [GenreRepositoryImpl].
 ///
 /// See the documentation for Mockito's code generation for more information.
 class MockGenreRepositoryImpl extends _i1.Mock
-    implements _i3.GenreRepositoryImpl {
+    implements _i4.GenreRepositoryImpl {
   MockGenreRepositoryImpl() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i4.Future<_i2.Either<_i5.Failure, void>> clearGenreList() =>
+  _i5.Future<_i2.Either<_i6.Failure, void>> clearGenreList() =>
       (super.noSuchMethod(
         Invocation.method(
           #clearGenreList,
           [],
         ),
-        returnValue: _i4.Future<_i2.Either<_i5.Failure, void>>.value(
-            _FakeEither_0<_i5.Failure, void>(
+        returnValue: _i5.Future<_i2.Either<_i6.Failure, void>>.value(
+            _FakeEither_0<_i6.Failure, void>(
           this,
           Invocation.method(
             #clearGenreList,
             [],
           ),
         )),
-      ) as _i4.Future<_i2.Either<_i5.Failure, void>>);
+      ) as _i5.Future<_i2.Either<_i6.Failure, void>>);
 
   @override
-  _i4.Future<_i2.Either<_i5.Failure, List<_i6.GenreEntity>>> getGenreList() =>
+  _i5.Future<_i2.Either<_i6.Failure, List<_i7.GenreEntity>>> getGenreList() =>
       (super.noSuchMethod(
         Invocation.method(
           #getGenreList,
           [],
         ),
         returnValue:
-            _i4.Future<_i2.Either<_i5.Failure, List<_i6.GenreEntity>>>.value(
-                _FakeEither_0<_i5.Failure, List<_i6.GenreEntity>>(
+            _i5.Future<_i2.Either<_i6.Failure, List<_i7.GenreEntity>>>.value(
+                _FakeEither_0<_i6.Failure, List<_i7.GenreEntity>>(
           this,
           Invocation.method(
             #getGenreList,
             [],
           ),
         )),
-      ) as _i4.Future<_i2.Either<_i5.Failure, List<_i6.GenreEntity>>>);
+      ) as _i5.Future<_i2.Either<_i6.Failure, List<_i7.GenreEntity>>>);
 
   @override
-  _i4.Future<_i2.Either<_i5.Failure, List<_i6.GenreEntity>>> getGenreListByIds(
+  _i5.Future<_i2.Either<_i6.Failure, List<_i7.GenreEntity>>> getGenreListByIds(
           List<int>? idsGenre) =>
       (super.noSuchMethod(
         Invocation.method(
@@ -97,27 +113,27 @@ class MockGenreRepositoryImpl extends _i1.Mock
           [idsGenre],
         ),
         returnValue:
-            _i4.Future<_i2.Either<_i5.Failure, List<_i6.GenreEntity>>>.value(
-                _FakeEither_0<_i5.Failure, List<_i6.GenreEntity>>(
+            _i5.Future<_i2.Either<_i6.Failure, List<_i7.GenreEntity>>>.value(
+                _FakeEither_0<_i6.Failure, List<_i7.GenreEntity>>(
           this,
           Invocation.method(
             #getGenreListByIds,
             [idsGenre],
           ),
         )),
-      ) as _i4.Future<_i2.Either<_i5.Failure, List<_i6.GenreEntity>>>);
+      ) as _i5.Future<_i2.Either<_i6.Failure, List<_i7.GenreEntity>>>);
 
   @override
-  _i4.Future<_i2.Either<_i5.Failure, void>> saveGenreList(
-          {required List<_i6.GenreEntity>? genres}) =>
+  _i5.Future<_i2.Either<_i6.Failure, void>> saveGenreList(
+          {required List<_i7.GenreEntity>? genres}) =>
       (super.noSuchMethod(
         Invocation.method(
           #saveGenreList,
           [],
           {#genres: genres},
         ),
-        returnValue: _i4.Future<_i2.Either<_i5.Failure, void>>.value(
-            _FakeEither_0<_i5.Failure, void>(
+        returnValue: _i5.Future<_i2.Either<_i6.Failure, void>>.value(
+            _FakeEither_0<_i6.Failure, void>(
           this,
           Invocation.method(
             #saveGenreList,
@@ -125,69 +141,69 @@ class MockGenreRepositoryImpl extends _i1.Mock
             {#genres: genres},
           ),
         )),
-      ) as _i4.Future<_i2.Either<_i5.Failure, void>>);
+      ) as _i5.Future<_i2.Either<_i6.Failure, void>>);
 
   @override
-  _i2.Either<_i5.Failure, List<_i6.GenreEntity>> getSavedGenreList() =>
+  _i2.Either<_i6.Failure, List<_i7.GenreEntity>> getSavedGenreList() =>
       (super.noSuchMethod(
         Invocation.method(
           #getSavedGenreList,
           [],
         ),
-        returnValue: _FakeEither_0<_i5.Failure, List<_i6.GenreEntity>>(
+        returnValue: _FakeEither_0<_i6.Failure, List<_i7.GenreEntity>>(
           this,
           Invocation.method(
             #getSavedGenreList,
             [],
           ),
         ),
-      ) as _i2.Either<_i5.Failure, List<_i6.GenreEntity>>);
+      ) as _i2.Either<_i6.Failure, List<_i7.GenreEntity>>);
 
   @override
-  _i2.Either<_i5.Failure, List<_i6.GenreEntity>> getSavedGenreListByIds(
+  _i2.Either<_i6.Failure, List<_i7.GenreEntity>> getSavedGenreListByIds(
           List<int>? idsGenre) =>
       (super.noSuchMethod(
         Invocation.method(
           #getSavedGenreListByIds,
           [idsGenre],
         ),
-        returnValue: _FakeEither_0<_i5.Failure, List<_i6.GenreEntity>>(
+        returnValue: _FakeEither_0<_i6.Failure, List<_i7.GenreEntity>>(
           this,
           Invocation.method(
             #getSavedGenreListByIds,
             [idsGenre],
           ),
         ),
-      ) as _i2.Either<_i5.Failure, List<_i6.GenreEntity>>);
+      ) as _i2.Either<_i6.Failure, List<_i7.GenreEntity>>);
 }
 
 /// A class which mocks [GenreLocalDataSourceImpl].
 ///
 /// See the documentation for Mockito's code generation for more information.
 class MockGenreLocalDataSourceImpl extends _i1.Mock
-    implements _i7.GenreLocalDataSourceImpl {
+    implements _i8.GenreLocalDataSourceImpl {
   MockGenreLocalDataSourceImpl() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i4.Future<void> clearGenres() => (super.noSuchMethod(
+  _i5.Future<void> clearGenres() => (super.noSuchMethod(
         Invocation.method(
           #clearGenres,
           [],
         ),
-        returnValue: _i4.Future<void>.value(),
-        returnValueForMissingStub: _i4.Future<void>.value(),
-      ) as _i4.Future<void>);
+        returnValue: _i5.Future<void>.value(),
+        returnValueForMissingStub: _i5.Future<void>.value(),
+      ) as _i5.Future<void>);
 
   @override
-  List<_i6.GenreEntity> getSavedListGenres() => (super.noSuchMethod(
+  List<_i7.GenreEntity> getSavedListGenres() => (super.noSuchMethod(
         Invocation.method(
           #getSavedListGenres,
           [],
         ),
-        returnValue: <_i6.GenreEntity>[],
-      ) as List<_i6.GenreEntity>);
+        returnValue: <_i7.GenreEntity>[],
+      ) as List<_i7.GenreEntity>);
 
   @override
   bool isSavedGenres() => (super.noSuchMethod(
@@ -199,99 +215,187 @@ class MockGenreLocalDataSourceImpl extends _i1.Mock
       ) as bool);
 
   @override
-  _i4.Future<void> saveGenres({required List<_i6.GenreEntity>? genres}) =>
+  _i5.Future<void> saveGenres({required List<_i7.GenreEntity>? genres}) =>
       (super.noSuchMethod(
         Invocation.method(
           #saveGenres,
           [],
           {#genres: genres},
         ),
-        returnValue: _i4.Future<void>.value(),
-        returnValueForMissingStub: _i4.Future<void>.value(),
-      ) as _i4.Future<void>);
+        returnValue: _i5.Future<void>.value(),
+        returnValueForMissingStub: _i5.Future<void>.value(),
+      ) as _i5.Future<void>);
 
   @override
-  List<_i6.GenreEntity> getGenreListByIds(List<int>? idsGenre) =>
+  List<_i7.GenreEntity> getGenreListByIds(List<int>? idsGenre) =>
       (super.noSuchMethod(
         Invocation.method(
           #getGenreListByIds,
           [idsGenre],
         ),
-        returnValue: <_i6.GenreEntity>[],
-      ) as List<_i6.GenreEntity>);
+        returnValue: <_i7.GenreEntity>[],
+      ) as List<_i7.GenreEntity>);
 }
 
 /// A class which mocks [GenreRemoteDataSourceImpl].
 ///
 /// See the documentation for Mockito's code generation for more information.
 class MockGenreRemoteDataSourceImpl extends _i1.Mock
-    implements _i8.GenreRemoteDataSourceImpl {
+    implements _i9.GenreRemoteDataSourceImpl {
   MockGenreRemoteDataSourceImpl() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i4.Future<List<_i6.GenreEntity>> getGenreList() => (super.noSuchMethod(
+  _i5.Future<List<_i7.GenreEntity>> getGenreList() => (super.noSuchMethod(
         Invocation.method(
           #getGenreList,
           [],
         ),
         returnValue:
-            _i4.Future<List<_i6.GenreEntity>>.value(<_i6.GenreEntity>[]),
-      ) as _i4.Future<List<_i6.GenreEntity>>);
+            _i5.Future<List<_i7.GenreEntity>>.value(<_i7.GenreEntity>[]),
+      ) as _i5.Future<List<_i7.GenreEntity>>);
 
   @override
-  _i4.Future<List<_i6.GenreEntity>> getGenreListByIds(List<int>? idsGenre) =>
+  _i5.Future<List<_i7.GenreEntity>> getGenreListByIds(List<int>? idsGenre) =>
       (super.noSuchMethod(
         Invocation.method(
           #getGenreListByIds,
           [idsGenre],
         ),
         returnValue:
-            _i4.Future<List<_i6.GenreEntity>>.value(<_i6.GenreEntity>[]),
-      ) as _i4.Future<List<_i6.GenreEntity>>);
+            _i5.Future<List<_i7.GenreEntity>>.value(<_i7.GenreEntity>[]),
+      ) as _i5.Future<List<_i7.GenreEntity>>);
+}
+
+/// A class which mocks [DetailActorRemoteDataSourceImpl].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockDetailActorRemoteDataSourceImpl extends _i1.Mock
+    implements _i10.DetailActorRemoteDataSourceImpl {
+  MockDetailActorRemoteDataSourceImpl() {
+    _i1.throwOnMissingStub(this);
+  }
+
+  @override
+  _i5.Future<_i3.DetailActorEntity> getDetailActor({required int? actorID}) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #getDetailActor,
+          [],
+          {#actorID: actorID},
+        ),
+        returnValue:
+            _i5.Future<_i3.DetailActorEntity>.value(_FakeDetailActorEntity_1(
+          this,
+          Invocation.method(
+            #getDetailActor,
+            [],
+            {#actorID: actorID},
+          ),
+        )),
+      ) as _i5.Future<_i3.DetailActorEntity>);
+
+  @override
+  _i5.Future<List<_i11.MovieEntity>> getCastMovie({required int? actorId}) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #getCastMovie,
+          [],
+          {#actorId: actorId},
+        ),
+        returnValue:
+            _i5.Future<List<_i11.MovieEntity>>.value(<_i11.MovieEntity>[]),
+      ) as _i5.Future<List<_i11.MovieEntity>>);
+}
+
+/// A class which mocks [DetailActorLocalDataSourceImpl].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockDetailActorLocalDataSourceImpl extends _i1.Mock
+    implements _i12.DetailActorLocalDataSourceImpl {
+  MockDetailActorLocalDataSourceImpl() {
+    _i1.throwOnMissingStub(this);
+  }
+
+  @override
+  void deleteDetailActor({required int? actorID}) => super.noSuchMethod(
+        Invocation.method(
+          #deleteDetailActor,
+          [],
+          {#actorID: actorID},
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  void saveDetailActor({required _i3.DetailActorEntity? detailActor}) =>
+      super.noSuchMethod(
+        Invocation.method(
+          #saveDetailActor,
+          [],
+          {#detailActor: detailActor},
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  _i3.DetailActorEntity getSavedDetailActor({required int? actorID}) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #getSavedDetailActor,
+          [],
+          {#actorID: actorID},
+        ),
+        returnValue: _FakeDetailActorEntity_1(
+          this,
+          Invocation.method(
+            #getSavedDetailActor,
+            [],
+            {#actorID: actorID},
+          ),
+        ),
+      ) as _i3.DetailActorEntity);
 }
 
 /// A class which mocks [DetailActorRepositoryImpl].
 ///
 /// See the documentation for Mockito's code generation for more information.
 class MockDetailActorRepositoryImpl extends _i1.Mock
-    implements _i9.DetailActorRepositoryImpl {
+    implements _i13.DetailActorRepositoryImpl {
   MockDetailActorRepositoryImpl() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i4.Future<_i2.Either<_i5.Failure, void>> deleteDetailActor(
-          {required int? actorID}) =>
+  _i2.Either<_i6.Failure, void> deleteDetailActor({required int? actorID}) =>
       (super.noSuchMethod(
         Invocation.method(
           #deleteDetailActor,
           [],
           {#actorID: actorID},
         ),
-        returnValue: _i4.Future<_i2.Either<_i5.Failure, void>>.value(
-            _FakeEither_0<_i5.Failure, void>(
+        returnValue: _FakeEither_0<_i6.Failure, void>(
           this,
           Invocation.method(
             #deleteDetailActor,
             [],
             {#actorID: actorID},
           ),
-        )),
-      ) as _i4.Future<_i2.Either<_i5.Failure, void>>);
+        ),
+      ) as _i2.Either<_i6.Failure, void>);
 
   @override
-  _i4.Future<_i2.Either<_i5.Failure, _i10.DetailActorEntity>>
+  _i5.Future<_i2.Either<_i6.Failure, _i3.DetailActorEntity>>
       getLocalDetailActor({required int? actorID}) => (super.noSuchMethod(
             Invocation.method(
               #getLocalDetailActor,
               [],
               {#actorID: actorID},
             ),
-            returnValue: _i4
-                .Future<_i2.Either<_i5.Failure, _i10.DetailActorEntity>>.value(
-                _FakeEither_0<_i5.Failure, _i10.DetailActorEntity>(
+            returnValue: _i5
+                .Future<_i2.Either<_i6.Failure, _i3.DetailActorEntity>>.value(
+                _FakeEither_0<_i6.Failure, _i3.DetailActorEntity>(
               this,
               Invocation.method(
                 #getLocalDetailActor,
@@ -299,19 +403,19 @@ class MockDetailActorRepositoryImpl extends _i1.Mock
                 {#actorID: actorID},
               ),
             )),
-          ) as _i4.Future<_i2.Either<_i5.Failure, _i10.DetailActorEntity>>);
+          ) as _i5.Future<_i2.Either<_i6.Failure, _i3.DetailActorEntity>>);
 
   @override
-  _i4.Future<_i2.Either<_i5.Failure, _i10.DetailActorEntity>>
+  _i5.Future<_i2.Either<_i6.Failure, _i3.DetailActorEntity>>
       getRemoteDetailActor({required int? actorID}) => (super.noSuchMethod(
             Invocation.method(
               #getRemoteDetailActor,
               [],
               {#actorID: actorID},
             ),
-            returnValue: _i4
-                .Future<_i2.Either<_i5.Failure, _i10.DetailActorEntity>>.value(
-                _FakeEither_0<_i5.Failure, _i10.DetailActorEntity>(
+            returnValue: _i5
+                .Future<_i2.Either<_i6.Failure, _i3.DetailActorEntity>>.value(
+                _FakeEither_0<_i6.Failure, _i3.DetailActorEntity>(
               this,
               Invocation.method(
                 #getRemoteDetailActor,
@@ -319,36 +423,24 @@ class MockDetailActorRepositoryImpl extends _i1.Mock
                 {#actorID: actorID},
               ),
             )),
-          ) as _i4.Future<_i2.Either<_i5.Failure, _i10.DetailActorEntity>>);
+          ) as _i5.Future<_i2.Either<_i6.Failure, _i3.DetailActorEntity>>);
 
   @override
-  _i4.Future<bool> isSavedDetailActor({required int? actorID}) =>
-      (super.noSuchMethod(
-        Invocation.method(
-          #isSavedDetailActor,
-          [],
-          {#actorID: actorID},
-        ),
-        returnValue: _i4.Future<bool>.value(false),
-      ) as _i4.Future<bool>);
-
-  @override
-  _i4.Future<_i2.Either<_i5.Failure, void>> saveDetailActor(
-          {required _i10.DetailActorEntity? detailActor}) =>
+  _i2.Either<_i6.Failure, void> saveDetailActor(
+          {required _i3.DetailActorEntity? detailActor}) =>
       (super.noSuchMethod(
         Invocation.method(
           #saveDetailActor,
           [],
           {#detailActor: detailActor},
         ),
-        returnValue: _i4.Future<_i2.Either<_i5.Failure, void>>.value(
-            _FakeEither_0<_i5.Failure, void>(
+        returnValue: _FakeEither_0<_i6.Failure, void>(
           this,
           Invocation.method(
             #saveDetailActor,
             [],
             {#detailActor: detailActor},
           ),
-        )),
-      ) as _i4.Future<_i2.Either<_i5.Failure, void>>);
+        ),
+      ) as _i2.Either<_i6.Failure, void>);
 }

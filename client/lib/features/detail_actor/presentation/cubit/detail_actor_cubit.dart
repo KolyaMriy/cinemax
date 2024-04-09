@@ -2,7 +2,6 @@ import 'package:bloc/bloc.dart';
 import 'package:client/core/failure/failure.dart';
 import 'package:client/features/detail_actor/domain/entity/detail_actor_entity.dart';
 import 'package:client/features/detail_actor/domain/repository/detail_actor_repository_impl.dart';
-import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'detail_actor_cubit.freezed.dart';
@@ -13,41 +12,21 @@ class DetailActorCubit extends Cubit<DetailActorState> {
 
   DetailActorCubit({required DetailActorRepositoryImpl repository})
       : _repository = repository,
-        super(DetailActorState(actor: DetailActorEntity.empty()));
+        super(DetailActorState());
 
   Future<void> loadActorDetail({required int actorID}) async {
     if (state.loading != true) {
       emit(state.copyWith(loading: true));
     }
-    final isDateSaved = await _repository.isSavedDetailActor(actorID: actorID);
-    if (isDateSaved) {
-      debugPrint('actor load by localDB');
-      final actor = await _repository.getLocalDetailActor(actorID: actorID);
-      actor.fold(
-        (failure) => emit(
-          state.copyWith(
-            loading: false,
-            failure: failure,
-          ),
+    final actor = await _repository.getRemoteDetailActor(actorID: actorID);
+    actor.fold(
+      (failure) => emit(
+        state.copyWith(
+          loading: false,
+          failure: failure,
         ),
-        (success) => emit(
-          state.copyWith(
-            loading: false,
-            actor: success,
-            failure: null,
-          ),
-        ),
-      );
-    } else {
-      debugPrint('actor load by remoteAPI');
-      final actor = await _repository.getRemoteDetailActor(actorID: actorID);
-      actor.fold(
-          (failure) => emit(
-                state.copyWith(
-                  loading: false,
-                  failure: failure,
-                ),
-              ), (success) {
+      ),
+      (success) {
         emit(
           state.copyWith(
             loading: false,
@@ -55,8 +34,7 @@ class DetailActorCubit extends Cubit<DetailActorState> {
             failure: null,
           ),
         );
-        _repository.saveDetailActor(detailActor: success);
-      });
-    }
+      },
+    );
   }
 }

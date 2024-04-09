@@ -18,16 +18,6 @@ class DetailActorLocalDataSourceImpl implements DetailActorLocalDataSource {
   }
 
   @override
-  bool isSavedDetailActor({required int actorID}) {
-    final result = _boxActor.get(actorID.toString());
-    if (result == null) {
-      return false;
-    } else {
-      return true;
-    }
-  }
-
-  @override
   void saveDetailActor({required DetailActorEntity detailActor}) {
     _boxActor.put(detailActor.id.toString(), detailActor.toDTO());
   }

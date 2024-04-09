@@ -1,47 +1,103 @@
 import 'package:client/core/failure/failure.dart';
-import 'package:client/features/genre_list/domain/entity/genre_entity.dart';
-import 'package:client/features/genre_list/domain/repositories/genre_repository_impl.dart';
+import 'package:client/features/detail_actor/domain/entity/detail_actor_entity.dart';
+import 'package:client/features/detail_actor/domain/repository/detail_actor_repository_impl.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 import '../../../helpers/test_helpers.mocks.dart';
 
 void main() {
-  late MockGenreLocalDataSourceImpl mockLocalDataSource;
-  late MockGenreRemoteDataSourceImpl mockRemoteDataSource;
-  late GenreRepositoryImpl genreRepository;
+  late MockDetailActorLocalDataSourceImpl mockLocalDataSource;
+  late MockDetailActorRemoteDataSourceImpl mockRemoteDataSource;
+  late DetailActorRepositoryImpl repository;
 
   setUp(() {
-    mockLocalDataSource = MockGenreLocalDataSourceImpl();
-    mockRemoteDataSource = MockGenreRemoteDataSourceImpl();
-    genreRepository = GenreRepositoryImpl(
+    mockLocalDataSource = MockDetailActorLocalDataSourceImpl();
+    mockRemoteDataSource = MockDetailActorRemoteDataSourceImpl();
+    repository = DetailActorRepositoryImpl(
       localDataSource: mockLocalDataSource,
       remoteDataSource: mockRemoteDataSource,
     );
   });
 
-  const testGenres = <GenreEntity>[
-    GenreEntity(id: 123, name: 'Horror'),
-    GenreEntity(id: 1234, name: 'Comedy'),
-  ];
+  const testActorID = 143;
 
-  test(
-    'should get genre list from the repository',
-    () async {
-      //arrange
+  final testDetailActor = DetailActorEntity(
+    id: testActorID,
+    name: 'Alex',
+    biography: 'actor biography',
+    image: 'image.png',
+    alsoKnownAs: const [],
+    birthday: DateTime(00, 00, 0000),
+  );
 
-      when(mockLocalDataSource.getSavedListGenres())
-          .thenAnswer((_) => testGenres);
-      when(mockRemoteDataSource.getGenreList()).thenAnswer(
-        (_) async => testGenres,
+  group(
+    'test  detail actor repository',
+    () {
+      test(
+        'should get detail actor from the remote Data Source',
+        () async {
+          //arrange
+          when(mockRemoteDataSource.getDetailActor(actorID: testActorID))
+              .thenAnswer(
+            (_) async => testDetailActor,
+          );
+
+          final result =
+              await repository.getRemoteDetailActor(actorID: testActorID);
+          //assert
+          expect(result,
+              equals(right<Failure, DetailActorEntity>(testDetailActor)));
+        },
+      );
+      test(
+        'should get detail actor from the local Data Source',
+        () async {
+          //arrange
+          when(mockLocalDataSource.getSavedDetailActor(actorID: testActorID))
+              .thenAnswer(
+            (_) => testDetailActor,
+          );
+          //act
+          final result =
+              await repository.getLocalDetailActor(actorID: testActorID);
+          //assert
+          expect(result,
+              equals(right<Failure, DetailActorEntity>(testDetailActor)));
+        },
       );
 
-      //act
-      final result = await genreRepository.getGenreList();
+      test(
+        'should delete detail actor from the local Data Source',
+        () {
+          //arrange
+          when(mockLocalDataSource.deleteDetailActor(actorID: testActorID))
+              .thenAnswer(
+            (_) => right<Failure, void>(null),
+          );
+          //act
+          final result = repository.deleteDetailActor(actorID: testActorID);
+          //assert
+          expect(result, equals(right<Failure, void>(null)));
+        },
+      );
 
-      //assert
-
-      expect(result, const Right<Failure, List<GenreEntity>>(testGenres));
+      test(
+        'should save detail actor from the local Data Source',
+        () {
+          //arrange
+          when(mockLocalDataSource.saveDetailActor(
+                  detailActor: testDetailActor))
+              .thenAnswer(
+            (_) => right<Failure, void>(null),
+          );
+          //act
+          final result =
+              repository.saveDetailActor(detailActor: testDetailActor);
+          //assert
+          expect(result, equals(right<Failure, void>(null)));
+        },
+      );
     },
   );
 }

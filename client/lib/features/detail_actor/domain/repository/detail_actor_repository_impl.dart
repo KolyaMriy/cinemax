@@ -16,12 +16,12 @@ class DetailActorRepositoryImpl implements DetailActorRepository {
         _remoteDataSource = remoteDataSource;
 
   @override
-  Future<Either<Failure, void>> deleteDetailActor({
+  Either<Failure, void> deleteDetailActor({
     required int actorID,
-  }) async {
+  }) {
     try {
-      final result = _localDataSource.deleteDetailActor(actorID: actorID);
-      return right(result);
+      _localDataSource.deleteDetailActor(actorID: actorID);
+      return right(null);
     } catch (e) {
       return const Left(Failure.serverError());
     }
@@ -32,7 +32,6 @@ class DetailActorRepositoryImpl implements DetailActorRepository {
     required int actorID,
   }) async {
     try {
-
       final result = _localDataSource.getSavedDetailActor(actorID: actorID);
       return right(result);
     } catch (e) {
@@ -46,6 +45,7 @@ class DetailActorRepositoryImpl implements DetailActorRepository {
   }) async {
     try {
       final result = await _remoteDataSource.getDetailActor(actorID: actorID);
+      saveDetailActor(detailActor: result);
       return right(result);
     } catch (e) {
       return const Left(Failure.serverError());
@@ -53,24 +53,12 @@ class DetailActorRepositoryImpl implements DetailActorRepository {
   }
 
   @override
-  Future<bool> isSavedDetailActor({
-    required int actorID,
-  }) async {
-    try {
-      final result = _localDataSource.isSavedDetailActor(actorID: actorID);
-      return result;
-    } catch (e) {
-      throw Exception();
-    }
-  }
-
-  @override
-  Future<Either<Failure, void>> saveDetailActor({
+  Either<Failure, void> saveDetailActor({
     required DetailActorEntity detailActor,
-  }) async {
+  }) {
     try {
-      final result = _localDataSource.saveDetailActor(detailActor: detailActor);
-      return right(result);
+      _localDataSource.saveDetailActor(detailActor: detailActor);
+      return right(null);
     } catch (e) {
       return const Left(Failure.serverError());
     }

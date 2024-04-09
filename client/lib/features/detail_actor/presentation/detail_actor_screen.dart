@@ -36,67 +36,73 @@ class DetailActorScreen extends StatelessWidget {
             if (state.loading) {
               return const Center(child: CircularProgressIndicator());
             }
-            return Center(
-              child: Flex(
-                direction: Axis.vertical,
-                children: [
-                  Flexible(
-                    flex: 4,
-                    child: Column(
-                      children: [
-                        SizedBox(
-                          width: 200,
-                          height: 250,
-                          child: DecoratedBox(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(20),
-                              image: DecorationImage(
-                                fit: BoxFit.cover,
-                                image: CachedNetworkImageProvider(
-                                  state.actor.image,
+            if (state.actor != null) {
+              return Center(
+                child: Flex(
+                  direction: Axis.vertical,
+                  children: [
+                    Flexible(
+                      flex: 4,
+                      child: Column(
+                        children: [
+                          SizedBox(
+                            width: 200,
+                            height: 250,
+                            child: DecoratedBox(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(20),
+                                image: DecorationImage(
+                                  fit: BoxFit.cover,
+                                  image: CachedNetworkImageProvider(
+                                    state.actor!.image,
+                                  ),
                                 ),
                               ),
                             ),
                           ),
-                        ),
-                        SizedBox(height: context.spacerStyle.height),
-                        Text(
-                          state.actor.name,
-                          style: context.textStyle.h2,
-                        ),
-                        SizedBox(height: context.spacerStyle.height),
-                      ],
-                    ),
-                  ),
-                  if (state.actor.alsoKnownAs != null)
-                    Flexible(
-                      flex: 5,
-                      child: GridView.builder(
-                        itemCount: state.actor.alsoKnownAs!.length,
-                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                          childAspectRatio: MediaQuery.of(context).size.width /
-                              (MediaQuery.of(context).size.height / 1.12),
-                          crossAxisCount: 3,
-                        ),
-                        itemBuilder: (context, index) {
-                          final card = state.actor.alsoKnownAs![index].toCard();
-                          return MovieCard(
-                            onTap: () {
-                              debugPrint(state.actor.alsoKnownAs![index].id
-                                  .toString());
-                              context.pushNamed(
-                                AppRouterName.detailMovieName,
-                                extra: state.actor.alsoKnownAs?[index].id,
-                              );
-                            },
-                            cardModel: card,
-                          );
-                        },
+                          SizedBox(height: context.spacerStyle.height),
+                          Text(
+                            state.actor!.name,
+                            style: context.textStyle.h2,
+                          ),
+                          SizedBox(height: context.spacerStyle.height),
+                        ],
                       ),
-                    )
-                ],
-              ),
-            );
+                    ),
+                    if (state.actor!.alsoKnownAs != null)
+                      Flexible(
+                        flex: 5,
+                        child: GridView.builder(
+                          itemCount: state.actor!.alsoKnownAs!.length,
+                          gridDelegate:
+                              SliverGridDelegateWithFixedCrossAxisCount(
+                            childAspectRatio:
+                                MediaQuery.of(context).size.width /
+                                    (MediaQuery.of(context).size.height / 1.12),
+                            crossAxisCount: 3,
+                          ),
+                          itemBuilder: (context, index) {
+                            final card =
+                                state.actor!.alsoKnownAs![index].toCard();
+                            return MovieCard(
+                              onTap: () {
+                                debugPrint(state.actor!.alsoKnownAs![index].id
+                                    .toString());
+                                context.pushNamed(
+                                  AppRouterName.detailMovieName,
+                                  extra: state.actor!.alsoKnownAs?[index].id,
+                                );
+                              },
+                              cardModel: card,
+                            );
+                          },
+                        ),
+                      )
+                  ],
+                ),
+              );
+            }
+            return const SizedBox();
           },
         ),
       ),

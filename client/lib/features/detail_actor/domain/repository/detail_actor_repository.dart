@@ -10,15 +10,11 @@ abstract interface class DetailActorRepository {
     required int actorID,
   });
 
-  Future<Either<Failure, void>> saveDetailActor({
+  Either<Failure, void> saveDetailActor({
     required DetailActorEntity detailActor,
   });
 
-  Future<Either<Failure, void>> deleteDetailActor({
-    required int actorID,
-  });
-
-  Future<bool> isSavedDetailActor({
+  Either<Failure, void> deleteDetailActor({
     required int actorID,
   });
 }

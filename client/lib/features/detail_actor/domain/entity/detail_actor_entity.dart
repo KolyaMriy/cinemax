@@ -29,5 +29,6 @@ class DetailActorEntity extends Equatable {
       );
 
   @override
-  List<Object?> get props => [name, deathday, birthday, image, biography, id];
+  List<Object?> get props =>
+      [name, deathday, birthday, image, biography, id, alsoKnownAs];
 }

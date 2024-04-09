@@ -9,10 +9,6 @@ abstract interface class DetailActorLocalDataSource {
     required int actorID,
   });
 
-  bool isSavedDetailActor({
-    required int actorID,
-  });
-
   void deleteDetailActor({
     required int actorID,
   });

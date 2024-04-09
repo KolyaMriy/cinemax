@@ -16,7 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$DetailActorState {
-  DetailActorEntity get actor => throw _privateConstructorUsedError;
+  DetailActorEntity? get actor => throw _privateConstructorUsedError;
   Failure? get failure => throw _privateConstructorUsedError;
   bool get loading => throw _privateConstructorUsedError;
 
@@ -31,7 +31,7 @@ abstract class $DetailActorStateCopyWith<$Res> {
           DetailActorState value, $Res Function(DetailActorState) then) =
       _$DetailActorStateCopyWithImpl<$Res, DetailActorState>;
   @useResult
-  $Res call({DetailActorEntity actor, Failure? failure, bool loading});
+  $Res call({DetailActorEntity? actor, Failure? failure, bool loading});
 
   $FailureCopyWith<$Res>? get failure;
 }
@@ -49,15 +49,15 @@ class _$DetailActorStateCopyWithImpl<$Res, $Val extends DetailActorState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? actor = null,
+    Object? actor = freezed,
     Object? failure = freezed,
     Object? loading = null,
   }) {
     return _then(_value.copyWith(
-      actor: null == actor
+      actor: freezed == actor
           ? _value.actor
           : actor // ignore: cast_nullable_to_non_nullable
-              as DetailActorEntity,
+              as DetailActorEntity?,
       failure: freezed == failure
           ? _value.failure
           : failure // ignore: cast_nullable_to_non_nullable
@@ -90,7 +90,7 @@ abstract class _$$DetailActorStateImplCopyWith<$Res>
       __$$DetailActorStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({DetailActorEntity actor, Failure? failure, bool loading});
+  $Res call({DetailActorEntity? actor, Failure? failure, bool loading});
 
   @override
   $FailureCopyWith<$Res>? get failure;
@@ -107,15 +107,15 @@ class __$$DetailActorStateImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? actor = null,
+    Object? actor = freezed,
     Object? failure = freezed,
     Object? loading = null,
   }) {
     return _then(_$DetailActorStateImpl(
-      actor: null == actor
+      actor: freezed == actor
           ? _value.actor
           : actor // ignore: cast_nullable_to_non_nullable
-              as DetailActorEntity,
+              as DetailActorEntity?,
       failure: freezed == failure
           ? _value.failure
           : failure // ignore: cast_nullable_to_non_nullable
@@ -131,11 +131,10 @@ class __$$DetailActorStateImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$DetailActorStateImpl implements _DetailActorState {
-  _$DetailActorStateImpl(
-      {required this.actor, this.failure, this.loading = false});
+  _$DetailActorStateImpl({this.actor, this.failure, this.loading = false});
 
   @override
-  final DetailActorEntity actor;
+  final DetailActorEntity? actor;
   @override
   final Failure? failure;
   @override
@@ -170,12 +169,12 @@ class _$DetailActorStateImpl implements _DetailActorState {
 
 abstract class _DetailActorState implements DetailActorState {
   factory _DetailActorState(
-      {required final DetailActorEntity actor,
+      {final DetailActorEntity? actor,
       final Failure? failure,
       final bool loading}) = _$DetailActorStateImpl;
 
   @override
-  DetailActorEntity get actor;
+  DetailActorEntity? get actor;
   @override
   Failure? get failure;
   @override
