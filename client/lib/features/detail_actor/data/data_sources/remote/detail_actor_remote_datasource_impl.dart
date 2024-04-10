@@ -26,8 +26,8 @@ class DetailActorRemoteDataSourceImpl implements DetailActorRemoteDataSource {
       final responseData = response.data;
       final movieDetailDto =
           DetailActorDTO.fromJson(responseData as Map<String, dynamic>);
-      // final backdropsImage = await getCastMovie(actorId: actorID);
-      final detailActorEntity = movieDetailDto.toEntity();
+      final castMovie = await getCastMovie(actorID: actorID);
+      final detailActorEntity = movieDetailDto.toEntity(castMovie: castMovie);
       return detailActorEntity;
     } catch (e) {
       debugPrint(e.toString());

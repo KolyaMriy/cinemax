@@ -18,7 +18,7 @@ class MovieCardStyle extends ThemeExtension<MovieCardStyle> {
   final BorderRadius borderRadius;
   final Color backgroundColor;
 
-  MovieCardStyle({
+  const MovieCardStyle({
     required this.backgroundColor,
     required this.borderRadius,
     this.width = 300,
@@ -39,7 +39,7 @@ class MovieCardStyle extends ThemeExtension<MovieCardStyle> {
       genreStyle: CinemaxTypography.h6()
           .copyWith(fontWeight: FontWeight.w500, color: TextColor.grey),
       padding: const EdgeInsets.all(_Constants.amountPadding),
-      backgroundColor: PrimaryColor.softDark.withOpacity(0.5));
+      backgroundColor: PrimaryColor.softDark.withOpacity(0.8));
 
   factory MovieCardStyle.light() => MovieCardStyle(
       borderRadius: const BorderRadius.only(
