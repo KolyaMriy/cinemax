@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:client/features/detail_actor/data/dtos/detail_actor/detail_actor_dto.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import '../../../helpers/json_reader.dart';
+import '../../../../helpers/json_reader.dart';
 
 void main() async {
   const testDetailActorDTO = DetailActorDTO(
@@ -34,7 +34,7 @@ void main() async {
           DetailActorDTO.fromJson(jsonMap as Map<String, dynamic>);
 
       // expect
-      expect(detailActorDTO, equals(detailActorDTO));
+      expect(detailActorDTO, isInstanceOf<DetailActorDTO>());
     },
   );
 }

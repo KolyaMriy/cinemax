@@ -6,6 +6,6 @@ abstract interface class DetailActorRemoteDataSource {
     required int actorID,
   });
   Future<List<MovieEntity>> getCastMovie({
-    required int actorId,
+    required int actorID,
   });
 }

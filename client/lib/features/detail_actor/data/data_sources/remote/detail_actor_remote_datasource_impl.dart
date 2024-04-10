@@ -26,9 +26,8 @@ class DetailActorRemoteDataSourceImpl implements DetailActorRemoteDataSource {
       final responseData = response.data;
       final movieDetailDto =
           DetailActorDTO.fromJson(responseData as Map<String, dynamic>);
-      final backdropsImage = await getCastMovie(actorId: actorID);
-      final detailActorEntity =
-          movieDetailDto.toEntity(castMovie: backdropsImage);
+      // final backdropsImage = await getCastMovie(actorId: actorID);
+      final detailActorEntity = movieDetailDto.toEntity();
       return detailActorEntity;
     } catch (e) {
       debugPrint(e.toString());
@@ -38,10 +37,10 @@ class DetailActorRemoteDataSourceImpl implements DetailActorRemoteDataSource {
 
   @override
   Future<List<MovieEntity>> getCastMovie({
-    required int actorId,
+    required int actorID,
   }) async {
     try {
-      final url = '${MovieQuery.baseUrlPerson}$actorId/movie_credits';
+      final url = '${MovieQuery.baseUrlPerson}$actorID/movie_credits';
       final response =
           await _dio.get(url, queryParameters: MovieQuery.queryParametersBase);
       final responseData = response.data as Map<String, dynamic>;
