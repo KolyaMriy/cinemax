@@ -44,8 +44,8 @@ class ProfileScreen extends StatelessWidget {
               Expanded(
                 flex: 5,
                 child: DecoratedBox(
-                  decoration: BoxDecoration(
-                    borderRadius: const BorderRadius.only(
+                  decoration: const BoxDecoration(
+                    borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(30),
                       topRight: Radius.circular(30),
                     ),

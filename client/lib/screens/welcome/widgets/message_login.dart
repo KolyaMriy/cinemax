@@ -1,5 +1,5 @@
-import 'package:client/core/extension/font_weight_extension.dart';
 import 'package:client/config/router/app_router_name.dart';
+import 'package:client/core/extension/font_weight_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:ui_kit/component/buttons/cinemax_text_button.dart';

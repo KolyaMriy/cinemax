@@ -1,6 +1,6 @@
+import 'package:client/config/router/app_router_name.dart';
 import 'package:client/core/di/dependency_provider.dart';
 import 'package:client/core/extension/font_weight_extension.dart';
-import 'package:client/config/router/app_router_name.dart';
 import 'package:client/features/movie/data/mappers/movie_card_mapper.dart';
 import 'package:client/features/movie/movie_recommendations/presentation/cubit/movie_recommendation_cubit.dart';
 import 'package:flutter/material.dart';

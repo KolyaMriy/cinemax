@@ -1,7 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:ui_kit/assets/icons/cinemax_icons.dart';
 import 'package:ui_kit/theme/color_scheme.dart';
 import 'package:ui_kit/theme/theme_context_extension.dart';
